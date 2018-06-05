@@ -1,0 +1,31 @@
+<% if @users.count ==  0 %>
+Aucun utilisateur avec ce numéro de Tél !!!
+<% else %>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>CIN</th>
+                    <th>Section</th>
+                    <th>Niveau</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<% @users.each do |u| %>
+    	            <tr>
+    	                <td><%= u.first_name %></td>
+    	                <td><%= u.last_name %></td>
+    	                <td><%= u.email %></td>
+    	                <td><%= u.cin_number %></td>
+    	                <td><%= u.section %></td>
+    	                <td><span class="label label-info"><%= u.school_year %></span> </td>
+    	            </tr>
+                <% end %>
+
+            </tbody>
+        </table>
+    </div>
+<% end %>

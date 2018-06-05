@@ -1,0 +1,241 @@
+
+<style type="text/css">
+  /*form styles*/
+#msform {
+max-width: 600px;
+margin: 20px auto;
+text-align: center;
+position: relative;
+}
+#msform fieldset {
+background: white;
+border: 0 none;
+border-radius: 3px;
+box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+padding: 20px 30px;
+box-sizing: border-box;
+width: 90%;
+margin: 0 5%;
+/*stacking fieldsets above each other*/
+position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+display: none;
+}
+/*inputs*/
+/*#msform input, #msform textarea {
+padding: 15px;
+border: 1px solid #ccc;
+border-radius: 3px;
+margin-bottom: 18px;
+width: 100%;
+box-sizing: border-box;
+font-family: montserrat;
+color: #2C3E50;
+font-size: 13px;
+}*/
+/*buttons*/
+#msform .action-button {
+width: 100px;
+background: #01c0c8;
+font-weight: bold;
+color: white;
+border: 0 none;
+border-radius: 1px;
+cursor: pointer;
+padding: 10px 5px;
+margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+box-shadow: 0 0 0 2px white, 0 0 0 3px #01c0c8;
+}
+/*headings*/
+.fs-title {
+font-size: 15px;
+text-transform: uppercase;
+color: #2C3E50;
+margin-bottom: 10px;
+}
+.fs-subtitle {
+font-weight: normal;
+font-size: 13px;
+color: #666;
+margin-bottom: 20px;
+}
+/*eliteregister*/
+#eliteregister {
+margin-bottom: 30px;
+overflow: hidden;
+padding-left: 0px;
+/*CSS counters to number the steps*/
+counter-reset: step;
+}
+#eliteregister li {
+list-style-type: none;
+color: #686868;
+font-size: 13px;
+width: 33.33%;
+float: left;
+position: relative;
+   
+}
+#eliteregister li:before {
+content: counter(step);
+counter-increment: step;
+width: 40px;
+line-height: 40px;
+display: block;
+font-size: 10px;
+color: #fff;
+background: #686868;
+border-radius: 100%;
+position: relative;
+z-index: 10;
+margin: 0 auto 5px auto;
+}
+/*eliteregister connectors*/
+#eliteregister li:after {
+content: '';
+width: 100%;
+height: 2px;
+background:#dadada;
+position: absolute;
+left: -50%;
+top: 19px;
+z-index:1; /*put it behind the numbers*/
+}
+#eliteregister li:first-child:after {
+/*connector not needed before the first step*/
+content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#eliteregister li.active:before, #eliteregister li.active:after {
+background: #01c0c8;
+color: #fff;
+}
+#wrapper {
+  width: 100%;
+  overflow: hidden; }
+
+.register-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 2%; }
+  .register-box a {
+    display: block; }
+
+.step-register {
+  position: absolute;
+  height: 100%; }
+
+@media (max-width: 767px) {
+  #msform fieldset,
+  .login-register,
+  .step-register {
+    position: relative; } }
+
+</style>
+
+
+
+
+
+<body class="skin-default card-no-border"  style="height:1000px;">
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Main wrapper - pages.scss -->
+    <!-- ============================================================== -->
+    <section id="wrapper" class="step-register">
+        <div class="register-box">
+            <div class="">
+
+                <!-- multistep form -->
+                <!-- <form id="msform"> -->
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name ), :html => {:id => "msform" , :class => "form-horizontal"})  do |f| %>
+                    <%= devise_error_messages! %>
+                    <!-- progressbar -->
+                        <ul id="eliteregister">
+                            <li class="active">Informations personnelles</li>
+                            <li>Social Profiles</li>
+                            <li>Details</li>
+                        </ul>
+                        <!-- fieldsets -->
+                        <fieldset>
+                            <h2 class="fs-title">Create your account</h2>
+                            <h3 class="fs-subtitle">1ère étape</h3>
+                            <div class="form-group">
+                              <%= f.text_field :first_name  , class: "form-control" , placeholder: "Prénom ..."%>
+                            </div>
+                            <div class="form-group">
+                              <%= f.text_field :last_name  , class: "form-control" , placeholder: "Nom ..."%>
+                            </div>
+                            <div class="form-group">
+                              <%= f.text_field :phone_number  , class: "form-control" , placeholder: "Numéro de Tel ..."%>
+                            </div>
+                            <div class="form-group">
+                              <%= f.text_field :city  , class: "form-control" , placeholder: "Ville..." %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.date_field :date_of_birth  , class: "form-control" , placeholder: "Date de naissance..." %>
+                            </div>
+                            
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Social Profiles</h2>
+                            <h3 class="fs-subtitle">2ème étape </h3>
+                            <div class="form-group">
+                              <%= f.text_field :email, autofocus: true, autocomplete: "email" , class: "form-control" , placeholder: "Email ..." %>
+                            </div>
+                            <div class="form-group">
+                              <%= f.password_field :password, autocomplete: "off" , class: "form-control" , placeholder: "Mot de passe ... " %>
+                            </div>                            
+
+                            <div class="form-group">
+                              <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control" , placeholder: "Confirmation du mot de passe ..." %>
+                            </div>
+                            
+                            <input type="button" name="previous" class="previous action-button" value="Previous" />
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Personal Details</h2>
+                            <h3 class="fs-subtitle">3ème étape</h3>
+                            
+                            <div class="form-group">
+                              <%= f.collection_select :institute_id, Institute.all,  :id, :institute_name,{ :include_blank => "Sélectionner votre institue" } , {class: "form-control"} %>
+                            </div>
+
+                            <div class="form-group">
+                              <%= f.collection_select :section, Section.all,  :section_name, :section_name,{ :include_blank => "Sélectionner votre section" } , {class: "form-control"} %>
+                            </div>
+                            
+                            <div class="form-group">
+                              <%= f.text_field :cin_number  , class: "form-control" , placeholder: "Numéro cin ..."%>
+                            </div>
+                            
+                            <div class="form-group">
+                              <%= f.collection_radio_buttons( :school_year, [[1 , "1ère"] , [2 , "2ème"]], :first, :last) do |b| b.label(:class => "radio-inline") + "   " + b.radio_button  end %>
+                            </div>
+
+                            <div class="form-group">
+                              <%= f.label :avatar , 'Sélectionner votre photo de profil'%>
+                              <%= f.file_field :avatar  , class: "form-control"%>
+                            </div>
+                            
+                                                       
+                            <input type="button" name="previous" class="previous action-button" value="Previous" />
+                            <%= f.submit "S'inscrire", class: "previous action-button" %>
+                        </fieldset>
+                    <% end %>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+
+

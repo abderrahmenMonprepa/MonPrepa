@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="roziek"> 
+    <meta name="description" content="MonPrepa"/>
+    <meta name="keywords" content="responsive, multi-purpose, landing page, creative, html5, css3, one page, marketing, mailchimp, software, product launch, event, ebook, medical, app launch, travel agency">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonPrepa</title>
+    <%= csrf_meta_tags %>
+
+    
+    <% if controller_name != 'documents' and controller_name != 'registrations' and controller_name != 'users' %>
+     <!-- Load JS files -->
+      
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'bootstrap.min' %>
+      <%= javascript_include_tag 'wow.min' %>
+      <%= javascript_include_tag 'waypoints.min' %>
+      <%= javascript_include_tag 'owl.carousel.min' %>
+      <%= javascript_include_tag 'nivo-lightbox.min' %>
+      <%= javascript_include_tag 'modernizr.custom' %>
+      <%= javascript_include_tag 'jquery.validate.min' %>
+      <%= javascript_include_tag 'jquery.counterup.min' %>
+      <%= javascript_include_tag 'jquery.countdown.min' %>
+      <%= javascript_include_tag 'jquery.ajaxchimp.min' %>
+      <%= javascript_include_tag 'prepa_custom' %>
+      <%= javascript_include_tag 'bootstrap-dialog.min' %>
+
+      <!-- Load StyleSheets files -->
+ 
+      <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag    'bootstrap.min' %>
+      <%= stylesheet_link_tag    'font-awesome' %>
+      <%= stylesheet_link_tag    'themify-icons' %>
+      <%= stylesheet_link_tag    'animate' %>
+      <%= stylesheet_link_tag    'theme' %>
+      <%= stylesheet_link_tag    'responsive' %>
+      <%= stylesheet_link_tag    'owl.carousel' %>
+      <%= stylesheet_link_tag    'owl.theme.default' %>
+      <%= stylesheet_link_tag    'nivo-lightbox' %>
+      <%= stylesheet_link_tag    'default' %>
+      <%= stylesheet_link_tag    'bootstrap-dialog.min' %>
+
+
+    <% else %>
+      <!-- Load JS files -->
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_include_tag('popper.min') %>
+      <%= javascript_include_tag('bootstrap_elegent') %>
+      <%= javascript_include_tag('jquery.sparkline.min') %>
+      <%= javascript_include_tag('jquery.easing.min') %>
+      <%= javascript_include_tag('register-init') %>           
+      <%= javascript_include_tag('perfect-scrollbar.jquery.min') %>
+      <%= javascript_include_tag('custom') %>
+      <%= javascript_include_tag('d3.min') %>
+      <%= javascript_include_tag('morris') %>
+      <%= javascript_include_tag('c3.min') %>
+      <%= javascript_include_tag('dashboard1') %>
+      <%= javascript_include_tag('jquery.toast') %>      
+      <%= javascript_include_tag('raphael-min') %>
+      <%= javascript_include_tag('sidebarmenu') %>
+      <%= javascript_include_tag('waves') %>
+      
+
+      <!-- Load StyleSheets files -->
+      <%= stylesheet_link_tag  'application', media: 'all' %>
+      <%= stylesheet_link_tag    'c3.min' %>
+      <%= stylesheet_link_tag    'cryptocoins' %>
+      <%= stylesheet_link_tag    'dashboard1' %>
+      <%= stylesheet_link_tag    'flag-icon.min' %>
+      <%= stylesheet_link_tag    'font-awesome.min' %>
+      <%= stylesheet_link_tag    'jquery.toast' %>
+      <%= stylesheet_link_tag    'materialdesignicons.min' %>
+      <%= stylesheet_link_tag    'morris' %>
+      <%= stylesheet_link_tag    'simple-line-icons' %>
+      <%= stylesheet_link_tag    'style' %>
+      <%= stylesheet_link_tag    'themify-icons' %>
+      <%= stylesheet_link_tag    'weather-icons.min' %>
+
+  <% end %>
+<!--     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '171866636845601',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.0'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <% if controller_name != 'documents' and controller_name != 'registrations' and controller_name != 'users' %>
+    <%= render 'layouts/header'%>
+  <% end %>
+
+  <%= render 'layouts/messages'%> 
+  <%= yield %>
+  <% if controller_name != 'registrations' and controller_name != 'users' %>
+    <%= render 'layouts/footer'%>
+  <% end %>
+
+  </body>
+</html>

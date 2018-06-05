@@ -1,0 +1,32 @@
+<%= form_with(model: document_image, local: true) do |form| %>
+  <% if document_image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(document_image.errors.count, "error") %> prohibited this document_image from being saved:</h2>
+
+      <ul>
+      <% document_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image_data %>
+    <%= form.text_field :image_data, id: :document_image_image_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_order %>
+    <%= form.number_field :image_order, id: :document_image_image_order %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_id %>
+    <%= form.text_field :document_id, id: :document_image_document_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Document Favoris</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Document</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @document_favoris.each do |document_favori| %>
+      <tr>
+        <td><%= document_favori.user %></td>
+        <td><%= document_favori.document %></td>
+        <td><%= link_to 'Show', document_favori %></td>
+        <td><%= link_to 'Edit', edit_document_favori_path(document_favori) %></td>
+        <td><%= link_to 'Destroy', document_favori, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Document Favori', new_document_favori_path %>

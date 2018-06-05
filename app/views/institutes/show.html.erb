@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Institute name:</strong>
+  <%= @institute.institute_name %>
+</p>
+
+<p>
+  <strong>Institute type:</strong>
+  <%= @institute.institute_type %>
+</p>
+
+<p>
+  <strong>Institute other:</strong>
+  <%= @institute.institute_other %>
+</p>
+
+<%= link_to 'Edit', edit_institute_path(@institute) %> |
+<%= link_to 'Back', institutes_path %>

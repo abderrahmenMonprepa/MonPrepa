@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="skin-red fixed-layout lock-nav">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" >
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark" style="background-color: #01c0c8;">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="/assets/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo icon -->
+                            <img src="/assets/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                         <!-- dark Logo text -->
+                         <img src="assets/logo-text.png" alt="homepage" class="dark-logo" />
+                         <!-- Light Logo text -->    
+                         <img src="assets/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse" >
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto">
+                        <!-- This is  -->
+                        <li class="nav-item hidden-sm-up"> <a class="nav-link nav-toggler waves-effect waves-light" href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link nav-lock waves-effect waves-light" href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                        <!-- ============================================================== -->
+                        <!-- Comment -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="ti-email"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox animated bounceInDown">
+                                <span class="with-arrow"><span class="bg-primary"></span></span>
+                                <ul>
+                                    <li>
+                                        <div class="drop-title bg-primary text-white">
+                                            <h4 class="m-b-0 m-t-5">4 New</h4>
+                                            <span class="font-light">Notifications</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Luanch Admin</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="btn btn-success btn-circle"><i class="ti-calendar"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Event today</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center m-b-5" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Comment -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="icon-note"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox animated bounceInDown" aria-labelledby="2">
+                                <span class="with-arrow"><span class="bg-danger"></span></span>
+                                <ul>
+                                    <li>
+                                        <div class="drop-title text-white bg-danger">
+                                            <h4 class="m-b-0 m-t-5">5 New</h4>
+                                            <span class="font-light">Messages</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="user-img"> <%#= image_tag current_user.avatar.url(:thumb) , class: "img-circle" , width: "60"%> <span class="profile-status online pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="user-img"> <img src="assets/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="user-img"> <img src="assets/users/3.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)">
+                                                <div class="user-img"> <img src="assets/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center link m-b-5" href="javascript:void(0);"> <b>See all e-Mails</b> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- mega menu -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown mega-dropdown"> <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-layout-width-default"></i></a>
+                            <div class="dropdown-menu animated bounceInDown">
+                                <ul class="mega-dropdown-menu row">
+                                    <li class="col-lg-3 col-xlg-2 m-b-30">
+                                        <h4 class="m-b-20">CAROUSEL</h4>
+                                        <!-- CAROUSEL -->
+                                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner" role="listbox">
+                                                <div class="carousel-item active">
+                                                    <div class="container"> <img class="d-block img-fluid" src="assets/big/img1.jpg" alt="First slide"></div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="container"><img class="d-block img-fluid" src="assets/big/img2.jpg" alt="Second slide"></div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="container"><img class="d-block img-fluid" src="assets/big/img3.jpg" alt="Third slide"></div>
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+                                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                                        </div>
+                                        <!-- End CAROUSEL -->
+                                    </li>
+                                    <li class="col-lg-3 m-b-30">
+                                        <h4 class="m-b-20">ACCORDION</h4>
+                                        <!-- Accordian -->
+                                        <div id="accordion" class="nav-accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingOne">
+                                                    <h5 class="mb-0">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                  Collapsible Group Item #1
+                                                </a>
+                                              </h5> </div>
+                                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high. </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingTwo">
+                                                    <h5 class="mb-0">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                  Collapsible Group Item #2
+                                                </a>
+                                              </h5> </div>
+                                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header" role="tab" id="headingThree">
+                                                    <h5 class="mb-0">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                  Collapsible Group Item #3
+                                                </a>
+                                              </h5> </div>
+                                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col-lg-3  m-b-30">
+                                        <h4 class="m-b-20">CONTACT US</h4>
+                                        <!-- Contact -->
+                                        <form>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter Name"> </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Enter email"> </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Message"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-info">Submit</button>
+                                        </form>
+                                    </li>
+                                    <li class="col-lg-3 col-xlg-4 m-b-30">
+                                        <h4 class="m-b-20">List style</h4>
+                                        <!-- List style -->
+                                        <ul class="list-style-none">
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> You can give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another Give link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Forth link</a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another fifth link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End mega menu -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/users/1.jpg" alt="user" class="img-circle" width="30"></a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
+                                <span class="with-arrow"><span class="bg-primary"></span></span>
+                                <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
+                                    
+                                    <div class="m-l-10">
+                                        <h4 class="m-b-0"><%= current_admin_user.email %></h4>
+                                        <p class=" m-b-0"><%= current_admin_user.email %></p>
+                                    </div>
+                                </div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> Mon profil</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> Mes cours favoris</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Mes videos favoris</a>
+                                <div class="dropdown-divider"></div>
+
+                                <%= link_to  edit_user_registration_path , class: "dropdown-item" do %>
+                                <i class="ti-settings m-r-5 m-l-5"></i>
+                                Modifier profil<% end %> </a>
+                               
+                                <%= link_to  destroy_user_session_path, method: :delete , class: "dropdown-item" do %>
+                                <i class="fa fa-power-off m-r-5 m-l-5"></i>
+                                Se déconnecter<% end %> </a>
+                                
+                                <div class="dropdown-divider"></div>
+                                
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <!-- <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li> -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <div class="d-flex no-block nav-text-box align-items-center">
+                <span><img src="assets/logo-icon.png" alt="elegant admin template"></span>
+                <a class="nav-lock waves-effect waves-dark ml-auto hidden-md-down" href="javascript:void(0)"><i class="mdi mdi-toggle-switch"></i></a>
+                <a class="nav-toggler waves-effect waves-dark ml-auto hidden-sm-up" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+            </div>
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Utilisateurs </span></a>
+                            <ul aria-expanded="true" class="collapse">
+
+                                <li id="list_user_id"><a>Liste des utilisateurs <i class="fa fa-circle-o text-warning"></i></a></li>
+                                <li id="add_user_id" ><a >Ajouter utilisateur <i class="fa fa-circle-o text-success"></i></a></li>
+                                <li id="delete_user_id" ><a >Rechercher utilisateur <i class="fa fa-circle-o text-danger"></i></a></li>
+
+
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-small-cap"></li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Documents</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="app-calendar.html">Ajouter document <i class="ti-calendar"></i></a></li>
+                                <li><a href="app-chat.html">Modifier document <i class="ti-comment"></i></a></li>
+                                <li><a href="app-ticket.html">Supprimer document <i class="ti-support"></i></a></li>
+                                <li><a href="app-contact.html">Liste des documents<i class="ti-user"></i></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-small-cap"></li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Videos</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="app-email.html">Ajouter video <i class="icon-envelope-open"></i></a></li>
+                                <li><a href="app-email-detail.html">Modifier video <i class="ti-layout-media-left-alt"></i></a></li>
+                                <li><a href="app-compose.html">Supprimer video <i class="icon-note"></i></a></li>
+                                <li><a href="app-compose.html">Liste des videos <i class="icon-note"></i></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-small-cap"></li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-palette"></i><span class="hide-menu">Messages</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="ui-cards.html">Ajouter message <i class="ti-layers-alt"></i></a></li>
+                                <li><a href="ui-user-card.html">Modifier messages <i class="ti-user"></i></a></li>
+                                <li><a href="ui-buttons.html">Supprimer message <i class="ti-layout-menu"></i></a></li>
+                                <li><a href="ui-modals.html">Liste des messages <i class="ti-layout-slider-alt"></i></a></li>
+                                
+                            </ul>
+                        </li>
+
+                        <li class="nav-small-cap"></li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-media-right-alt"></i><span class="hide-menu">Instituts</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="form-basic.html">Ajouter institut <i class="ti-file"></i></a></li>
+                                <li><a href="form-layout.html">Modifier institut <i class="ti-files"></i></a></li>
+                                <li><a href="form-addons.html">Supprimer institut <i class="ti-zip"></i></a></li>
+                                <li><a href="form-material.html">Liste des instituts <i class="ti-agenda"></i></a></li>
+                            </ul>
+                        </li>
+
+                         <li class="nav-small-cap"></li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-accordion-merged"></i><span class="hide-menu">Sections</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="table-basic.html">Ajouter section <i class="ti-widgetized"></i></a></li>
+                                <li><a href="table-layout.html">Modifier section<i class="ti-layout-accordion-list"></i></a></li>
+                                <li><a href="table-data-table.html">Supprimer section<i class="ti-widget"></i></a></li>
+                                <li><a href="table-footable.html">Liste des sections <i class="ti-layout-accordion-merged"></i></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-small-cap"></li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-gallery"></i><span class="hide-menu">Commentaires</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="layout-single-column.html">Ajouter commentaire <i class="ti-layout-menu-separated"></i></a></li>
+                                <li><a href="layout-fix-header.html">Modifier commentaire<i class="mdi mdi-page-layout-header"></i></a></li>
+                                <li><a href="layout-fix-sidebar.html">Supprimer commentaire <i class="mdi mdi-page-layout-sidebar-left"></i></a></li>
+                                <li><a href="layout-fix-header-sidebar.html">Liste des commentaires <i class="ti-agenda"></i></a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-small-cap"></li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-settings"></i><span class="hide-menu">Statistiques</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="widget-data.html">Documents favoris <i class="icon-puzzle"></i></a></li>
+                                <li><a href="widget-apps.html">Videos favories <i class="icon-drawar"></i></a></li>
+                                <li><a href="widget-charts.html">Historique des documents <i class="ti-bar-chart-alt"></i></a></li>
+                                <li><a href="widget-charts.html">Historique des videos <i class="ti-bar-chart-alt"></i></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-small-cap"></li>
+
+                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i><span class="hide-menu">Administrateur</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="starter-kit.html">Ajouter admin <i class="ti-layout-width-default"></i></a></li>
+                                <li><a href="pages-blank.html">Modifier admin <i class="mdi mdi-content-copy"></i></a></li>
+                                <li><a href="pages-profile.html">Supprimer admin <i class="ti-id-badge"></i></a></li>
+                                <li><a href="pages-animation.html">Liste des admin <i class="ti-video-clapper"></i></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                
+            <!-- Liste des utilisateurs -->
+            <div  id="list_users">
+                <!-- column -->
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Liste des utilisateurs</h4>
+                            <div class="table-responsive">
+                                <table class="table">
+                                
+                                    <thead>
+                                        <tr>
+                                            <th>Prénom</th>
+                                            <th>Nom</th>
+                                            <th>Email</th>
+                                            <th>Date de naissance</th>
+                                            <th>Numéro CIN</th>
+                                            <th>Numéro de tél</th>
+                                            <th>Ville</th>
+                                            <th>Section</th>
+                                            <th>Niveau scolaire</th>
+                                            <th>Institut</th>
+                                            <th>Confirmation</th>
+                                            <th>Modifier</th>
+                                            <th>Supprimer</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <!-- Loop user list -->
+                                    <% @users.each do |u| %>
+
+                                        <tr>
+                                            <td class="text-center"><%= u.first_name %></td>
+                                            <td class="txt-oflo"><%= u.last_name %></td>
+                                            <td><span class="badge badge-success badge-pill"><%= u.email %></span> </td>
+                                            <td class="text-center"><%= u.date_of_birth %></td>
+                                            <td class="txt-oflo"><%= u.cin_number %></td>
+                                            <td><span class="text-success"><%= u.phone_number %></span></td>
+                                            <td class="text-center"><%= u.city %></td>
+                                            <td class="text-center"><%= u.section %></td>
+                                            <td class="text-center"><%= u.school_year %></td>
+                                            <td class="text-center">
+                                            <% if not u.institute.nil? %>
+                                            <%= u.institute.institute_name %>
+                                            <% end %>
+                                            </td>
+                                            <td><span class="badge badge-success badge-pill"><%= u.confirmed_at %></span></td>
+                                            <td><%= link_to 'Modifier', edit_user_path(u) %></td>
+                                            <td><%#= button_to "Supprimer", (u), data: { confirm: "Are you sure?" }, method: :delete %></td>
+                                            
+                                        </tr>
+
+                                    <% end %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                <div id="delete_user" style="display: none;" >
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                            <center>
+                                <h4 class="card-title">Rechercher un utilisateur</h4>
+                                <div class="">
+                                    <%= form_tag het_el_kazi_path, :method => 'get',  :id => "products_search" ,:remote => true  do %>
+                                                <div class="col-md-12 text-center" style="margin:auto;">
+
+                                                    <p> Numéro de Tél </p>
+                                                    <p>    <%= text_field_tag :search, params[:search] , class: 'form-control'  %> </p>
+                                                         <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_div()' , class: 'btn btn-success' %>  <br />
+                                                </div>
+                                    <% end %>
+                                </div>
+                            </center>
+                                <div class="table-responsive">
+                                    <div id="searchElements" style="display: none;">
+                                        <div id='users' class="col-md-12 text-center" style="margin:auto;">
+                                            <%= render 'search_users' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="add_user" style="display: none;" >
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Ajouter un utilisateur</h4>
+                                <div class="table-responsive">
+                                    <% if @user.errors.any? %>
+                                      <div id="error_explanation">
+                                        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+                                        <ul>
+                                        <% @user.errors.full_messages.each do |message| %>
+                                          <li><%= message %></li>
+                                        <% end %>
+                                        </ul>
+                                      </div>
+                                    <% end %>
+
+                                    <%= form_with(model: @user, local: true) do |form| %>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <%= form.label :first_name %>
+                                            <%= form.text_field :first_name , class: "form-control"  %>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <%= form.label :last_name %>
+                                            <%= form.text_field :last_name , class: "form-control"  %>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <%= form.label :email %>
+                                            <%= form.text_field :email , class: "form-control"  %>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <%= form.label :password %>
+                                            <%= form.password_field :password , class: "form-control"  %>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <%= form.label :institute_id %>
+                                            <%= form.text_field :institute_id , class: "form-control"  %>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= form.label :phone_number %>
+                                                <%= form.text_field :phone_number , class: "form-control"  %>
+                                            </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= form.label :cin_number %>
+                                                <%= form.text_field :cin_number , class: "form-control"  %>
+                                            </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= form.label :section %>
+                                                <%= form.text_field :section , class: "form-control"  %>
+                                            </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= form.label :school_year %>
+                                                <%= form.text_field :school_year , class: "form-control"  %>
+                                            </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= form.label :city %>
+                                                <%= form.text_field :city , class: "form-control"  %>
+                                            </div>
+                                    </div>
+                                    <center>
+                                        <div class="actions">
+                                          <%= form.submit 'Ajouter' , class: 'btn btn-success'%>
+                                        </div>
+                                    </center>
+
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                        
+                </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+</body>
+
+</html>
+<script type="text/javascript">
+    jQuery( document ).ready(function( $ ) {
+
+   //Use this inside your document ready jQuery 
+   $(window).on('popstate', function() {
+      location.reload(true);
+   });
+
+});
+
+
+$(function(){
+    $('#add_user_id').on('click', function(event) {
+         jQuery('#add_user').css("display","block");
+         jQuery('#delete_user').css("display","none");
+         jQuery('#list_users').css("display","none");
+  
+    });
+
+    $('#delete_user_id').on('click', function(event) {
+         jQuery('#delete_user').css("display","block");
+         jQuery('#add_user').css("display","none");
+         jQuery('#list_users').css("display","none");
+    });
+
+    $('#list_user_id').on('click', function(event) {
+         jQuery('#list_users').css("display","block");
+         jQuery('#add_user').css("display","none");
+         jQuery('#delete_user').css("display","none");
+    });
+});
+
+function display_div() {
+    $('#searchElements').css('display', 'block');
+}
+
+
+</script>

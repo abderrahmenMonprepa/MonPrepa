@@ -1,0 +1,62 @@
+<%= form_with(model: video, local: true) do |form| %>
+  <% if video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :video_name %>
+    <%= form.text_field :video_name, id: :video_video_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_key %>
+    <%= form.text_field :video_key, id: :video_video_key %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_category %>
+    <%= form.text_field :video_category, id: :video_video_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_tags %>
+    <%= form.text_field :video_tags, id: :video_video_tags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_section %>
+    <%= form.text_field :video_section, id: :video_video_section %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_course %>
+    <%= form.text_field :video_course, id: :video_video_course %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_type %>
+    <%= form.text_field :video_type, id: :video_video_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_year %>
+    <%= form.number_field :video_year, id: :video_video_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_data %>
+    <%= form.text_field :video_data, id: :video_video_data %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

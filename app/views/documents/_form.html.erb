@@ -1,0 +1,67 @@
+<%= form_with(model: document, local: true) do |form| %>
+  <% if document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+      <% document.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :document_key %>
+    <%= form.text_field :document_key, id: :document_document_key, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :document_section %>
+    <%= form.text_field :document_section, id: :document_document_section, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :document_level %>
+    <%= form.text_field :document_level, id: :document_document_level, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :document_course %>
+    <%= form.text_field :document_course, id: :document_document_course, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :document_type %>
+    <%= form.text_field :document_type, id: :document_document_type, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :document_subject %>
+    <%= form.text_field :document_subject, id: :document_document_subject, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :document_year %>
+    <%= form.number_field :document_year, id: :document_document_year, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :pdf_file_enonce %>
+    <%= form.file_field :pdf_file_enonce, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :pdf_file_corrige %>
+    <%= form.file_field :pdf_file_corrige, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :file_data %>
+    <%= form.file_field :file_data, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

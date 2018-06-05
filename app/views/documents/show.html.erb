@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= link_to  like_document_path(@document), method: :put , class: 'btn btn-default' do %>
+  <i class="glyphicon glyphicon-star"></i>
+<% end %>
+<br>
+<%= link_to  dislike_document_path(@document), method: :put , class: 'btn btn-default' do %>
+  <i class="glyphicon glyphicon-star-empty"></i>
+<% end %>
+
+
+
+<%#= @document.get_upvotes.size %>
+<%#= @document.get_downvotes.size %><br>
+
+<%#= @document.liked_by current_user %>
+<%#= current_user.likes @document %>
+<p>
+  <strong>Document key:</strong>
+  <%= @document.document_key %>
+</p>
+
+<p>
+  <strong>Document section:</strong>
+  <%= @document.document_section %>
+</p>
+
+<p>
+  <strong>Document level:</strong>
+  <%= @document.document_level %>
+</p>
+
+<p>
+  <strong>Document course:</strong>
+  <%= @document.document_course %>
+</p>
+
+<p>
+  <strong>Document type:</strong>
+  <%= @document.document_type %>
+</p>
+
+<p>
+  <strong>Document subject:</strong>
+  <%= @document.document_subject %>
+</p>
+
+<p>
+  <strong>Document year:</strong>
+  <%= @document.document_year %>
+</p>
+
+<p>
+  <strong>Document data:</strong>
+  <%= @document.document_data %>
+</p>
+<br>
+<iframe src=<%=@document.pdf_file_enonce%> width="600" height="780" style="border: none;"> </iframe>
+<iframe src=<%=@document.pdf_file_corrige%> width="600" height="780" style="border: none;"> </iframe>
+
+<iframe src=<%=@document.file_data %> width="600" height="780" style="border: none;"> </iframe>  
+
+
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>

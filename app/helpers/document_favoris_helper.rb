@@ -1,0 +1,2 @@
+module DocumentFavorisHelper
+end
