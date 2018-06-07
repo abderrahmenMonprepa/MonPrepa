@@ -342,7 +342,7 @@
 
                                 <li id="list_user_id"><a>Liste des utilisateurs <i class="fa fa-circle-o text-warning"></i></a></li>
                                 <li id="add_user_id" ><a >Ajouter utilisateur <i class="fa fa-circle-o text-success"></i></a></li>
-                                <li id="delete_user_id" ><a >Rechercher utilisateur <i class="fa fa-circle-o text-danger"></i></a></li>
+                                <li id="search_user_id" ><a >Rechercher utilisateur <i class="fa fa-circle-o text-danger"></i></a></li>
 
 
 
@@ -353,10 +353,11 @@
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Documents</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="app-calendar.html">Ajouter document <i class="ti-calendar"></i></a></li>
-                                <li><a href="app-chat.html">Modifier document <i class="ti-comment"></i></a></li>
-                                <li><a href="app-ticket.html">Supprimer document <i class="ti-support"></i></a></li>
-                                <li><a href="app-contact.html">Liste des documents<i class="ti-user"></i></a></li>
+
+                                <li id="list_documents_id"><a>Liste des documents <i class="ti-calendar"></i></a></li>
+                                <li id="add_document_id"><a>Ajouter document<i class="ti-comment"></i></a></li>
+                                <li id="search_document_id"><a>Rechercher document <i class="ti-support"></i></a></li>
+
                             </ul>
                         </li>
 
@@ -457,7 +458,7 @@
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
                 
-            <!-- Liste des utilisateurs -->
+            <!-- List of Users-->
             <div  id="list_users">
                 <!-- column -->
                 <div class="col-lg-12">
@@ -518,9 +519,10 @@
                     </div>
                 </div>
             </div>
+            <!-- End list of users  -->
 
-
-                <div id="delete_user" style="display: none;" >
+            <!-- Search User -->
+                <div id="search_user" style="display: none;" >
                     <!-- column -->
                     <div class="col-lg-12">
                         <div class="card">
@@ -550,6 +552,9 @@
                     </div>
 
                 </div>
+                <!-- End Search User -->
+
+                <!-- Add User -->
                 <div id="add_user" style="display: none;" >
                     <div class="col-lg-12">
                         <div class="card">
@@ -653,6 +658,90 @@
                         </div>
                     </div>                                        
                 </div>
+                <!-- End Adding User -->
+
+                <!-- List of Documents-->
+                <div  id="list_documents" style="display: none;">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Liste des documents</h4>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                                <th>Cours</th>
+                                                <th>Type</th>
+                                                <th>Sujet</th>
+                                                <th>année scolaire</th>
+                                                <th>Modifier</th>
+                                                <th>Supprimer</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <!-- Loop user list -->
+                                        <% @documents.each do |d| %>
+
+                                            <tr>
+                                                <td class="text-center"><%= d.document_section %></td>
+                                                <td><span class="badge badge-success badge-pill"><%= d.document_level %></span> </td>
+                                                <td class="text-center"><%= d.document_course %></td>
+                                                <td class="txt-oflo"><%= d.document_type %></td>
+                                                <td><span class="text-success"><%= d.document_subject %></span></td>
+                                                <td class="text-center"><%= d.document_year %></td>
+                                                <td><%= link_to 'Show', d %></td>
+                                                <td><%= link_to 'Edit', edit_document_path(d) %></td>
+                                                <td><%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                                
+                                            </tr>
+
+                                        <% end %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End list of users  -->
+
+                <!-- Search Document -->
+                <div id="search_document" style="display: none;" >
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                            <center>
+                                <h4 class="card-title">Rechercher un document</h4>
+                                <div class="">
+                                    <%= form_tag het_el_kazi_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
+                                                <div class="col-md-12 text-center" style="margin:auto;">
+
+                                                    <p> Section </p>
+                                                    <p>    <%= text_field_tag :search, params[:search] , class: 'form-control'  %> </p>
+                                                         <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_div()' , class: 'btn btn-success' %>  <br />
+                                                </div>
+                                    <% end %>
+                                </div>
+                            </center>
+                                <div class="table-responsive">
+                                    <div id="searchElements" style="display: none;">
+                                        <div id='documents' class="col-md-12 text-center" style="margin:auto;">
+                                            <%= render 'search_documents' %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Search Document -->
                     
                 </div>
             </div>
@@ -685,21 +774,57 @@
 $(function(){
     $('#add_user_id').on('click', function(event) {
          jQuery('#add_user').css("display","block");
-         jQuery('#delete_user').css("display","none");
+         jQuery('#search_user').css("display","none");
          jQuery('#list_users').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
   
     });
 
-    $('#delete_user_id').on('click', function(event) {
-         jQuery('#delete_user').css("display","block");
+    $('#search_user_id').on('click', function(event) {
+         jQuery('#search_user').css("display","block");
          jQuery('#add_user').css("display","none");
          jQuery('#list_users').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
     });
 
     $('#list_user_id').on('click', function(event) {
          jQuery('#list_users').css("display","block");
          jQuery('#add_user').css("display","none");
-         jQuery('#delete_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+    });
+
+    $('#add_document_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","block");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+    });
+
+    $('#search_document_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","block");
+         jQuery('#list_documents').css("display","none");
+    });
+
+    $('#list_documents_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","block");
     });
 });
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605130608) do
+ActiveRecord::Schema.define(version: 20180606094208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,7 +111,8 @@ ActiveRecord::Schema.define(version: 20180605130608) do
     t.string "pdf_file_corrige_content_type"
     t.integer "pdf_file_corrige_file_size"
     t.datetime "pdf_file_corrige_updated_at"
-    t.binary "file_data"
+    t.binary "enonce_data"
+    t.binary "corrige_data"
   end
 
   create_table "institutes", force: :cascade do |t|

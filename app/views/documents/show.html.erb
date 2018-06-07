@@ -59,10 +59,12 @@
   <%= @document.document_data %>
 </p>
 <br>
-<iframe src=<%=@document.pdf_file_enonce%> width="600" height="780" style="border: none;"> </iframe>
-<iframe src=<%=@document.pdf_file_corrige%> width="600" height="780" style="border: none;"> </iframe>
 
-<iframe src=<%=@document.file_data %> width="600" height="780" style="border: none;"> </iframe>  
+<br>
+<%= @document.enonce_data%>
+<iframe src=<%= @document.pdf_file_enonce %> width="600" height="780" style="border: none;"> </iframe>  
+<iframe src=<%= @document.pdf_file_corrige %> width="600" height="780" style="border: none;"> </iframe>  
+
 
 
 

@@ -102,6 +102,13 @@ class DocumentsController < ApplicationController
     else
       @users = User.all
     end
+
+    # Search documents by section
+    if params[:search]
+      @documents = Document.where("documents.section LIKE ? ", "#{params[:search]}" )  
+    else
+      @documents = Document.all
+    end
   end
 
 
@@ -116,6 +123,6 @@ class DocumentsController < ApplicationController
     def document_params
       params.require(:document).permit(:document_key, :document_section, :document_level,
        :document_course, :document_type, :document_subject, :document_year, :document_data,
-       :pdf_file_enonce , :pdf_file_corrige , :file_data)
+       :pdf_file_enonce , :pdf_file_corrige , :enonce_data , :corrige_data)
     end
 end
