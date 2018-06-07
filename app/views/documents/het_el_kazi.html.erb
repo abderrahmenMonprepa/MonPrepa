@@ -722,15 +722,15 @@
                                     <%= form_tag het_el_kazi_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
                                                 <div class="col-md-12 text-center" style="margin:auto;">
 
-                                                    <p> Section </p>
-                                                    <p>    <%= text_field_tag :search, params[:search] , class: 'form-control'  %> </p>
-                                                         <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_div()' , class: 'btn btn-success' %>  <br />
+                                                    <p> Cours </p>
+                                                    <p>    <%= text_field_tag :search_document, params[:search_document] , class: 'form-control'  %> </p>
+                                                         <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_document_div()' , class: 'btn btn-success' %>  <br />
                                                 </div>
                                     <% end %>
                                 </div>
                             </center>
                                 <div class="table-responsive">
-                                    <div id="searchElements" style="display: none;">
+                                    <div id="searchElementsDocuments" style="display: none;">
                                         <div id='documents' class="col-md-12 text-center" style="margin:auto;">
                                             <%= render 'search_documents' %>
                                         </div>
@@ -832,5 +832,8 @@ function display_div() {
     $('#searchElements').css('display', 'block');
 }
 
+function display_document_div() {
+    $('#searchElementsDocuments').css('display', 'block');
+}
 
 </script>

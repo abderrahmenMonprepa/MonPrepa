@@ -104,8 +104,8 @@ class DocumentsController < ApplicationController
     end
 
     # Search documents by section
-    if params[:search]
-      @documents = Document.where("documents.section LIKE ? ", "#{params[:search]}" )  
+    if params[:search_document]
+      @documents = Document.where("documents.document_course LIKE ? ", "#{params[:search_document]}" )  
     else
       @documents = Document.all
     end
