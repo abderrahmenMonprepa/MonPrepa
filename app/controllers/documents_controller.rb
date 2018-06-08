@@ -11,6 +11,10 @@ class DocumentsController < ApplicationController
   # GET /documents/1
   # GET /documents/1.json
   def show
+    if user_signed_in?
+      @comment = Comment.new
+      @comment.create(user_id: current_user.id , document_id: @document.id)
+    end
   end
 
   # GET /documents/new

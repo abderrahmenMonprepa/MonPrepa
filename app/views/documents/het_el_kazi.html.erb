@@ -708,7 +708,50 @@
                         </div>
                     </div>
                 </div>
-                <!-- End list of users  -->
+                <!-- End list of documents  -->
+
+                <!-- Addind Document -->
+                <div id="add_document" style="display: none;" >
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Ajouter un document</h4>
+                                <div class="table-responsive">
+                                    <% if @document.errors.any? %>
+                                      <div id="error_explanation">
+                                        <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+                                        <ul>
+                                        <% @document.errors.full_messages.each do |message| %>
+                                          <li><%= message %></li>
+                                        <% end %>
+                                        </ul>
+                                      </div>
+                                    <% end %>
+
+                                    <%= form_with(model: @document, local: true) do |form| %>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <%= form.label :document_course %>
+                                            <%= form.text_field :document_course , class: "form-control"  %>
+                                        </div>
+                                    </div>
+
+                                    <center>
+                                        <div class="actions">
+                                          <%= form.submit 'Ajouter' , class: 'btn btn-success'%>
+                                        </div>
+                                    </center>
+
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                        
+                </div>
+                <!-- End Adding Document -->
 
                 <!-- Search Document -->
                 <div id="search_document" style="display: none;" >

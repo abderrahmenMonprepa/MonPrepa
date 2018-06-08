@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   resources :institutes
   resources :users
 
+  resources :documents do
+    resources :comments
+  end
+
   devise_for :users , :path_prefix => 'devise' , 
   controllers: {  confirmations: 'confirmations' , :omniauth_callbacks => "users/omniauth_callbacks" ,registrations: 'registrations' }
   
