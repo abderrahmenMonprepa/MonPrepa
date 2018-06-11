@@ -60,7 +60,8 @@ gem 'acts_as_votable'
 gem 'activeadmin'
 #  Gem for search
 gem 'ransack'
-# Gem for countdown
+# Gem for pagination
+gem 'kaminari'
 
 
 group :development, :test do

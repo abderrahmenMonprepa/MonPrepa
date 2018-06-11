@@ -86,6 +86,8 @@ class DocumentsController < ApplicationController
 
   def welcome_for_documents
 
+    @documents = Document.all
+
   end
 
   def het_el_kazi   

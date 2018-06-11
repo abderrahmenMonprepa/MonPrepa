@@ -416,6 +416,7 @@
                                 
                                     <thead>
                                         <tr>
+                                            <th>Cours</th>
                                             <th>Sujet</th>
                                             <th>Matière</th>
                                             <th>Trimestre</th>
@@ -424,71 +425,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="text-center">1</td>
-                                            <td class="txt-oflo">Elite admin</td>
-                                            <td><span class="badge badge-success badge-pill">sale</span> </td>
-                                            <td class="txt-oflo">April 18, 2017</td>
-                                            <td><span class="text-success">$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">2</td>
-                                            <td class="txt-oflo">Real Homes WP Theme</td>
-                                            <td><span class="badge badge-info badge-pill">extended</span></td>
-                                            <td class="txt-oflo">April 19, 2017</td>
-                                            <td><span class="text-info">$1250</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">3</td>
-                                            <td class="txt-oflo">Ample Admin</td>
-                                            <td><span class="badge badge-info badge-pill">extended</span></td>
-                                            <td class="txt-oflo">April 19, 2017</td>
-                                            <td><span class="text-info">$1250</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">4</td>
-                                            <td class="txt-oflo">Medical Pro WP Theme</td>
-                                            <td><span class="badge badge-danger badge-pill">tax</span></td>
-                                            <td class="txt-oflo">April 20, 2017</td>
-                                            <td><span class="text-danger">-$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">5</td>
-                                            <td class="txt-oflo">Hosting press html</td>
-                                            <td><span class="badge badge-success badge-pill">sale</span></td>
-                                            <td class="txt-oflo">April 21, 2017</td>
-                                            <td><span class="text-success">$24</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">6</td>
-                                            <td class="txt-oflo">Digital Agency PSD</td>
-                                            <td><span class="badge badge-success badge-pill">sale</span> </td>
-                                            <td class="txt-oflo">April 23, 2017</td>
-                                            <td><span class="text-danger">-$14</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">7</td>
-                                            <td class="txt-oflo">Helping Hands WP Theme</td>
-                                            <td><span class="badge badge-warning badge-pill">member</span></td>
-                                            <td class="txt-oflo">April 22, 2017</td>
-                                            <td><span class="text-success">$64</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">8</td>
-                                            <td class="txt-oflo">Helping Hands WP Theme</td>
-                                            <td><span class="badge badge-warning badge-pill">member</span></td>
-                                            <td class="txt-oflo">April 22, 2017</td>
-                                            <td><span class="text-success">$64</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">9</td>
-                                            <td class="txt-oflo">Ample Admin</td>
-                                            <td><span class="badge badge-info badge-pill">extended</span></td>
-                                            <td class="txt-oflo">April 19, 2017</td>
-                                            <td><span class="text-info">$1250</span></td>
-                                        </tr>
+
+                                        <% @documents.each do |d| %>
+                                            <tr>
+                                                <td class="text-oflo"><%= d.document_course %></td>
+                                                <td class="txt-oflo">Elite admin</td>
+                                                <td><span class="badge badge-success badge-pill">sale</span> </td>
+                                                <td class="txt-oflo">April 18, 2017</td>
+                                                <td><span class="text-success">$24</span></td>
+                                                <td><span class="text-success">$24</span></td>
+                                            </tr>
+
+                                        <% end %>
+
                                     </tbody>
+
                                 </table>
+                                
                             </div>
                         </div>
                     </div>
