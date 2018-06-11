@@ -87,6 +87,22 @@ class DocumentsController < ApplicationController
   def welcome_for_documents
 
     @documents = Document.all
+    @first_year_pc = Document.first_year_pc
+    @first_year_mp = Document.first_year_mp
+    @first_year_pt = Document.first_year_pt
+    @first_year_pb = Document.first_year_pb
+    @second_year_pc = Document.second_year_pc
+    @second_year_mp = Document.second_year_mp
+    @second_year_pt = Document.second_year_pt
+    @second_year_pb = Document.second_year_pb
+    @first_year_all_sections = Document.first_year_all_sections
+    @second_year_all_sections = Document.second_year_all_sections
+    @resumes = Document.resumes
+    @concours = Document.concours
+    @devoirs = Document.devoirs
+    @series = Document.series
+    @examens = Document.examens
+
 
   end
 
@@ -129,6 +145,6 @@ class DocumentsController < ApplicationController
     def document_params
       params.require(:document).permit(:document_key, :document_section, :document_level,
        :document_course, :document_type, :document_subject, :document_year, :document_data,
-       :pdf_file_enonce , :pdf_file_corrige , :enonce_data , :corrige_data)
+       :document_trimestre, :pdf_file_enonce , :pdf_file_corrige , :enonce_data , :corrige_data)
     end
 end

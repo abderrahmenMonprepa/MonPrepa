@@ -5,4 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+Document.create(document_section: "PC" , document_level: "1ere" , document_type: "Résumé")
+Document.create(document_section: "PC" , document_level: "1ere" , document_type: "Concour")
+Document.create(document_section: "PC" , document_level: "2eme" , document_type: "Devoir")
+Document.create(document_section: "MP" , document_level: "2eme" , document_type: "Série")
+Document.create(document_section: "MP" , document_level: "1ere" , document_type: "Résumé")
+Document.create(document_section: "MP" , document_level: "1ere" , document_type: "Devoir")
+Document.create(document_section: "PT" , document_level: "2eme" , document_type: "Examen")
+Document.create(document_section: "PT" , document_level: "1ere" , document_type: "Résumé")
+Document.create(document_section: "PT" , document_level: "1ere" , document_type: "Série")
+Document.create(document_section: "PB" , document_level: "2eme" , document_type: "ConcourDevoir")
+Document.create(document_section: "PB" , document_level: "1ere2eme" , document_type: "Examen")
+Document.create(document_section: "PB" , document_level: "1ere2eme" , document_type: "Série")

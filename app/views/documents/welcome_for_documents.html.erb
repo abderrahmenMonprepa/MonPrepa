@@ -416,24 +416,26 @@
                                 
                                     <thead>
                                         <tr>
-                                            <th>Cours</th>
                                             <th>Sujet</th>
-                                            <th>Matière</th>
+                                            <th>Matière</th>                                            
                                             <th>Trimestre</th>
                                             <th>Type</th>
                                             <th>Année</th>
+                                            <th>Section</th>
+                                            <th>Niveau</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <% @documents.each do |d| %>
+                                        <% @second_year_pc.each do |d| %>
                                             <tr>
-                                                <td class="text-oflo"><%= d.document_course %></td>
-                                                <td class="txt-oflo">Elite admin</td>
-                                                <td><span class="badge badge-success badge-pill">sale</span> </td>
-                                                <td class="txt-oflo">April 18, 2017</td>
-                                                <td><span class="text-success">$24</span></td>
-                                                <td><span class="text-success">$24</span></td>
+                                                <td class="text-oflo"><%= d.document_subject %></td>
+                                                <td class="txt-oflo"><%= d.document_course %></td>
+                                                <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                <td class="txt-oflo"><%= d.document_type %></td>
+                                                <td><span class="text-success"><%= d.document_year %></span></td>
+                                                <td><span class="text-success"><%= d.document_section %></span></td>
+                                                <td><span class="text-success"><%= d.document_level %></span></td>
                                             </tr>
 
                                         <% end %>
@@ -454,62 +456,39 @@
                             <div class="card-body">
                                 <h4 class="card-title">Nouveaux documents</h4>
                                 <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
+                                <table class="table">
+                                
+                                    <thead>
+                                        <tr>
+                                            <th>Sujet</th>
+                                            <th>Matière</th>                                            
+                                            <th>Trimestre</th>
+                                            <th>Type</th>
+                                            <th>Année</th>
+                                            <th>Section</th>
+                                            <th>Niveau</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <% @documents.each do |d| %>
                                             <tr>
-                                                <th>Sujet</th>
-                                                <th>Matière</th>
-                                                <th>Trimestre</th>
-                                                <th>Type</th>
-                                                <th>Année</th>
+                                                <td class="text-oflo"><%= d.document_subject %></td>
+                                                <td class="txt-oflo"><%= d.document_course %></td>
+                                                <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                <td class="txt-oflo"><%= d.document_type %></td>
+                                                <td><span class="text-success"><%= d.document_year %></span></td>
+                                                <td><span class="text-success"><%= d.document_section %></span></td>
+                                                <td><span class="text-success"><%= d.document_level %></span></td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
-                                                <td><span class="label label-danger">admin</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Deshmukh</td>
-                                                <td>Gaylord</td>
-                                                <td>@Ritesh</td>
-                                                <td><span class="label label-info">member</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Sanghani</td>
-                                                <td>Gusikowski</td>
-                                                <td>@Govinda</td>
-                                                <td><span class="label label-warning">developer</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Roshan</td>
-                                                <td>Rogahn</td>
-                                                <td>@Hritik</td>
-                                                <td><span class="label label-success">supporter</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Joshi</td>
-                                                <td>Hickle</td>
-                                                <td>@Maruti</td>
-                                                <td><span class="label label-info">member</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Nigam</td>
-                                                <td>Eichmann</td>
-                                                <td>@Sonu</td>
-                                                <td><span class="label label-success">supporter</span> </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+
+                                        <% end %>
+
+                                    </tbody>
+
+                                </table>
+                                
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -518,44 +497,39 @@
                             <div class="card-body">
                                 <h4 class="card-title">Documents les plus visités</h4>
                                 <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
+                                <table class="table">
+                                
+                                    <thead>
+                                        <tr>
+                                            <th>Sujet</th>
+                                            <th>Matière</th>                                            
+                                            <th>Trimestre</th>
+                                            <th>Type</th>
+                                            <th>Année</th>
+                                            <th>Section</th>
+                                            <th>Niveau</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <% @documents.each do |d| %>
                                             <tr>
-                                                <th>Sujet</th>
-                                                <th>Matière</th>
-                                                <th>Trimestre</th>
-                                                <th>Type</th>
-                                                <th>Année</th>
+                                                <td class="text-oflo"><%= d.document_subject %></td>
+                                                <td class="txt-oflo"><%= d.document_course %></td>
+                                                <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                <td class="txt-oflo"><%= d.document_type %></td>
+                                                <td><span class="text-success"><%= d.document_year %></span></td>
+                                                <td><span class="text-success"><%= d.document_section %></span></td>
+                                                <td><span class="text-success"><%= d.document_level %></span></td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Milk Powder</td>
-                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,-3,-2,-4,-5,-4,-3,-2,-5,-1</span> </td>
-                                                <td><span class="text-danger text-semibold"><i class="fa fa-level-down" aria-hidden="true"></i> 28.76%</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Air Conditioner</td>
-                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,-1,-1,-2,-3,-1,-2,-3,-1,-2</span> </td>
-                                                <td><span class="text-warning text-semibold"><i class="fa fa-level-down" aria-hidden="true"></i> 8.55%</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>RC Cars</td>
-                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,3,6,1,2,4,6,3,2,1</span> </td>
-                                                <td><span class="text-success text-semibold"><i class="fa fa-level-up" aria-hidden="true"></i> 58.56%</span> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Down Coat</td>
-                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,3,6,4,5,4,7,3,4,2</span> </td>
-                                                <td><span class="text-info text-semibold"><i class="fa fa-level-up" aria-hidden="true"></i> 35.76%</span> </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+
+                                        <% end %>
+
+                                    </tbody>
+
+                                </table>
+                                
+                            </div>
                             </div>
                         </div>
                     </div>
