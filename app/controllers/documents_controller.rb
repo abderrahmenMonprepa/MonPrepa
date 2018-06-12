@@ -103,6 +103,15 @@ class DocumentsController < ApplicationController
     @series = Document.series
     @examens = Document.examens
 
+    # Search documents by type, course and year
+    if params[:search_type] and params[:search_course] and params[:search_year]
+      @documents = Document.where("documents.document_type LIKE ? and documents.document_course LIKE ?
+       and documents.document_year LIKE ?  ", "#{params[:search_type]}" , "#{params[:search_course]}" , "#{params[:search_year]}" )  
+    else
+      @documents = Document.all
+    end
+
+
 
   end
 

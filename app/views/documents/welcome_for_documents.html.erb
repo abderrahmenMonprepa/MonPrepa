@@ -342,7 +342,48 @@
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
+                    <ul>
+                        <!-- Search Document -->
+                        <div id="search_user" >
+                            <!-- column -->
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <center>
+                                        <h4 class="card-title">Rechercher un document</h4>
+                                        <div class="">
+                                            <%= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
+                                                        <div class="col-md-12 text-center" style="margin:auto;">
+
+                                                            <p> Type </p>
+                                                            <p>    <%= text_field_tag :search_type, params[:search_type] , class: 'form-control'  %> </p>
+                                                            <p> Cours </p>
+                                                            <p>    <%= text_field_tag :search_course, params[:search_course] , class: 'form-control'  %> </p>
+                                                            <p> Année </p>
+                                                            <p>    <%= text_field_tag :search_year, params[:search_year] , class: 'form-control'  %> </p>
+
+                                                                 <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_documents()' , class: 'btn btn-success' %>  <br />
+                                                        </div>
+                                            <% end %>
+                                        </div>
+                                    </center>
+                                       <div class="table-responsive">
+                                            <div id="get_searched_documents" style="display: none;">
+                                                <div id='documents' class="col-md-12 text-center" style="margin:auto;">
+                                                    <%= render 'user_search_documents' %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- End Search Document -->
+                    </ul>
                     <ul id="sidebarnav">
+
+                        <li class="nav-small-cap"></li>
 
                         <li> <a href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Résumés</span></a>
                         </li>
@@ -563,4 +604,9 @@
    });
 
 });
+
+
+function display_documents() {
+    $('#get_searched_documents').css('display', 'block');
+}
 </script>

@@ -1,0 +1,36 @@
+<% if @documents.count ==  0 %>
+Aucun document trouvé !!!
+<% else %>
+    <div class="table-responsive" >
+        <table class="table" >
+        
+            <thead>
+                <tr>
+                    <th>Section</th>
+                    <th>Niveau</th>
+                    <th>Cours</th>
+                    <th>Type</th>
+                    <th>Sujet</th>
+                    <th>année scolaire</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            <% @documents.each do |d| %>
+
+                <tr>
+                    <td class="text-center"><%= d.document_section %></td>
+                    <td><span class="badge badge-success badge-pill"><%= d.document_level %></span> </td>
+                    <td class="text-center"><%= d.document_course %></td>
+                    <td class="txt-oflo"><%= d.document_type %></td>
+                    <td><span class="text-success"><%= d.document_subject %></span></td>
+                    <td class="text-center"><%= d.document_year %></td>                    
+                </tr>
+
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+<% end %>
