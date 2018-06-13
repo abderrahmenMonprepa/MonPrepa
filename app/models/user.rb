@@ -28,7 +28,7 @@ class User < ApplicationRecord
   has_many :document_favoris , dependent: :destroy
 
   # User can add many comments
-  has_many :comments
+  has_many :comments , dependent: :destroy
 
   # User belongs to Instit
   belongs_to :institute
