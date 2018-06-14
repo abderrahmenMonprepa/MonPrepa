@@ -115,6 +115,35 @@ class DocumentsController < ApplicationController
 
   end
 
+   def user_documents
+
+    @documents = Document.all
+    @first_year_pc = Document.first_year_pc
+    @first_year_mp = Document.first_year_mp
+    @first_year_pt = Document.first_year_pt
+    @first_year_pb = Document.first_year_pb
+    @second_year_pc = Document.second_year_pc
+    @second_year_mp = Document.second_year_mp
+    @second_year_pt = Document.second_year_pt
+    @second_year_pb = Document.second_year_pb
+    @first_year_all_sections = Document.first_year_all_sections
+    @second_year_all_sections = Document.second_year_all_sections
+    @resumes = Document.resumes
+    @concours = Document.concours
+    @devoirs = Document.devoirs
+    @series = Document.series
+    @examens = Document.examens
+
+    # Search documents by type, course and year
+    if params[:search_type] and params[:search_course] and params[:search_year]
+      @documents = Document.where("documents.document_type LIKE ? and documents.document_course LIKE ?
+       and documents.document_year LIKE ?  ", "#{params[:search_type]}" , "#{params[:search_course]}" , "#{params[:search_year]}" )  
+    else
+      @documents = Document.all
+    end
+
+  end
+
   def het_el_kazi   
     
     # New User declaration
