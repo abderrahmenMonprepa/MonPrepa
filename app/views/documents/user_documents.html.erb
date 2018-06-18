@@ -340,31 +340,26 @@
 
                         
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Accueil</span></a>
+                        <li> <a id="resume_documents"><i class="icon-speedometer"></i><span class="hide-menu">Résumé</span></a>
                         </li>
 
-                         <li class="nav-small-cap"></li>
+                        <li class="nav-small-cap"></li>
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Explorer</span></a>
+                        <li> <a id="serie_documents"><i class="ti-layout-grid2"></i><span class="hide-menu">Série</span></a>
                         </li>
 
-                         <li class="nav-small-cap"></li>
+                        <li class="nav-small-cap"></li>
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Favoris</span></a>
+                        <li> <a id="devoir_documents"><i class="ti-email"></i><span class="hide-menu">Devoir surveillé</span></a>
                         </li>
                         <li class="nav-small-cap"></li>
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Historique</span></a>
+                        <li> <a id="examen_documents"><i class="icon-speedometer"></i><span class="hide-menu">Examen</span></a>
                         </li>
 
-                         <li class="nav-small-cap"></li>
+                        <li class="nav-small-cap"></li>
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Aide</span></a>
-                        </li>
-
-                         <li class="nav-small-cap"></li>
-
-                         <li> <a href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Contact</span></a>
+                        <li> <a id="concour_documents"><i class="ti-layout-grid2"></i><span class="hide-menu">Concours</span></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
@@ -462,7 +457,7 @@
 
 
             <!-- Course Section -->
-            <div class="row" style="display: ;">
+            <div class="row" >
                 <div class="col-lg-12">                  
                     <div id="course_matter" >
                         <div class="col-lg-12">
@@ -481,13 +476,13 @@
             </div>            
             <!-- End Course Section-->
 
-            <!-- Preferred documents -->
+            <!-- Resume documents -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div id="preferred_documents" >
+                    <div id="resume_section" >
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Mes documents préférés</h4>
+                                <h4 class="card-title">Les résumés</h4>
                                 <div class="table-responsive">
                                     <table class="table">
                                     
@@ -527,15 +522,15 @@
                     </div>
                 </div>
             </div>
-            <!-- End Preferred documents -->
+            <!-- End Resume documents -->
 
-            <!-- Preferred documents Section -->
+            <!-- Serie documents -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div id="preferred_documents_section" >
+                    <div id="serie_section" style="display: none;" >
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Mes documents préférés</h4>
+                                <h4 class="card-title">Les séries</h4>
                                 <div class="table-responsive">
                                     <table class="table">
                                     
@@ -575,15 +570,16 @@
                     </div>
                 </div>
             </div>
-            <!-- End Preferred documents Section -->
+            <!-- End Serie documents -->
 
-            <!-- Visited documents Section -->
+
+            <!-- Devoirs documents -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div id="visited_documents_section" >
+                    <div id="devoir_section"  style="display: none;" >
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Mes documents préférés</h4>
+                                <h4 class="card-title">Les devoirs</h4>
                                 <div class="table-responsive">
                                     <table class="table">
                                     
@@ -623,163 +619,104 @@
                     </div>
                 </div>
             </div>
-            <!-- End Visited documents Section -->
+            <!-- End Devoir documents -->
 
-            <!--  New documents  -->
+            <!-- Examen documents -->
             <div class="row">
-                <div class="col-lg-6">
-                    <div id="new_documents" >
+                <div class="col-lg-12">
+                    <div id="examen_section"  style="display: none;">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Nouveaux documents</h4>
+                                <h4 class="card-title">Les examens</h4>
                                 <div class="table-responsive">
-                                <table class="table">
-                                
-                                    <thead>
-                                        <tr>
-                                            <th>Sujet</th>
-                                            <th>Matière</th>                                            
-                                            <th>Trimestre</th>
-                                            <th>Type</th>
-                                            <th>Année</th>
-                                            <th>Section</th>
-                                            <th>Niveau</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <% @documents.each do |d| %>
+                                    <table class="table">
+                                    
+                                        <thead>
                                             <tr>
-                                                <td class="text-oflo"><%= d.document_subject %></td>
-                                                <td class="txt-oflo"><%= d.document_course %></td>
-                                                <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                                <td class="txt-oflo"><%= d.document_type %></td>
-                                                <td><span class="text-success"><%= d.document_year %></span></td>
-                                                <td><span class="text-success"><%= d.document_section %></span></td>
-                                                <td><span class="text-success"><%= d.document_level %></span></td>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
                                             </tr>
+                                        </thead>
+                                        <tbody>
 
-                                        <% end %>
+                                            <% @second_year_pc.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= d.document_subject %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
 
-                                    </tbody>
+                                            <% end %>
 
-                                </table>
-                                
-                            </div>
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- End new documents  -->
-
-                <!-- Visited documents -->
-                <div class="col-lg-6">
-                    <div id="visited_documents" >
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Documents les plus visités</h4>
-                                <div class="table-responsive">
-                                <table class="table">
-                                
-                                    <thead>
-                                        <tr>
-                                            <th>Sujet</th>
-                                            <th>Matière</th>                                            
-                                            <th>Trimestre</th>
-                                            <th>Type</th>
-                                            <th>Année</th>
-                                            <th>Section</th>
-                                            <th>Niveau</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <% @documents.each do |d| %>
-                                            <tr>
-                                                <td class="text-oflo"><%= d.document_subject %></td>
-                                                <td class="txt-oflo"><%= d.document_course %></td>
-                                                <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                                <td class="txt-oflo"><%= d.document_type %></td>
-                                                <td><span class="text-success"><%= d.document_year %></span></td>
-                                                <td><span class="text-success"><%= d.document_section %></span></td>
-                                                <td><span class="text-success"><%= d.document_level %></span></td>
-                                            </tr>
-
-                                        <% end %>
-
-                                    </tbody>
-
-                                </table>
-                                
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Visited documents -->
-                
             </div>
+            <!-- End Examen documents -->
 
-            <!-- Help Section -->
-            <div class="row" style="display: ;">
-                <div class="col-lg-12">                  
-                    <div id="course_matter" >
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Aide</h4>
-                                        <div id="accordion2" role="tablist" class="minimal-faq" aria-multiselectable="true">
-                                        <div class="card m-b-0">
-                                            <div class="card-header" role="tab" id="headingOne11">
-                                                <h5 class="mb-0">
-                                                <a class="link" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne11" aria-expanded="true" aria-controls="collapseOne11">
-                                                  Q1. How can i purchase this admin ?
-                                                </a>
-                                              </h5>
-                                            </div>
-                                            <div id="collapseOne11" class="collapse show" role="tabpanel" aria-labelledby="headingOne11">
-                                                <div class="card-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card m-b-0">
-                                            <div class="card-header" role="tab" id="headingTwo22">
-                                                <h5 class="mb-0">
-                                                <a class="collapsed link" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo22" aria-expanded="false" aria-controls="collapseTwo22">
-                                                  Q2. How to modify Navigation?
-                                                </a>
-                                              </h5>
-                                            </div>
-                                            <div id="collapseTwo22" class="collapse" role="tabpanel" aria-labelledby="headingTwo22">
-                                                <div class="card-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card m-b-0">
-                                            <div class="card-header" role="tab" id="headingThree33">
-                                                <h5 class="mb-0">
-                                                <a class="collapsed link" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree33" aria-expanded="false" aria-controls="collapseThree33">
-                                                  Q3. How to get yearly Support?
-                                                </a>
-                                              </h5>
-                                            </div>
-                                            <div id="collapseThree33" class="collapse" role="tabpanel" aria-labelledby="headingThree33">
-                                                <div class="card-body">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                                </div>
-                                            </div>
-                                        </div>
+            <!-- Concour documents -->
+            <div class="row" >
+                <div class="col-lg-12">
+                    <div id="concour_section" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Les concours</h4>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                    </div>
-                                </div>   
-                            </div>                                              
+                                            <% @second_year_pc.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= d.document_subject %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>            
-            <!-- End Help Section-->
+            </div>
+            <!-- End Concours documents -->
+
                     
                 </div>
             </div>
@@ -791,14 +728,59 @@
 
 </html>
 <script type="text/javascript">
-    jQuery( document ).ready(function( $ ) {
+    
+jQuery( document ).ready(function( $ ) {
 
-   //Use this inside your document ready jQuery 
    $(window).on('popstate', function() {
       location.reload(true);
    });
 
 });
+
+$('#resume_documents').on('click', function(event) {
+    jQuery('#resume_section').css("display","block");
+    jQuery('#serie_section').css("display","none");
+    jQuery('#devoir_section').css("display","none");
+    jQuery('#examen_section').css("display","none");
+    jQuery('#concour_section').css("display","none");
+    
+});
+
+$('#serie_documents').on('click', function(event) {
+    jQuery('#resume_section').css("display","none");
+    jQuery('#serie_section').css("display","block");
+    jQuery('#devoir_section').css("display","none");
+    jQuery('#examen_section').css("display","none");
+    jQuery('#concour_section').css("display","none");
+    
+});
+
+$('#devoir_documents').on('click', function(event) {
+    jQuery('#resume_section').css("display","none");
+    jQuery('#serie_section').css("display","none");
+    jQuery('#devoir_section').css("display","block");
+    jQuery('#examen_section').css("display","none");
+    jQuery('#concour_section').css("display","none");
+    
+});
+
+$('#examen_documents').on('click', function(event) {
+    jQuery('#resume_section').css("display","none");
+    jQuery('#serie_section').css("display","none");
+    jQuery('#devoir_section').css("display","none");
+    jQuery('#examen_section').css("display","block");
+    jQuery('#concour_section').css("display","none");
+    
+});
+$('#concour_documents').on('click', function(event) {
+    jQuery('#resume_section').css("display","none");
+    jQuery('#serie_section').css("display","none");
+    jQuery('#devoir_section').css("display","none");
+    jQuery('#examen_section').css("display","none");
+    jQuery('#concour_section').css("display","block");
+    
+});
+
 
 
 </script>
