@@ -22,6 +22,8 @@
 <![endif]-->
 </head>
 
+<!-- Check if user is signed in  -->
+<% if user_signed_in? %>
 <body class="skin-red fixed-layout lock-nav">
 
     <!-- ============================================================== -->
@@ -362,7 +364,7 @@
                         <li> <a id="concour_documents"><i class="ti-layout-grid2"></i><span class="hide-menu">Concours</span></a>
                         </li>
 
-                         <li class="nav-small-cap"></li>
+                        <li class="nav-small-cap"></li>
 
 
                     </ul>
@@ -725,6 +727,9 @@
     </div>
 
 </body>
+<% else %>
+Merci de se connecter
+<% end %>
 
 </html>
 <script type="text/javascript">

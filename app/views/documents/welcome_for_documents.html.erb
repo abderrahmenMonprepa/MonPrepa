@@ -11,17 +11,10 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
     <title>Elegant Admin Template - The Ultimate Multipurpose admin template</title>
-    <!-- This page CSS -->
-    <!-- chartist CSS -->
-    
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
 
+<!-- Check if user is signed in  -->
+<% if user_signed_in? %>
 <body class="skin-red fixed-layout lock-nav">
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
@@ -795,6 +788,9 @@
     </div>
 
 </body>
+<% else %>
+Merci de se connecter
+<% end %>
 
 </html>
 <script type="text/javascript">
