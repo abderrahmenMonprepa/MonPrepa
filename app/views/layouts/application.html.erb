@@ -115,7 +115,7 @@
 
   <%= render 'layouts/messages'%> 
   <%= yield %>
-  <% if controller_name != 'registrations' and controller_name != 'users' %>
+  <% if controller_name != 'registrations' and controller_name != 'users'  and controller_name != 'documents' %>
     <%= render 'layouts/footer'%>
   <% end %>
 
