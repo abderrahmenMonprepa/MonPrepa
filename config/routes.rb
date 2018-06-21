@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   # Change path for admin later
   get 'admin' => 'admin/dashboard#index'
   get 'het_el_kazi' => 'documents#het_el_kazi'
+  get 'preferred_documents' => 'documents#preferred_documents'
 end

@@ -121,6 +121,7 @@ class DocumentsController < ApplicationController
    def user_documents
 
     if user_signed_in?
+      @user = current_user
       @first_year_pc = Document.first_year_pc
       @first_year_mp = Document.first_year_mp
       @first_year_pt = Document.first_year_pt
@@ -175,6 +176,12 @@ class DocumentsController < ApplicationController
     else
       @documents = Document.all
     end
+  end
+
+  def preferred_documents
+    # To Do
+    # Select preferred documents
+    @preferred_documents = Document.all
   end
 
 
