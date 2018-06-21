@@ -10,23 +10,12 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png">
-    <title>Elegant Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>MonPrepa</title>
 </head>
 
 <!-- Check if user is signed in  -->
 <% if user_signed_in? %>
 <body class="skin-red fixed-layout lock-nav">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-<!--     <div class="preloader">
-        <div class="loader">
-            <div class="loader__figure"></div>
-        </div>
-    </div> -->
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
@@ -37,24 +26,18 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                        
                         <!-- Logo icon --><b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="/assets/logo-icon.png" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo icon -->
-                            <img src="/assets/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        <%= link_to root_path do %>
+                            <%= image_tag "logo-light-icon.png", class: "light-logo" %>
+                        <% end %>
+                        <!-- Text icon -->
+                        <%= link_to root_path do %>
+                           <%= image_tag "logo-light-text.png", class: "light-logo" %>
+                        <% end %>
                         </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span>
-                         <!-- dark Logo text -->
-                         <img src="assets/logo-text.png" alt="homepage" class="dark-logo" />
-                         <!-- Light Logo text -->    
-                         <img src="assets/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
+
                 <div class="navbar-collapse" >
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
@@ -340,31 +323,31 @@
 
                         
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Accueil</span></a>
+                        <li> <a id="accueil" ><i class="icon-speedometer"></i><span class="hide-menu">Accueil</span></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Explorer</span></a>
+                        <li> <a id="explore" ><i class="ti-layout-grid2"></i><span class="hide-menu">Explorer</span></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="ti-email"></i><span class="hide-menu">Favoris</span></a>
+                        <li> <a id="favori" ><i class="ti-email"></i><span class="hide-menu">Favoris</span></a>
                         </li>
                         <li class="nav-small-cap"></li>
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Historique</span></a>
+                        <li> <a id="historique" ><i class="icon-speedometer"></i><span class="hide-menu">Historique</span></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
 
-                        <li> <a href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Aide</span></a>
+                        <li> <a id="aide" ><i class="ti-layout-grid2"></i><span class="hide-menu">Aide</span></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
 
-                         <li> <a href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Contact</span></a>
+                         <li> <a id="contact" ><i class="ti-layout-grid2"></i><span class="hide-menu">Contact</span></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
@@ -376,12 +359,7 @@
             </div>
             <!-- End Sidebar scroll-->
         </aside>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -391,11 +369,11 @@
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
              
-            <!-- MonPrepa message -->  
+            <!-- MonPrepa Accueil --> 
+            <div   id="accueil_section"> 
             <div class="row">
                 <div class="col-lg-12">                
-                    <div id="search_user" >
-                        <!-- column -->
+                    <div>
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
@@ -415,76 +393,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End MonPrepa message -->
 
-
-            <!-- Search Document -->
-            <div class="row" style="display: ;">
-                <div class="col-lg-12">                  
-                    <div id="search_document" >
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                <center>
-                                    <h4 class="card-title">Rechercher un document</h4>
-                                    <div class="">
-                                        <%= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
-                                                    <div class="col-md-12 text-center" style="margin:auto;">
-
-                                                        <p> Type </p>
-                                                        <p>    <%= text_field_tag :search_type, params[:search_type] , class: 'form-control'  %> </p>
-                                                        <p> Cours </p>
-                                                        <p>    <%= text_field_tag :search_course, params[:search_course] , class: 'form-control'  %> </p>
-                                                        <p> Année </p>
-                                                        <p>    <%= text_field_tag :search_year, params[:search_year] , class: 'form-control'  %> </p>
-
-                                                             <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_documents()' , class: 'btn btn-success' %>  <br />
-                                                    </div>
-                                        <% end %>
-                                    </div>
-                                </center>
-                                   <div class="table-responsive">
-                                        <div id="get_searched_documents" style="display: none;">
-                                            <div id='documents' class="col-md-12 text-center" style="margin:auto;">
-                                                <%= render 'user_search_documents' %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>                  
-                </div>   
-            </div> 
-            <!-- End Search Document -->
-
-
-            <!-- Course Section -->
-            <div class="row" style="display: ;">
-                <div class="col-lg-12">                  
-                    <div id="course_matter" >
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Sélectionner une matière</h4>
-                                    <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Math</a>
-                                    <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Physique</a>                                                 
-                                    <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Technique</a>                                                
-                                    <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Français</a>
-                                </div>   
-                            </div>                                              
-                        </div>
-                    </div>
-                </div>
-            </div>            
-            <!-- End Course Section-->
-
-            <!-- Preferred documents -->
-            <div class="row">
                 <div class="col-lg-12">
-                    <div id="preferred_documents" >
+                    <div>
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Mes documents préférés</h4>
@@ -526,13 +437,168 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-6">
+                    <div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Nouveaux documents</h4>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @second_year_pc.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= d.document_subject %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Documents les plus visités</h4>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @second_year_pc.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= d.document_subject %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
-            <!-- End Preferred documents -->
+            </div>
+            <!-- End MonPrepa Accueil -->
+
+
+            <!-- Explore Document -->
+            <div class="row">
+                <div class="col-lg-12">                  
+                    <div id="explore_section"  style="display: none ;">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                <center>
+                                    <h4 class="card-title">Rechercher un document</h4>
+                                    <div class="">
+                                        <%= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
+                                                    <div class="col-md-12 text-center" style="margin:auto;">
+
+                                                        <p> Type </p>
+                                                        <p>    <%= text_field_tag :search_type, params[:search_type] , class: 'form-control'  %> </p>
+                                                        <p> Cours </p>
+                                                        <p>    <%= text_field_tag :search_course, params[:search_course] , class: 'form-control'  %> </p>
+                                                        <p> Année </p>
+                                                        <p>    <%= text_field_tag :search_year, params[:search_year] , class: 'form-control'  %> </p>
+
+                                                             <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_documents()' , class: 'btn btn-success' %>  <br />
+                                                    </div>
+                                        <% end %>
+                                    </div>
+                                </center>
+                                   <div class="table-responsive">
+                                        <div id="get_searched_documents" style="display: none;">
+                                            <div id='documents' class="col-md-12 text-center" style="margin:auto;">
+                                                <%= render 'user_search_documents' %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>                  
+                </div>   
+            </div> 
+            <!-- End Explore Document -->
+
+
+            <!-- Course Section -->
+            <div class="row">
+                <div class="col-lg-12">                  
+                    <div id="course_matter"  style="display: none">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Sélectionner une matière</h4>
+                                    <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Math</a>
+                                    <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Physique</a>                                                 
+                                    <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Technique</a>                                                
+                                    <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Français</a>
+                                </div>   
+                            </div>                                              
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            <!-- End Course Section-->
+
 
             <!-- Preferred documents Section -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div id="preferred_documents_section" >
+                    <div id="favori_section"  style="display: none">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Mes documents préférés</h4>
@@ -578,12 +644,12 @@
             <!-- End Preferred documents Section -->
 
             <!-- Visited documents Section -->
-            <div class="row">
+            <div class="row" >
                 <div class="col-lg-12">
-                    <div id="visited_documents_section" >
+                    <div id="historique_section" style="display: none;" >
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Mes documents préférés</h4>
+                                <h4 class="card-title">Mes documents visités</h4>
                                 <div class="table-responsive">
                                     <table class="table">
                                     
@@ -625,105 +691,12 @@
             </div>
             <!-- End Visited documents Section -->
 
-            <!--  New documents  -->
-            <div class="row">
-                <div class="col-lg-6">
-                    <div id="new_documents" >
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Nouveaux documents</h4>
-                                <div class="table-responsive">
-                                <table class="table">
-                                
-                                    <thead>
-                                        <tr>
-                                            <th>Sujet</th>
-                                            <th>Matière</th>                                            
-                                            <th>Trimestre</th>
-                                            <th>Type</th>
-                                            <th>Année</th>
-                                            <th>Section</th>
-                                            <th>Niveau</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
 
-                                        <% @documents.each do |d| %>
-                                            <tr>
-                                                <td class="text-oflo"><%= d.document_subject %></td>
-                                                <td class="txt-oflo"><%= d.document_course %></td>
-                                                <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                                <td class="txt-oflo"><%= d.document_type %></td>
-                                                <td><span class="text-success"><%= d.document_year %></span></td>
-                                                <td><span class="text-success"><%= d.document_section %></span></td>
-                                                <td><span class="text-success"><%= d.document_level %></span></td>
-                                            </tr>
-
-                                        <% end %>
-
-                                    </tbody>
-
-                                </table>
-                                
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End new documents  -->
-
-                <!-- Visited documents -->
-                <div class="col-lg-6">
-                    <div id="visited_documents" >
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Documents les plus visités</h4>
-                                <div class="table-responsive">
-                                <table class="table">
-                                
-                                    <thead>
-                                        <tr>
-                                            <th>Sujet</th>
-                                            <th>Matière</th>                                            
-                                            <th>Trimestre</th>
-                                            <th>Type</th>
-                                            <th>Année</th>
-                                            <th>Section</th>
-                                            <th>Niveau</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <% @documents.each do |d| %>
-                                            <tr>
-                                                <td class="text-oflo"><%= d.document_subject %></td>
-                                                <td class="txt-oflo"><%= d.document_course %></td>
-                                                <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                                <td class="txt-oflo"><%= d.document_type %></td>
-                                                <td><span class="text-success"><%= d.document_year %></span></td>
-                                                <td><span class="text-success"><%= d.document_section %></span></td>
-                                                <td><span class="text-success"><%= d.document_level %></span></td>
-                                            </tr>
-
-                                        <% end %>
-
-                                    </tbody>
-
-                                </table>
-                                
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Visited documents -->
-                
-            </div>
 
             <!-- Help Section -->
-            <div class="row" style="display: ;">
+            <div class="row" >
                 <div class="col-lg-12">                  
-                    <div id="course_matter" >
+                    <div id="aide_section" style="display: none;" >
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
@@ -780,6 +753,22 @@
                 </div>
             </div>            
             <!-- End Help Section-->
+
+            <!-- Contact section -->
+            <div class="col-lg-12" >
+                    <div id="contact_section" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Contact</h4>
+                                <div class="table-responsive">
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- End contact section -->
                     
                 </div>
             </div>
@@ -811,5 +800,64 @@
 function display_documents() {
     $('#get_searched_documents').css('display', 'block');
 }
+
+$('#accueil').on('click', function(event) {
+    jQuery('#accueil_section').css("display","block");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
+    
+});
+
+$('#explore').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","block");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
+    
+});
+
+$('#favori').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#favori_section').css("display","block");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
+    
+});
+
+$('#historique').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","block");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
+    
+});
+$('#aide').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","block");
+    jQuery('#contact_section').css("display","none");
+    
+});
+
+$('#contact').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","block");
+    
+});
 </script>
 
