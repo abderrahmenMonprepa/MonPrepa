@@ -86,6 +86,9 @@ class DocumentsController < ApplicationController
 
   def welcome_for_documents
 
+    if user_signed_in?
+      @user = current_user
+    end
     @documents = Document.all
     @first_year_pc = Document.first_year_pc
     @first_year_mp = Document.first_year_mp
