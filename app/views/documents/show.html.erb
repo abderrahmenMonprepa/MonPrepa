@@ -13,24 +13,26 @@
                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#video" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Videos</span></a> </li>
             </ul>
             <!-- Tab panes -->
-            <div class="tab-content tabcontent-border">
-                <div class="tab-pane active" id="enonce" role="tabpanel">
-                    <div class="p-20">
-                        <p><iframe src=<%= @document.pdf_file_corrige %>  height="780" width="100%" > </iframe></p>
-                    </div>
-                </div>
-                <div class="tab-pane  p-20" id="corrige" role="tabpanel">
+            <% if not @document.pdf_file_corrige_file_size.nil? %>
+              <div class="tab-content tabcontent-border">
+                  <div class="tab-pane active" id="enonce" role="tabpanel">
+                      <div class="p-20">
+                          <p><iframe src=<%= @document.pdf_file_corrige %>  height="780" width="100%" > </iframe></p>
+                      </div>
+                  </div>
+                  <div class="tab-pane  p-20" id="corrige" role="tabpanel">
 
-                  <iframe src=<%= @document.pdf_file_enonce %>  height="780" width="100%" > </iframe>  
+                    <iframe src=<%= @document.pdf_file_enonce %>  height="780" width="100%" > </iframe>  
 
-                </div>
+                  </div>
 
-                <div class="tab-pane p-20" id="video" role="tabpanel">
+                  <div class="tab-pane p-20" id="video" role="tabpanel">
 
-                  video section
+                    video section
 
-                </div>
-            </div>
+                  </div>
+              </div>
+            <% end %>
         </div>
     </div>
 </div>

@@ -44,14 +44,14 @@ class Document < ApplicationRecord
 	has_many :document_favoris
 
 	#Mounts paperclip enenoce_file
-	# has_attached_file :pdf_file_enonce
-	# validates_attachment_presence :pdf_file_enonce
-	# validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']
+	has_attached_file :pdf_file_enonce
+	validates_attachment_presence :pdf_file_enonce
+	validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']
 
 	# #Mounts paperclip corrige file
-	# has_attached_file :pdf_file_corrige
-	# validates_attachment_presence :pdf_file_enonce
-	# validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']
+	has_attached_file :pdf_file_corrige
+	validates_attachment_presence :pdf_file_enonce
+	validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']
 
 	# size: { in: 0..50.megabytes }
 end

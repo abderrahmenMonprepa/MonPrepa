@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    puts "#{@comment} +++++++++++++++++++++++++++++"
     # respond_to do |format|
       if @comment.save
         # format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
@@ -35,6 +35,10 @@ class CommentsController < ApplicationController
       else
         # format.html { render :new }
         # format.json { render json: @comment.errors, status: :unprocessable_entity }
+        flash[:notice] = "Commentaire echec"
+        puts '@comment errors : --------------------'
+        # puts "#{@commet.errors.full_messages}"
+        redirect_to documents_path
       end
     # end
   end

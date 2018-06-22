@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 col-sm-12 text-center p-t-100 p-b-100 wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="1500ms">
-				<h1 class="m-b-40">Want to make a landing page, <br> let's start with <span class="f-w-700">leadon</span></h1>
+				<h1 class="m-b-60">Documents et Vidéos de révision en ligne pour les classes préparatoires <br>  <span class="f-w-700">Commencer avec MonPrepa</span></h1>
 				<% if !user_signed_in? %>
 				<a><%= link_to "Essayer gratuitement" , new_user_registration_path , class: "btn btn-lg white" %>
 				</a>
@@ -18,7 +18,6 @@
 				</a>
 				<% end  %>
 			</div>
-
 		</div>
 	</div>
 </section>
@@ -27,73 +26,56 @@
 <section id="features_1">
 	<div class="container">
 		<div class="row text-center m-b-20">
-			<!-- Feature #01 -->
-			<div class="col-md-3 col-sm-6 f-body-2">
-				<div><span class="theme-col ti-mobile font-40"></span></div>
-				<h4 class="m-t-10 no-m-b">Fully Responsive</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptas dolorum iusto omnis repellat ipsum,</p>
+				<!-- Feature #01 -->
+				<div class="col-md-3 col-sm-6 f-body-2">
+					<div><span class="theme-col font-60">MP</span></div>
+					<h4 class="m-t-10 no-m-b">Math-Physique</h4>
+				</div>
+				<!-- End Feature #01 -->
+
+				<!-- Feature #02 -->
+				<div class="col-md-3 col-sm-6 f-body-2">
+					<div><span class="theme-col font-60">PC</span></div>
+					<h4 class="m-t-10 no-m-b">Physique-Chimie</h4>
+				</div>
+				<!-- End Feature #02 -->
+
+				<!-- Feature #03 -->
+				<div class="col-md-3 col-sm-6 f-body-2">
+					<div><span class="theme-col  font-60">PT</span></div>
+					<h4 class="m-t-10 no-m-b">Technologie</h4>
+				</div>
+				<!-- End Feature #03 -->
+
+				<!-- Feature #04 -->
+				<div class="col-md-3 col-sm-6 f-body-2">
+					<div><span class="theme-col  font-60">BG</span></div>
+					<h4 class="m-t-10 no-m-b">Biologie-Géologie</h4>
+				</div>
+				<!-- End Feature #04 -->
+			</div>
+			<br>
+			<br>
+			<div class="row text-center m-b-20"> 
+
+				<div class="col-md-3 col-sm-6 f-body-2" style="visibility: hidden;">
+					<div><span class="theme-col font-60">PC</span></div>
+					<h4 class="m-t-10 no-m-b">Physique-Chimie</h4>
+				</div>
+
+				<div class="col-md-3 col-sm-6 f-body-2">
+					<h4 class="m-t-10 no-m-b" style="font-size: 80px;">1ère</h4>
+				</div>
+
+				<div class="col-md-3 col-sm-6 f-body-2">
+					<h4 class="m-t-10 no-m-b" style="font-size: 80px;">2ème</h4>
+				</div>
+
 			</div>
 
 
-			<!-- End Feature #01 -->
+		
 
-			<!-- Feature #02 -->
-			<div class="col-md-3 col-sm-6 f-body-2">
-				<div><span class="theme-col ti-settings font-40"></span></div>
-				<h4 class="m-t-10 no-m-b">SEO Optimized</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptas dolorum iusto omnis repellat ipsum,</p>
-			</div>
-			<!-- End Feature #02 -->
-
-			<!-- Feature #03 -->
-			<div class="col-md-3 col-sm-6 f-body-2">
-				<div><span class="theme-col ti-paint-bucket font-40"></span></div>
-				<h4 class="m-t-10 no-m-b">Simple Design</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptas dolorum iusto omnis repellat ipsum,</p>
-			</div>
-			<!-- End Feature #03 -->
-
-			<!-- Feature #04 -->
-			<div class="col-md-3 col-sm-6 f-body-2">
-				<div><span class="theme-col ti-panel font-40"></span></div>
-				<h4 class="m-t-10 no-m-b">Flexible Coding</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptas dolorum iusto omnis repellat ipsum,</p>
-			</div>
-			<!-- End Feature #04 -->
-		</div>
-		<div class="row text-center">
-			<!-- Feature #05 -->
-			<div class="col-md-3 col-sm-6 f-body-2">
-				<div><span class="theme-col ti-email font-40"></span></div>
-				<h4 class="m-t-10 no-m-b">Mailchimp Integration</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptas dolorum iusto omnis repellat ipsum,</p>
-			</div>
-			<!-- End Feature #05 -->
-
-			<!-- Feature #06 -->
-			<div class="col-md-3 col-sm-6 f-body-2">
-				<div><span class="theme-col ti-pencil-alt font-40"></span></div>
-				<h4 class="m-t-10 no-m-b">Commented Code</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptas dolorum iusto omnis repellat ipsum,</p>
-			</div>
-			<!-- End Feature #06 -->
-
-			<!-- Feature #07 -->
-			<div class="col-md-3 col-sm-6 f-body-2">
-				<div><span class="theme-col ti-help-alt font-40"></span></div>
-				<h4 class="m-t-10 no-m-b">Well Documented</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptas dolorum iusto omnis repellat ipsum,</p>
-			</div>
-			<!-- End Feature #07 -->
-
-			<!-- Feature #08 -->
-			<div class="col-md-3 col-sm-6 f-body-2">
-				<div><span class="theme-col ti-write font-40"></span></div>
-				<h4 class="m-t-10 no-m-b">Easy Customization</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus voluptas dolorum iusto omnis repellat ipsum,</p>
-			</div>
-			<!-- End Feature #08 -->
-		</div>
 	</div>
 </section>
 <!-- End Features Section -->
@@ -104,14 +86,14 @@
 		<div class="row">
 			<div class="col-md-6 left-content">
 				<!-- Large Title -->
-				<h2>Explore awesomeness</h2>
+				<h2>Corrigé d'examen</h2>
 				<!-- Small title -->
-				<p class="h4">A product that will help you to make better conversion report on time.</p>
+				<p class="h4">Résumés, Série d'exercices, Devoirs surveillés, Examens et Concours avec corrigés.</p>
 				<!-- Text content -->
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, praesentium debitis ex sapiente, rem, quis laborum et fugiat autem enim ipsam. Temporibus nostrum, ipsum illo eligendi fugiat porro odit perspiciatis! ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, distinctio</p>
+				<p class="lead">Les énoncés des différents sujets sont clairs, les corrections sont rédigées par les enseignats des institutions préparatoires.  </p>
 				<!-- Buttons -->
-				<a href="#" class="btn">Reveal all features</a>
-				<a href="#" class="btn btn-secondary">Signup for trial</a>
+				<a href="#" class="btn">Voir exemple Enéoncé</a>
+				<a href="#" class="btn btn-secondary">Voir exemple Corrigé</a>
 			</div>
 			<div class="col-md-6">
 				<!-- Right side image -->
@@ -134,17 +116,17 @@
 			<div class="col-md-7">
 
 				<!-- Title -->
-				<h2 class="no-m-b">Have A Look On LeadOn</h2>
+				<h2 class="no-m-b">Vidéo de révision</h2>
 				
 				<!-- Description -->
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa molestias ea nisi deserunt temporibus eveniet alias repellendus suscipit pariatur, vero possimus id reiciendis sapiente molestiae unde corporis nam quia.</p>
+				<p class="lead">Des corrections de sujets par des enseignats des différents établissements préparatoires</p>
 
 				<!-- Feature #01 -->
 				<div class="f-box m-b-20">
 					<div class="f-icon"><span class="ti-layers-alt"></span></div>
 					<div class="f-text">
-						<h5>Easy To Customize Sections</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolore praesentium necessitatibus iste modi quaerat accusantium adipisci dolor, optio excepturi.</p>
+						<h5>Correction détaillée</h5>
+						<p>Nos enseignats offrent une correction détaillée des examens et des concours, ils essayent d'expliquer tous les trucs.   </p>
 					</div>
 				</div>
 				<!-- End Feature #01 -->
@@ -152,8 +134,8 @@
 				<div class="f-box m-b-20">
 					<div class="f-icon"><span class="ti-mobile"></span></div>
 					<div class="f-text">
-						<h5>Modern user interface</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolore praesentium necessitatibus iste modi quaerat accusantium adipisci dolor, optio excepturi.</p>
+						<h5>Résolution HD</h5>
+						<p>Pour vous offrir une expérience de visionnage optimale, MonPrepa fournit une qualité en haute définition. </p>
 					</div>
 				</div>
 				<!-- End Feature #02 -->
@@ -162,8 +144,8 @@
 				<div class="f-box">
 					<div class="f-icon"><span class="ti-star"></span></div>
 					<div class="f-text">
-						<h5>Cross Browser Tested</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolore praesentium necessitatibus iste modi quaerat accusantium adipisci dolor, optio excepturi.</p>
+						<h5>Corrigé tapé</h5>
+						<p>Chaque vidéo est fournie avec un contenu PDF pour l'utiliser comme un support de révision.</p>
 					</div>
 				</div>
 				<!-- End Feature #03 -->
@@ -181,22 +163,22 @@
 			<div class="col-sm-3">
 				<!-- First Number -->
 				<div class="count">60</div>
-				<div class="title">team members</div>
+				<div class="title">videos de révision</div>
 			</div>
 			<div class="col-sm-3">
 				<!-- Second Number -->
-				<div class="count">2347</div>
-				<div class="title">Projects Completed</div>
+				<div class="count">200</div>
+				<div class="title">Cours</div>
 			</div>
 			<div class="col-sm-3">
 				<!-- Third Number -->
-				<div class="count">4713</div>
-				<div class="title">cups of coffee</div>
+				<div class="count">45</div>
+				<div class="title">Concours corrigés</div>
 			</div>
 			<div class="col-sm-3">
 				<!-- Fourth Number -->
-				<div class="count">624</div>
-				<div class="title">reviews</div>
+				<div class="count">120</div>
+				<div class="title">Devoirs surveillés</div>
 			</div>
 		</div>
 	</div>
@@ -210,22 +192,25 @@
 		<div class="row m-b-40">
 			<div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
 				<!-- Title -->
-				<h2>Plans &amp; pricing</h2>
+				<h2>Nos offres</h2>
 
 				<!-- Description -->
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid tempora ut maiores, sint dolor quas numquam, voluptatibus labore necessitatibus officia tenetur.</p>
+				<p class="lead">MonPrepa vous présente un prix exceptionnel.</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4 left-content">
 				<!-- Left Content Title -->
-				<h5 class="f-w-700">Are you ready to buy</h5>
+				<h5 class="f-w-700">Vous êtes prêts pour acheter ?</h5>
 
 				<!-- Left Content -->
-				<p class="lead">Lorem ipsum dolor sit amet, consec tetur adipi sicing elit. Voluptas cumque totam cum archi tecto adipisci volup tatem, conse quatur conse ctetur, even iet quo nihil, amet. Fugit elig endi dol orem digni ssimos tem pora fugiat nam even iet nihil.</p>
+				<p class="lead">Afin de faciliter l'inscription à notre plateforme, MonPrepa vous offre 3 modes de paiement possibles:</p>
+				<p class="lead"> Carte E-dinar</p>
+				<p class="lead"> Carte bancaire </p>
+				<p class="lead"> Paiement par poste</p>
 
 				<!-- Button -->
-				<a href="#" class="btn btn-sm">Tell me more!</a>
+				<!-- <a href="#" class="btn btn-sm">Tell me more!</a> -->
 
 			</div>
 
@@ -234,15 +219,15 @@
 				<div class="plan-container one">
 					<ul class="plan-details">
 						<!-- Plan Name -->
-						<li class="title">Startup</li>
+						<li class="title">1ère ou 2ème</li>
 						<!-- Amount -->
-						<li class="price">$<span>60</span></li>
+						<li class="price"><span>60</span>dinars</li>
 						<!-- More Info -->
-						<li><b>Single user</b> Analytics</li>
-						<li><b>Forum</b> access</li>
-						<li><b>Email</b> Support</li>
+						<li><b>Devoirs</b></li>
+						<li><b>Tests</b> </li>
+						<li><b>Cours</b> </li>
 						<!-- Order Button -->
-						<li class="button"><a href="#" class="btn">Order Now</a></li>
+						<li class="button"><a href="#" class="btn">Acheter maintenant</a></li>
 					</ul>
 				</div>
 			</div>
@@ -252,12 +237,12 @@
 			<div class="col-md-4 plans wow fadeInUp" data-wow-delay="1000ms" data-wow-duration="1500ms">
 				<div class="plan-container two">
 					<ul class="plan-details">
-						<li class="title">Premium Pack</li>
-						<li class="price">$<span>240</span></li>
-						<li><b>Multi user</b> Analytics</li>
-						<li><b>Community</b> member</li>
-						<li><b>Email / Chat Support</b></li>
-						<li class="button"><a href="#" class="btn btn-secondary">Order Now</a></li>
+						<li class="title">Concours</li>
+						<li class="price"><span>90</span>dinars</li>
+						<li><b>Devoirs</b></li>
+						<li><b>Cours</b> </li>
+						<li><b>Concours corrigés</b> </li>
+						<li class="button"><a href="#" class="btn btn-secondary">Acheter maintenant</a></li>
 					</ul>
 				</div>
 			</div>
@@ -273,9 +258,9 @@
 		<div class="row m-b-40">
 			<div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
 				<!-- Title -->
-				<h2>Responsive Image Gallery</h2>
+				<h2>Gallerie</h2>
 				<!-- description -->
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, nesciunt doloremque, nostrum quisquam perspiciatis facilis sunt illum amet quas ipsum odit accusamus natus fugit sed eligendi rerum magni. Iusto, dolores.</p>
+				<p class="lead">Liste des établissements préparatoire.</p>
 			</div>
 		</div>
 		
@@ -360,29 +345,15 @@
 			<div class="row">
 				<!-- Testimonial Title -->
 				<h3 class="col-md-12 col-sm-12 text-center">
-					Clients saying about us
+					Ce que disent les utilisateurs
 				</h3>
 			</div>
 			<div class="row">
-				<div class="col-md-12 col-sm-12 testimonial-carousel owl-carousel owl-theme text-center">
+				<div class="col-md-12 col-sm-12">
+
 					<!-- Testimonial #01 -->
 					<div class="item testimonail">
-						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime et ea illo aliquam quisquam est nesciunt commodi nisi velit facere ipsam nobis dolor, totam tempore voluptas provident blanditiis minima error.</p>
-						<p class="ratings">
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star"></span>
-							<span class="fa fa-star-o"></span>
-						</p>
-						<h5 class="no-m-b">Chief</h5>
-						<p class="h6">CEO, eden inc.</p>
-					</div>
-					<!-- End Testimonial #01 -->
-
-					<!-- Testimonial #02 -->
-					<div class="item testimonail">
-						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, aliquam dolor, laborum quas possimus ipsam quisquam repudiandae doloribus esse culpa obcaecati, delectus temporibus ipsa, placeat sit voluptatibus mollitia modi eum!</p>
+						<p class="lead">MonPrepa est le premier de son genre en Tunisie ! Enfin je peux révisre pour le concours sans problèmes de tirage et d'impression.</p>
 						<p class="ratings">
 							<span class="fa fa-star"></span>
 							<span class="fa fa-star"></span>
@@ -390,14 +361,30 @@
 							<span class="fa fa-star"></span>
 							<span class="fa fa-star-half-full"></span>
 						</p>
-						<h5 class="no-m-b">Chief</h5>
-						<p class="h6">CEO, place company name</p>
+						<h5 class="no-m-b">Etudiant à IPEIT</h5>
+						<!-- <p class="h6">CEO, place company name</p> -->
+					</div>
+					<!-- End Testimonial #01 -->
+
+					<!-- Testimonial #02 -->
+					<div class="item testimonail">
+						<p class="lead">C'est un seite de e-learning très magnifique !!! J'ai trouvé tous les cours nécessaires ainsi que les devoirs.</p>
+						<p class="ratings">
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star"></span>
+							<span class="fa fa-star-o"></span>
+						</p>
+						<h5 class="no-m-b">Etudiant à IPEIS</h5>
+						<!-- <p class="h6">CEO, eden inc.</p> -->
 					</div>
 					<!-- End Testimonial #02 -->
 
+
 					<!-- Testimonial #03 -->
 					<div class="item testimonail">
-						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis nesciunt maiores unde iste, asperiores aperiam porro non quasi modi ex eveniet vero nemo, eaque quam architecto dolorem! Adipisci, harum, possimus.</p>
+						<p class="lead">Et finalement une plateforme en ligne pour les étudiants de l'école préparatoire. Merci pour les vidéos de correction des concours :) </p>
 						<p class="ratings">
 							<span class="fa fa-star"></span>
 							<span class="fa fa-star"></span>
@@ -405,8 +392,8 @@
 							<span class="fa fa-star"></span>
 							<span class="fa fa-star"></span>
 						</p>
-						<h5 class="no-m-b">Chief</h5>
-						<p class="h6">CEO, eden group</p>
+						<h5 class="no-m-b">Etudiant à IPEIM</h5>
+						<!-- <p class="h6">CEO, eden group</p> -->
 					</div>
 					<!-- End Testimonial #03 -->
 				</div>
@@ -422,9 +409,9 @@
 		<div class="row">
 			<div class="col-md-8 col-sm-12 col-md-offset-2 text-center m-b-40">
 				<!-- Title -->
-				<h2>Our team members</h2>
+				<h2>Notre équipe</h2>
 				<!-- Description -->
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet officia ipsum similique delectus? Iure unde possimus quos ad beatae, eaque at inventore deserunt quisquam, omnis molestias perspiciatis quaerat doloremque vitae?</p>
+				<!-- <p class="lead">L'équipe MonPrepa vous offre</p> -->
 			</div>
 		</div>
 		<div class="row team-member">
@@ -441,9 +428,9 @@
 					<li><a href="#"><span class="fa fa-vimeo"></span></a></li>
 				</ul>
 				<!-- Member Name -->
-				<h4>John Doe</h4>
+				<h4>Saif Ellah Lajmi</h4>
 				<!-- Member Designation -->
-				<p>CEO, Abc inc.</p>
+				<p>Directeur</p>
 			</div>
 			<!-- End Team Member #01 -->
 
@@ -457,8 +444,8 @@
 					<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
 					<li><a href="#"><span class="fa fa-vimeo"></span></a></li>
 				</ul>
-				<h4>John Doe</h4>
-				<p>CEO, Abc inc.</p>
+				<h4>Abderrahmen Masmoudi</h4>
+				<p>Ingénieur informatique</p>
 			</div>
 			<!-- End Team Member #02 -->
 
@@ -472,8 +459,8 @@
 					<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
 					<li><a href="#"><span class="fa fa-vimeo"></span></a></li>
 				</ul>
-				<h4>John Doe</h4>
-				<p>CEO, Abc inc.</p>
+				<h4>Chams Hamza</h4>
+				<p>Préparatrice de documents</p>
 			</div>
 			<!-- End Team Member #03 -->
 
@@ -487,8 +474,8 @@
 					<li><a href="#"><span class="fa fa-dribbble"></span></a></li>
 					<li><a href="#"><span class="fa fa-vimeo"></span></a></li>
 				</ul>
-				<h4>John Doe</h4>
-				<p>CEO, Abc inc.</p>
+				<h4>Imen Rached</h4>
+				<p>Préparatrice de documents</p>
 			</div>
 			<!-- End Team Member #04 -->
 		</div>
@@ -502,9 +489,9 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
 				<!-- Title -->
-				<h3>Have a look on it!</h3>
+				<h3>Nos pertenaires!</h3>
 				<!-- Description -->
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id numquam, provident omnis ullam! Omnis quos accusamus voluptatum. Porro molestiae et minus, aperiam maxime</p>
+				<p class="lead"></p>
 			</div>
 		</div>
 		<div class="row text-center partner-logo">
@@ -524,20 +511,20 @@
 <!-- End Partners Section -->
 
 <!-- Call To Action Section -->
-<section id="cta_2" class="theme-bg">
+<!-- <section id="cta_2" class="theme-bg">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-sm-12 col-md-offset-2 text-center wow fadeInUp" data-wow-delay="1000ms" data-wow-duration="1000ms">
+			<div class="col-md-8 col-sm-12 col-md-offset-2 text-center wow fadeInUp" data-wow-delay="1000ms" data-wow-duration="1000ms"> -->
 				<!-- Title -->
-				<h3>LeadOn - Multi-Purpose Landing Page</h3>
-				<!-- Content -->
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, minima eveniet sequi, eos iste molestiae reprehenderit</p>
+				<!-- <h3>LeadOn - Multi-Purpose Landing Page</h3>
+				Content
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, minima eveniet sequi, eos iste molestiae reprehenderit</p> -->
 				<!-- Button -->
-				<a href="#" class="btn btn-secondary btn-lg">Select LeadOn</a>
+<!-- 				<a href="#" class="btn btn-secondary btn-lg">Select LeadOn</a>
 			</div>
 		</div>
-	</div>
-</section>
+	</div> -->
+<!-- </section> -->
 <!-- End Call To Action Section -->
 
 <!-- Contact Form Section -->
@@ -546,9 +533,9 @@
 		<div class="row m-b-40">
 			<div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
 				<!-- Contact Large Title -->
-				<h3>Hey! are you ready?</h3>
+				<h3>Contact</h3>
 				<!-- Description -->
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium culpa deleniti provident illo soluta nemo, eius sapiente tenetur quis!</p>
+				<!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium culpa deleniti provident illo soluta nemo, eius sapiente tenetur quis!</p> -->
 			</div>
 		</div>
 		<div class="row">
@@ -556,17 +543,17 @@
 
 			<div class="col-md-6 col-sm-12 text wow fadeInRight" data-wow-delay="1500ms" data-wow-duration="1500ms">
 				<!-- Right Side Title -->
-				<h4>We are always happy to help you</h4>
+				<h4>Nous sommes heureux de vous aider</h4>
 				<!-- Text -->
-				<p class="m-b-40">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cumque, adipisci in. Error nostrum aperiam sed laudantium, nam libero. Doloribus officiis repellat eius sed reiciendis molestiae sapiente illum nulla aliquid.</p>
+				<p class="m-b-40">L'équipe MonPrepa sera disponible pour répondre à vos questions.</p>
 				<!-- Address -->
-				<h5><span class="ti-location-pin"></span> 123 king street, melbourne</h5>
+				<h5><span class="ti-location-pin"></span> Route Gremda Km 0.5, Immeuble Medina Centre</h5>
 				<!-- Phone -->
-				<h5><span class="ti-mobile"></span> +3-456 789 1230</h5>
+				<h5><span class="ti-mobile"></span> +216 27 34 55 21</h5>
 				<!-- Email -->
-				<h5><span class="ti-email"></span> autoreply@mysite.com</h5>
+				<h5><span class="ti-email"></span> contact@monprepa.tn</h5>
 				<!-- Timing -->
-				<h5><span class="ti-time"></span> Mon to Sat 6 AM to 10 PM</h5>
+				<h5><span class="ti-time"></span> Lundi jusqu'à Samedi de 08 AM à 18 PM</h5>
 			</div>
 		</div>
 	</div>
@@ -574,12 +561,12 @@
 <!-- End Contact Form Section -->
 
 <% if user_signed_in? %>
-   <span style="color:red"> Your trial period will expire on <%= @value %></span>  Days. <br>
+   <!-- <span style="color:red"> Your trial period will expire on <%#= @value %></span>  Days. <br> -->
 <% end %>
 
 
 <!-- Display the countdown timer in an element -->
-<p id="demo"></p>
+<!-- <p id="demo"></p> -->
 
 <script>
 // Set the date we're counting down to

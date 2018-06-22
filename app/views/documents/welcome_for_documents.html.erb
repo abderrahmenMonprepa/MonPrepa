@@ -474,7 +474,7 @@
 
                                             <% @second_year_pc.each do |d| %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= d.document_subject %></td>
+                                                    <td class="text-oflo"><%= link_to  d.document_type , d %></td>
                                                     <td class="txt-oflo"><%= d.document_course %></td>
                                                     <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= d.document_type %></td>
