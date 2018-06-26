@@ -46,7 +46,7 @@
 
     <% else %>
       <!-- Load JS files -->
-      <%= javascript_include_tag 'application' %>
+      <%= javascript_include_tag 'application' , 'data-turbolinks-track': 'reload'%>
       <%= javascript_include_tag('popper.min') %>
       <%= javascript_include_tag('bootstrap_elegent') %>
       <%= javascript_include_tag('jquery.sparkline.min') %>
@@ -65,7 +65,7 @@
       
 
       <!-- Load StyleSheets files -->
-      <%= stylesheet_link_tag  'application', media: 'all' %>
+      <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= stylesheet_link_tag    'c3.min' %>
       <%= stylesheet_link_tag    'cryptocoins' %>
       <%= stylesheet_link_tag    'dashboard1' %>
@@ -78,6 +78,7 @@
       <%= stylesheet_link_tag    'style' %>
       <%= stylesheet_link_tag    'themify-icons' %>
       <%= stylesheet_link_tag    'weather-icons.min' %>
+
 
   <% end %>
 <!--     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -113,7 +114,12 @@
     <%= render 'layouts/header'%>
   <% end %>
 
-  <%= render 'layouts/messages'%> 
+  <% if controller_name != 'documents' and controller_name != 'registrations' and controller_name != 'users' %>
+    <%= render 'layouts/messages'%> 
+  <% else %>
+    <%= flash_messages %>
+  <% end %>
+  
   <%= yield %>
   <% if controller_name != 'registrations' and controller_name != 'users'  and controller_name != 'documents' %>
     <%= render 'layouts/footer'%>

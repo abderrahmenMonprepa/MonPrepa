@@ -481,6 +481,11 @@
                                                     <td><span class="text-success"><%= d.document_year %></span></td>
                                                     <td><span class="text-success"><%= d.document_section %></span></td>
                                                     <td><span class="text-success"><%= d.document_level %></span></td>
+                                                    <%= form_for DocumentFavori.new do |f| %>
+                                                        <%= f.hidden_field :user_id , value: current_user.id %>
+                                                        <%= f.hidden_field :document_id , value: d.id %>
+                                                        <td><button class="badge badge-success badge-pill" type="submit">Ajouter au favori</button> </td>
+                                                    <% end %>
                                                 </tr>
 
                                             <% end %>
@@ -873,4 +878,6 @@ $('#contact').on('click', function(event) {
     
 });
 </script>
+
+
 

@@ -26,15 +26,14 @@ class DocumentFavorisController < ApplicationController
   def create
     @document_favori = DocumentFavori.new(document_favori_params)
 
-    respond_to do |format|
+
       if @document_favori.save
-        format.html { redirect_to @document_favori, notice: 'Document favori was successfully created.' }
-        format.json { render :show, status: :created, location: @document_favori }
+        redirect_to welcome_for_documents_path
+        flash[:success] = "Ce document a été ajouté avec succès à la liste des Favoris"
       else
-        format.html { render :new }
-        format.json { render json: @document_favori.errors, status: :unprocessable_entity }
+        flash[:success] = "Ce document n'est pas ajouté à la liste des Favoris"
       end
-    end
+
   end
 
   # PATCH/PUT /document_favoris/1
