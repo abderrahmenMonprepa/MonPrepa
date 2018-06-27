@@ -428,15 +428,16 @@
                                         </thead>
                                         <tbody>
 
-                                            <% @second_year_pc.each do |d| %>
+                                            <% @preferred_docs.each do |d| %>
+                                            <% @document = Document.find_by_id(d.document_id) %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= d.document_subject %></td>
-                                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                                    <td><span class="text-success"><%= d.document_section %></span></td>
-                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                    <td class="text-oflo"><%= @document.document_subject %></td>
+                                                    <td class="txt-oflo"><%= @document.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= @document.document_type %></td>
+                                                    <td><span class="text-success"><%= @document.document_year %></span></td>
+                                                    <td><span class="text-success"><%= @document.document_section %></span></td>
+                                                    <td><span class="text-success"><%= @document.document_level %></span></td>
                                                 </tr>
 
                                             <% end %>
@@ -521,15 +522,16 @@
                                         </thead>
                                         <tbody>
 
-                                            <% @second_year_pc.each do |d| %>
+                                            <% @visited_docs.each do |d| %>
+                                            <% @document = Document.find_by_id(d.document_id) %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= d.document_subject %></td>
-                                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                                    <td><span class="text-success"><%= d.document_section %></span></td>
-                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                    <td class="text-oflo"><%= @document.document_subject %></td>
+                                                    <td class="txt-oflo"><%= @document.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= @document.document_type %></td>
+                                                    <td><span class="text-success"><%= @document.document_year %></span></td>
+                                                    <td><span class="text-success"><%= @document.document_section %></span></td>
+                                                    <td><span class="text-success"><%= @document.document_level %></span></td>
                                                 </tr>
 
                                             <% end %>
@@ -637,15 +639,15 @@
                                         <tbody>
 
                                             <% @preferred_docs.each do |d| %>
-                                            <% @doc = Document.find_by_id(d.document_id) %>
+                                            <% @document = Document.find_by_id(d.document_id) %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= @doc.document_subject %></td>
-                                                    <td class="txt-oflo"><%= @doc.document_course %></td>
-                                                    <td><span class="badge badge-success badge-pill"><%= @doc.document_trimestre %></span> </td>
-                                                    <td class="txt-oflo"><%= @doc.document_type %></td>
-                                                    <td><span class="text-success"><%= @doc.document_year %></span></td>
-                                                    <td><span class="text-success"><%= @doc.document_section %></span></td>
-                                                    <td><span class="text-success"><%= @doc.document_level %></span></td>
+                                                    <td class="text-oflo"><%= @document.document_subject %></td>
+                                                    <td class="txt-oflo"><%= @document.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= @document.document_type %></td>
+                                                    <td><span class="text-success"><%= @document.document_year %></span></td>
+                                                    <td><span class="text-success"><%= @document.document_section %></span></td>
+                                                    <td><span class="text-success"><%= @document.document_level %></span></td>
                                                 </tr>
 
                                             <% end %>
@@ -685,15 +687,16 @@
                                         </thead>
                                         <tbody>
 
-                                            <% @second_year_pc.each do |d| %>
+                                            <% @visited_docs.each do |d| %>
+                                            <% @document = Document.find_by_id(d.document_id) %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= d.document_subject %></td>
-                                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                                    <td><span class="text-success"><%= d.document_section %></span></td>
-                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                    <td class="text-oflo"><%= @document.document_subject %></td>
+                                                    <td class="txt-oflo"><%= @document.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= @document.document_type %></td>
+                                                    <td><span class="text-success"><%= @document.document_year %></span></td>
+                                                    <td><span class="text-success"><%= @document.document_section %></span></td>
+                                                    <td><span class="text-success"><%= @document.document_level %></span></td>
                                                 </tr>
 
                                             <% end %>

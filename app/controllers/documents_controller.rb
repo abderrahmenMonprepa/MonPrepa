@@ -12,6 +12,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1.json
   def show
     if user_signed_in?
+      DocumentHistory.create(user_id: current_user.id , document_id: @document.id)
       # @comment = Comment.new
       # @comment.create(user_id: current_user.id , document_id: @document.id)
     end
@@ -107,7 +108,9 @@ class DocumentsController < ApplicationController
 
       # Preferred Documents
       @preferred_docs = DocumentFavori.where(user_id: current_user.id).select("distinct document_id")
-      puts "#{------------------------- @preferred_docs.count}"
+
+      # Visited Documents
+      @visited_docs = DocumentHistory.where(user_id: current_user.id).select("distinct document_id")
     end
 
     # Search documents by type, course and year
