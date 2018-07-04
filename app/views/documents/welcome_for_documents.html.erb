@@ -462,6 +462,7 @@
                                     
                                         <thead>
                                             <tr>
+                                                <th>Statut</th>
                                                 <th>Sujet</th>
                                                 <th>Matière</th>                                            
                                                 <th>Trimestre</th>
@@ -469,12 +470,14 @@
                                                 <th>Année</th>
                                                 <th>Section</th>
                                                 <th>Niveau</th>
+                                                <th>Favori</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            <% @second_year_pc.each do |d| %>
+                                            <% @new_documents.each do |d| %>
                                                 <tr>
+                                                    <td><span class="label label-danger">Nouveau</span> </td>
                                                     <td class="text-oflo"><%= link_to  d.document_type , d %></td>
                                                     <td class="txt-oflo"><%= d.document_course %></td>
                                                     <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
