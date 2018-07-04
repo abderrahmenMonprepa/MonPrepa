@@ -114,10 +114,22 @@ class DocumentsController < ApplicationController
     end
 
     # Search documents by type, course and year
-    if params[:search_type] and params[:search_course] and params[:search_year]
+    if params[:search_type].present? and params[:search_course].present? and params[:search_year].present?
+
       @documents = Document.where("documents.document_type LIKE ? and documents.document_course LIKE ?
        and documents.document_year LIKE ?  ", "#{params[:search_type]}" , "#{params[:search_course]}" , "#{params[:search_year]}" )  
-    else
+
+    elsif params[:search_type].present? and params[:search_course].present? 
+
+      @documents = Document.where("documents.document_type LIKE ? and documents.document_course LIKE ? ", "#{params[:search_type]}" , "#{params[:search_course]}"  ) 
+
+    elsif params[:search_course].present? and params[:search_year].present?
+      
+      @documents = Document.where("documents.document_course LIKE ? and documents.document_year LIKE ?  " , "#{params[:search_course]}" , "#{params[:search_year]}" )  
+    elsif params[:search_type].present?  and params[:search_year].present?
+
+      @documents = Document.where("documents.document_type LIKE ?  and documents.document_year LIKE ?  ", "#{params[:search_type]}" , "#{params[:search_year]}" )   
+    else 
       @documents = Document.all
     end
 
