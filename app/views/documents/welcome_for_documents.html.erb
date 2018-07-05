@@ -120,7 +120,7 @@
                                             <!-- Message -->
                                             <a href="javascript:void(0)">
                                                 <% if signed_in? %>
-                                                <div class="user-img"> <%#= image_tag current_user.avatar.url(:thumb) , class: "img-circle" , width: "60"%> <span class="profile-status online pull-right"></span> </div>
+                                                 <div class="user-img"> <%#= image_tag current_user.avatar.url(:thumb) , class: "img-circle" , width: "60"%> <span class="profile-status online pull-right"></span> </div>
                                                 <% end %>
                                                 <div class="mail-contnet">
                                                     <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
@@ -264,7 +264,13 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/users/1.jpg" alt="user" class="img-circle" width="30"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <% if user_signed_in? %>
+                                    <%= image_tag current_user.avatar.url(:thumb), alt: "user" , class: "img-circle" , width: "30" %>
+                                <% else %>
+                                    <%= image_tag "assets/users/8.jpg", class: "img-circle" , width: "60"%>
+                                <% end %>
+                            </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <span class="with-arrow"><span class="bg-primary"></span></span>
                                 <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
@@ -272,7 +278,7 @@
                                     <% if not @user.avatar.url.nil? %>
                                         <div class=""><%= image_tag current_user.avatar.url(:thumb) , class: "img-circle" , width: "60"%></div>
                                     <% else %>
-                                        <%= image_tag "logo-light-text.png", class: "img-circle" , width: "60"%>
+                                        <%= image_tag "assets/users/8.jpg", class: "img-circle" , width: "60"%>
                                     <% end %>
                                    
                                     <div class="m-l-10">

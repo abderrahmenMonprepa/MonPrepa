@@ -202,9 +202,10 @@ class DocumentsController < ApplicationController
   end
 
   def preferred_documents
-    # To Do
-    # Select preferred documents
-    @preferred_documents = Document.all
+    # Preferred Documents
+    if user_signed_in?
+      @preferred_docs = DocumentFavori.where(user_id: current_user.id).select("distinct document_id")
+    end
   end
 
 

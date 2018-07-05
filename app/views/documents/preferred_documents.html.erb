@@ -1,1 +1,57 @@
-preferred documents
+ <div class="col-lg-12">
+    <div>
+        <div class="card">
+            <div class="card-body">
+
+            	<% if @preferred_docs.count != 0 %>
+	                <h4 class="card-title">Mes documents préférés</h4>
+	                <div class="table-responsive">
+	                    <table class="table" id="myTable_preferred_docs">
+	                    
+	                        <thead>
+	                            <tr>
+	                                <th>Sujet</th>
+	                                <th>Matière</th>                                            
+	                                <th>Trimestre</th>
+	                                <th>Type</th>
+	                                <th>Année</th>
+	                                <th>Section</th>
+	                                <th>Niveau</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+
+	                            <% @preferred_docs.each do |d| %>
+	                            <% @document = Document.find_by_id(d.document_id) %>
+	                                <tr>
+	                                    <td class="text-oflo"><%= @document.document_subject %></td>
+	                                    <td class="txt-oflo"><%= @document.document_course %></td>
+	                                    <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
+	                                    <td class="txt-oflo"><%= @document.document_type %></td>
+	                                    <td><span class="text-success"><%= @document.document_year %></span></td>
+	                                    <td><span class="text-success"><%= @document.document_section %></span></td>
+	                                    <td><span class="text-success"><%= @document.document_level %></span></td>
+	                                </tr>
+
+	                            <% end %>
+
+	                        </tbody>
+
+	                    </table>
+	                    
+	                </div>
+	            <% else %>
+	            Aucun document préféré dans votre liste. 
+	            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+        $('#myTable_preferred_docs').DataTable();
+
+    });
+</script>
