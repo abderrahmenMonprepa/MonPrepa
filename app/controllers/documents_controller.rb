@@ -113,7 +113,7 @@ class DocumentsController < ApplicationController
       @visited_docs = DocumentHistory.where(user_id: current_user.id).select("distinct document_id")
 
       # New documents added by the Admin in last days
-      @new_documents = Document.where(" documents.created_at > ? " ,  Date.today - 3.days ) 
+      @new_documents = Document.where(" documents.created_at < ? " ,  Date.today - 3.days ) 
 
     end
 
