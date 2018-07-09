@@ -105,27 +105,6 @@ class DocumentsController < ApplicationController
 
     if user_signed_in?
       
-
-
-
-      # response = RestClient::Request.new({
-      #   method: :post,
-      #   url: 'https://xyz',
-      #   user: 'someone',
-      #   password: 'mybirthday',
-      #   payload: { post_this: 'some value', post_that: 'other value' },
-      #   headers: { :accept => :json, content_type: :json }
-      #   }).execute do |response, request, result|
-      #   case response.code
-      #     when 400
-      #       [ :error, parse_json(response.to_str) ]
-      #     when 200
-      #       [ :success, parse_json(response.to_str) ]
-      #     else
-      #       fail "Invalid response #{response.to_str} received."
-      #     end
-      # end
-
       @user = current_user    
       @documents = Document.all
       @first_year_pc = Document.first_year_pc
@@ -231,12 +210,41 @@ class DocumentsController < ApplicationController
       @users = User.all
     end
 
-    # Search documents by section
-    if params[:search_document]
-      @documents = Document.where("documents.document_course LIKE ? ", "#{params[:search_document]}" )  
-    else
+    # Search documents by type, course and year
+    if params[:search_type].present? and params[:search_course].present? and params[:search_year].present?
+
+      @documents = Document.where("documents.document_type LIKE ? and documents.document_course LIKE ?
+       and documents.document_year LIKE ?  ", "#{params[:search_type]}" , "#{params[:search_course]}" , "#{params[:search_year]}" )  
+
+    elsif params[:search_type].present? and params[:search_course].present? 
+
+      @documents = Document.where("documents.document_type LIKE ? and documents.document_course LIKE ? ", "#{params[:search_type]}" , "#{params[:search_course]}"  ) 
+
+    elsif params[:search_course].present? and params[:search_year].present?
+      
+      @documents = Document.where("documents.document_course LIKE ? and documents.document_year LIKE ?  " , "#{params[:search_course]}" , "#{params[:search_year]}" )  
+
+    elsif params[:search_type].present?  and params[:search_year].present?
+
+      @documents = Document.where("documents.document_type LIKE ?  and documents.document_year LIKE ?  ", "#{params[:search_type]}" , "#{params[:search_year]}" ) 
+
+    elsif params[:search_type].present?
+
+      @documents = Document.where("documents.document_type LIKE ?  ", "#{params[:search_type]}"  ) 
+
+    elsif params[:search_course].present? 
+
+      @documents = Document.where("documents.document_course LIKE ? ", "#{params[:search_course]}"  ) 
+
+    elsif params[:search_year].present? 
+
+      @documents = Document.where("documents.document_year LIKE ? ", "#{params[:search_year]}"   ) 
+
+    else 
       @documents = Document.all
     end
+
+
   end
 
   def preferred_documents

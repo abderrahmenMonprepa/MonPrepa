@@ -731,9 +731,58 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <%= form.label :document_course %>
-                                            <%= form.text_field :document_course , class: "form-control"  %>
+                                            <%= form.label :document_course , "Cours" %>
+                                            <%= form.text_field :document_course , class: "form-control" , required: true %>
                                         </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_section , "Section" %>
+                                        <%= form.text_field :document_section, id: :document_document_section, class: 'form-control' , required: true  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_level , "Niveau" %>
+                                        <%= form.text_field :document_level, id: :document_document_level, class: 'form-control' , required: true  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_type , "Type" %>
+                                        <%= form.text_field :document_type, id: :document_document_type, class: 'form-control' , required: true  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_subject , "Sujet" %>
+                                        <%= form.text_field :document_subject, id: :document_document_subject, class: 'form-control' , required: true  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_year , "Année" %>
+                                        <%= form.number_field :document_year, id: :document_document_year, class: 'form-control' , required: true  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :pdf_file_enonce , "Enoncé" %>
+                                        <%= form.file_field :pdf_file_enonce , class: 'form-control' , required: true  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :pdf_file_corrige , "Corrigé" %>
+                                        <%= form.file_field :pdf_file_corrige , class: 'form-control' %>
+                                      </div>
                                     </div>
 
                                     <center>
@@ -759,14 +808,19 @@
                             <center>
                                 <h4 class="card-title">Rechercher un document</h4>
                                 <div class="">
-                                    <%= form_tag het_el_kazi_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
-                                                <div class="col-md-12 text-center" style="margin:auto;">
+                                    <%= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
+                                                    <div class="col-md-12 text-center" style="margin:auto;">
 
-                                                    <p> Cours </p>
-                                                    <p>    <%= text_field_tag :search_document, params[:search_document] , class: 'form-control'  %> </p>
-                                                         <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_document_div()' , class: 'btn btn-success' %>  <br />
-                                                </div>
-                                    <% end %>
+                                                        <p> Type </p>
+                                                        <p>    <%= text_field_tag :search_type, params[:search_type] , class: 'form-control'  %> </p>
+                                                        <p> Cours </p>
+                                                        <p>    <%= text_field_tag :search_course, params[:search_course] , class: 'form-control'  %> </p>
+                                                        <p> Année </p>
+                                                        <p>    <%= text_field_tag :search_year, params[:search_year] , class: 'form-control'  %> </p>
+
+                                                             <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_document_div();' , class: 'btn btn-success' %>  <br />
+                                                    </div>
+                                        <% end %>
                                 </div>
                             </center>
                                 <div class="table-responsive">
