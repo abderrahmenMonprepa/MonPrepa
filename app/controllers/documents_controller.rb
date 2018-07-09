@@ -197,11 +197,15 @@ class DocumentsController < ApplicationController
     @user = User.new 
     # New document declaration
     @document = Document.new
+    # New message declaration
+    @message = Message.new
 
     # List of users
     @users = User.all
     # List of documents
     @documents = Document.all
+    # List of messages
+    @messages = Message.all
 
     # Search users by phone number
     if params[:search]
