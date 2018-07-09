@@ -198,6 +198,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     naught (1.1.0)
+    netrc (0.11.0)
     nio4r (2.3.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -285,6 +286,10 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     retriable (3.1.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
@@ -386,6 +391,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.6)
   ransack
+  rest-client (~> 2.0, >= 2.0.2)
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

@@ -62,6 +62,8 @@ gem 'activeadmin'
 gem 'ransack'
 # Gem for pagination
 gem 'kaminari'
+# Gem for Rest
+gem 'rest-client', '~> 2.0', '>= 2.0.2'
 
 
 group :development, :test do

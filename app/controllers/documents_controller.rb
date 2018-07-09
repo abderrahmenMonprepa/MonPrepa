@@ -2,6 +2,12 @@ class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy , :upvote , :downvote ]
   before_action :authenticate_admin_user!, only: [:het_el_kazi]
 
+
+  require 'rest-client'
+  require 'json'
+
+  add_document_URL = 'http://127.0.0.1:8080/add'
+
   # GET /documents
   # GET /documents.json
   def index
@@ -38,6 +44,16 @@ class DocumentsController < ApplicationController
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
         # flash.alert = NewRegistrationService.create_fail_error_message(@document)
+        uri_add_document = '#{add_document_URL}'
+        add_doc_response = RestClient.post  "http://127.0.0.1:8080/add" ,
+                                           
+            {'document_id'=> @document.id.to_s + 'E' ,'pdf_binary_file_path' => '/home/abderrahmen/Téléchargements/a.pdf'}.to_json,
+        
+            {content_type: :json, accept: :json}
+         
+        puts "-------------------------------------------------------------"  
+        puts "#{add_doc_response}"
+        puts "-------------------------------------------------------------"  
       else
         format.html { render :new }
         format.json { render json: @document.errors, status: :unprocessable_entity }
@@ -88,6 +104,28 @@ class DocumentsController < ApplicationController
   def welcome_for_documents
 
     if user_signed_in?
+      
+
+
+
+      # response = RestClient::Request.new({
+      #   method: :post,
+      #   url: 'https://xyz',
+      #   user: 'someone',
+      #   password: 'mybirthday',
+      #   payload: { post_this: 'some value', post_that: 'other value' },
+      #   headers: { :accept => :json, content_type: :json }
+      #   }).execute do |response, request, result|
+      #   case response.code
+      #     when 400
+      #       [ :error, parse_json(response.to_str) ]
+      #     when 200
+      #       [ :success, parse_json(response.to_str) ]
+      #     else
+      #       fail "Invalid response #{response.to_str} received."
+      #     end
+      # end
+
       @user = current_user    
       @documents = Document.all
       @first_year_pc = Document.first_year_pc
