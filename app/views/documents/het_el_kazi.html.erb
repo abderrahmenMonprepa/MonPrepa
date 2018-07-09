@@ -507,7 +507,9 @@
                                             </td>
                                             <td><span class="badge badge-success badge-pill"><%= u.confirmed_at %></span></td>
                                             <td><%= link_to 'Modifier', edit_user_path(u) %></td>
-                                            <td><%#= button_to "Supprimer", (u), data: { confirm: "Are you sure?" }, method: :delete %></td>
+                                            <td><%#= button_to "Supprimer", (u), data: { confirm: "Are you sure?" }, method: :delete %>
+                                                <%= link_to "Destroy", admin_destroy_user_path(u), method: :delete, data: { confirm: "Vous êtes sûr de supprimer cet utilisateur ?" } %>
+                                            </td>
                                             
                                         </tr>
 

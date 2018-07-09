@@ -60,11 +60,7 @@ class UsersController < ApplicationController
   # DELETE /document_favoris/1.json
   def destroy
     @user.destroy
-    respond_to do |format|
-      # format.html { redirect_to users_url, notice: 'User favori was successfully destroyed.' }
-      # format.json { head :no_content }
-      redirect_to het_el_kazi_path
-    end
+    redirect_to het_el_kazi_path
   end
 
   private
