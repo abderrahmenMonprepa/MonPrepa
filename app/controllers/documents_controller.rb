@@ -43,7 +43,7 @@ class DocumentsController < ApplicationController
       if @document.save
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
-        # flash.alert = NewRegistrationService.create_fail_error_message(@document)
+
         uri_add_document = '#{add_document_URL}'
         add_doc_response = RestClient.post  "http://127.0.0.1:8080/add" ,
                                            
