@@ -20,7 +20,6 @@ class DocumentsController < ApplicationController
     if user_signed_in?
       DocumentHistory.create(user_id: current_user.id , document_id: @document.id)
       @comment = Comment.new
-      @comment.save(user_id: current_user.id , document_id: @document.id)
     end
   end
 

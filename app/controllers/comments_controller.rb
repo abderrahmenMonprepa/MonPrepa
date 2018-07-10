@@ -34,8 +34,6 @@ class CommentsController < ApplicationController
         redirect_back(fallback_location: root_path)
       else
         flash[:notice] = "Commentaire echec"
-        puts '@comment errors : --------------------  #{@comment.errors}'
-        puts "#{@comment.errors.full_messages}"
         redirect_to documents_path
       end
     # end
