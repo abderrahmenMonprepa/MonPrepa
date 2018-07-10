@@ -28,7 +28,7 @@ class InstitutesController < ApplicationController
 
     respond_to do |format|
       if @institute.save
-        format.html { redirect_to @institute, notice: 'Institute was successfully created.' }
+        format.html { redirect_to het_el_kazi_path, notice: 'Institut crée avec succès .' }
         format.json { render :show, status: :created, location: @institute }
       else
         format.html { render :new }

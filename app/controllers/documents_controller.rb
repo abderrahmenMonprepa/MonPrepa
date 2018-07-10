@@ -19,8 +19,8 @@ class DocumentsController < ApplicationController
   def show
     if user_signed_in?
       DocumentHistory.create(user_id: current_user.id , document_id: @document.id)
-      # @comment = Comment.new
-      # @comment.create(user_id: current_user.id , document_id: @document.id)
+      @comment = Comment.new
+      @comment.save(user_id: current_user.id , document_id: @document.id)
     end
   end
 
@@ -199,6 +199,12 @@ class DocumentsController < ApplicationController
     @document = Document.new
     # New message declaration
     @message = Message.new
+    # New institute declaration
+    @institute = Institute.new
+    # New section declaration
+    @section = Section.new
+    # New Comment declaration
+    @comment = Comment.new
 
     # List of users
     @users = User.all
@@ -206,6 +212,12 @@ class DocumentsController < ApplicationController
     @documents = Document.all
     # List of messages
     @messages = Message.all
+    # List of institutes
+    @institutes = Institute.all
+    # List of sections
+    @sections = Section.all
+    # List of comments
+    @comments = Comment.all
 
     # Search users by phone number
     if params[:search]

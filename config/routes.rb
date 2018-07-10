@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :administrators
   resources :institutes
   resources :users
+  resource :sections
 
   resources :documents do
     resources :comments

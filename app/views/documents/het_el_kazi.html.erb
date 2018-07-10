@@ -387,10 +387,8 @@
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-media-right-alt"></i><span class="hide-menu">Instituts</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="form-basic.html">Ajouter institut <i class="ti-file"></i></a></li>
-                                <li><a href="form-layout.html">Modifier institut <i class="ti-files"></i></a></li>
-                                <li><a href="form-addons.html">Supprimer institut <i class="ti-zip"></i></a></li>
-                                <li><a href="form-material.html">Liste des instituts <i class="ti-agenda"></i></a></li>
+                                <li><a id="add_institute_id">Ajouter institut <i class="ti-file"></i></a></li>
+                                <li><a id="list_institutes_id">Liste des instituts <i class="ti-agenda"></i></a></li>
                             </ul>
                         </li>
 
@@ -398,10 +396,8 @@
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-accordion-merged"></i><span class="hide-menu">Sections</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="table-basic.html">Ajouter section <i class="ti-widgetized"></i></a></li>
-                                <li><a href="table-layout.html">Modifier section<i class="ti-layout-accordion-list"></i></a></li>
-                                <li><a href="table-data-table.html">Supprimer section<i class="ti-widget"></i></a></li>
-                                <li><a href="table-footable.html">Liste des sections <i class="ti-layout-accordion-merged"></i></a></li>
+                                <li><a id="add_section_id">Ajouter section <i class="ti-widgetized"></i></a></li>
+                                <li><a id="list_sections_id">Liste des sections <i class="ti-layout-accordion-merged"></i></a></li>
                             </ul>
                         </li>
 
@@ -910,7 +906,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Liste des messages</h4>
                                 <div class="table-responsive">
-                                    <table class="table" id="display_all_docs">
+                                    <table class="table" >
                                     
                                         <thead>
                                             <tr>
@@ -940,7 +936,221 @@
                     </div>
                 </div>
                 <!-- End list of Messages  -->
+
+
+                <!-- Addind Institute -->
+                <div id="add_institute" style="display: none;" >
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Ajouter un institut</h4>
+                                <div class="table-responsive">
+                                    <% if @institute.errors.any? %>
+                                      <div id="error_explanation">
+                                        <h2><%= pluralize(@institute.errors.count, "error") %> prohibited this institute from being saved:</h2>
+
+                                        <ul>
+                                        <% @message.errors.full_messages.each do |institute| %>
+                                          <li><%= institute %></li>
+                                        <% end %>
+                                        </ul>
+                                      </div>
+                                    <% end %>
+
+                                    <%= form_with(model: @institute, local: true) do |form| %>
+
+
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                        <%= form.label :institute_name %>
+                                        <%= form.text_field :institute_name, class: 'form-control'  %>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                        <%= form.label :institute_type %>
+                                        <%= form.text_field :institute_type , class: 'form-control'  %>
+                                        </div>
+                                      </div>
+
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                        <%= form.label :institute_other %>
+                                        <%= form.text_field :institute_other , class: 'form-control'  %>
+                                        </div>
+                                      </div
+
+
+                                    <center>
+                                        <div class="actions">
+                                          <%= form.submit 'Ajouter' , class: 'btn btn-success'%>
+                                        </div>
+                                    </center>
+
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                        
+                </div>
+                <!-- End Adding Institute -->
+
+                <!-- List of Institutes-->
+                <div  id="list_institutes" style="display: none;">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Liste des instituts</h4>
+                                <div class="table-responsive">
+                                    <table class="table" >
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Nom</th>
+                                                <th>Type</th>                                            
+                                                <th>Autre</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @institutes.each do |institute| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= institute.institute_name %></td>
+                                                    <td class="txt-oflo"><%= institute.institute_type %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= institute.institute_other %></span> </td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End list of Institutes  -->
+
+                <!-- Addind Section -->
+                <div id="add_section" style="display: none;" >
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Ajouter une section</h4>
+                                <div class="table-responsive">
+                                    <% if @section.errors.any? %>
+                                      <div id="error_explanation">
+                                        <h2><%= pluralize(@section.errors.count, "error") %> prohibited this section from being saved:</h2>
+
+                                        <ul>
+                                        <% @message.errors.full_messages.each do |section| %>
+                                          <li><%= section %></li>
+                                        <% end %>
+                                        </ul>
+                                      </div>
+                                    <% end %>
+
+                                    <%= form_with(model: @section, local: true) do |form| %>
+
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                        <%= form.label :section_name %>
+                                        <%= form.text_field :section_name, class: 'form-control'  %>
+                                        </div>
+                                      </div>
+
+                                    <center>
+                                        <div class="actions">
+                                          <%= form.submit 'Ajouter' , class: 'btn btn-success'%>
+                                        </div>
+                                    </center>
+
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                        
+                </div>
+                <!-- End Adding Section -->
+
+                <!-- List of Sections-->
+                <div  id="list_sections" style="display: none;">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Liste des sections</h4>
+                                <div class="table-responsive">
+                                    <table class="table" >
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Nom</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @sections.each do |section| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= section.section_name %></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End list of Sections  -->
                     
+
+                <!-- List of Comments-->
+                <div  id="list_comments" style="display: none;">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Liste des commentaires</h4>
+                                <div class="table-responsive">
+                                    <table class="table" >
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Text</th>
+                                                <th>User</th>
+                                                <th>document</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @comments.each do |comment| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= comment.comment_text %></td>
+                                                    <td class="text-oflo"><%= comment.user_id %></td>
+                                                    <td class="text-oflo"><%= comment.document_id %></td>
+                                                </tr>
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End list of Comments  -->
+
                 </div>
             </div>
 
@@ -984,6 +1194,8 @@ $(function(){
          jQuery('#list_documents').css("display","none");
          jQuery('#list_messages').css("display","none");
          jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
   
     });
 
@@ -996,6 +1208,8 @@ $(function(){
          jQuery('#list_documents').css("display","none");
          jQuery('#list_messages').css("display","none");
          jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
     });
 
     $('#list_user_id').on('click', function(event) {
@@ -1007,6 +1221,8 @@ $(function(){
          jQuery('#list_documents').css("display","none");
          jQuery('#list_messages').css("display","none");
          jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
     });
 
     $('#add_document_id').on('click', function(event) {
@@ -1018,6 +1234,8 @@ $(function(){
          jQuery('#list_documents').css("display","none");
          jQuery('#list_messages').css("display","none");
          jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
     });
 
     $('#search_document_id').on('click', function(event) {
@@ -1029,6 +1247,8 @@ $(function(){
          jQuery('#list_documents').css("display","none");
          jQuery('#list_messages').css("display","none");
          jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
     });
 
     $('#list_documents_id').on('click', function(event) {
@@ -1040,6 +1260,8 @@ $(function(){
          jQuery('#list_documents').css("display","block");
          jQuery('#list_messages').css("display","none");
          jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
     });
 
     $('#list_messages_id').on('click', function(event) {
@@ -1051,6 +1273,8 @@ $(function(){
          jQuery('#list_documents').css("display","none");
          jQuery('#list_messages').css("display","block");
          jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
     });
 
     $('#add_message_id').on('click', function(event) {
@@ -1062,6 +1286,64 @@ $(function(){
          jQuery('#list_documents').css("display","none");
          jQuery('#list_messages').css("display","none");
          jQuery('#add_message').css("display","block");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
+    });
+
+    $('#add_institute_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+         jQuery('#list_messages').css("display","none");
+         jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","block");
+    });
+
+    $('#list_institutes_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+         jQuery('#list_messages').css("display","none");
+         jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","block");
+         jQuery('#add_institute').css("display","none");
+    });
+
+    $('#add_section_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+         jQuery('#list_messages').css("display","none");
+         jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
+         jQuery('#list_sections').css("display","none");
+         jQuery('#add_section').css("display","block");
+    });
+
+    $('#list_sections_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+         jQuery('#list_messages').css("display","none");
+         jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
+         jQuery('#list_sections').css("display","block");
+         jQuery('#add_section').css("display","none");
     });
 });
 

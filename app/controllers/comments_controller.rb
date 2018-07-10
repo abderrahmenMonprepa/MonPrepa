@@ -24,20 +24,18 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
-    puts "#{@comment} +++++++++++++++++++++++++++++"
-    # respond_to do |format|
+    @document = Document.find(params[:document_id])
+    @comment = @document.comments.create(comment_params)
+    @comment.user_id = current_user.id
+    @comment.document_id = @document.id
+
       if @comment.save
-        # format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        # format.json { render :show, status: :created, location: @comment }
-        flash[:notice] = "Commentaire ajouté avec succès"
+        flash[:notice] = "Votre commentaire ajouté avec succès"
         redirect_back(fallback_location: root_path)
       else
-        # format.html { render :new }
-        # format.json { render json: @comment.errors, status: :unprocessable_entity }
         flash[:notice] = "Commentaire echec"
-        puts '@comment errors : --------------------'
-        # puts "#{@commet.errors.full_messages}"
+        puts '@comment errors : --------------------  #{@comment.errors}'
+        puts "#{@comment.errors.full_messages}"
         redirect_to documents_path
       end
     # end
