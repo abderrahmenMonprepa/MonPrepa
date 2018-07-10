@@ -218,6 +218,10 @@ class DocumentsController < ApplicationController
     # List of comments
     @comments = Comment.all
 
+    # For statistics
+    @visited_docs = DocumentHistory.all
+    @preferred_docs = DocumentFavori.all
+
     # Search users by phone number
     if params[:search]
       @users = User.where("users.phone_number LIKE ? ", "#{params[:search]}" )  

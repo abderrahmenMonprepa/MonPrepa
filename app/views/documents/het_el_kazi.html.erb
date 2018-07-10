@@ -404,10 +404,7 @@
                         <li class="nav-small-cap"></li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-gallery"></i><span class="hide-menu">Commentaires</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="layout-single-column.html">Ajouter commentaire <i class="ti-layout-menu-separated"></i></a></li>
-                                <li><a href="layout-fix-header.html">Modifier commentaire<i class="mdi mdi-page-layout-header"></i></a></li>
-                                <li><a href="layout-fix-sidebar.html">Supprimer commentaire <i class="mdi mdi-page-layout-sidebar-left"></i></a></li>
-                                <li><a href="layout-fix-header-sidebar.html">Liste des commentaires <i class="ti-agenda"></i></a></li>
+                                <li><a id="list_comments_id" >Liste des commentaires <i class="ti-agenda"></i></a></li>
                             </ul>
                         </li>
 
@@ -415,22 +412,20 @@
 
                         <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-settings"></i><span class="hide-menu">Statistiques</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="widget-data.html">Documents favoris <i class="icon-puzzle"></i></a></li>
-                                <li><a href="widget-apps.html">Videos favories <i class="icon-drawar"></i></a></li>
-                                <li><a href="widget-charts.html">Historique des documents <i class="ti-bar-chart-alt"></i></a></li>
-                                <li><a href="widget-charts.html">Historique des videos <i class="ti-bar-chart-alt"></i></a></li>
+                                <li><a id="list_preferred_docs_id">Documents favoris <i class="icon-puzzle"></i></a></li>
+                                <li><a id="list_visited_docs_id">Historique des docs <i class="ti-bar-chart-alt"></i></a></li>
                             </ul>
                         </li>
                         <li class="nav-small-cap"></li>
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i><span class="hide-menu">Administrateur</span></a>
+                        <!-- <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-files"></i><span class="hide-menu">Administrateur</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="starter-kit.html">Ajouter admin <i class="ti-layout-width-default"></i></a></li>
                                 <li><a href="pages-blank.html">Modifier admin <i class="mdi mdi-content-copy"></i></a></li>
                                 <li><a href="pages-profile.html">Supprimer admin <i class="ti-id-badge"></i></a></li>
                                 <li><a href="pages-animation.html">Liste des admin <i class="ti-video-clapper"></i></a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -502,7 +497,7 @@
                                             <td><span class="badge badge-success badge-pill"><%= u.confirmed_at %></span></td>
                                             <td><%= link_to 'Modifier', edit_user_path(u) %></td>
                                             <td><%#= button_to "Supprimer", (u), data: { confirm: "Are you sure?" }, method: :delete %>
-                                                <%= link_to "Destroy", admin_destroy_user_path(u), method: :delete, data: { confirm: "Vous êtes sûr de supprimer cet utilisateur ?" } %>
+                                                <%= link_to "Supprimer", admin_destroy_user_path(u), method: :delete, data: { confirm: "Vous êtes sûr de supprimer cet utilisateur ?" } %>
                                             </td>
                                             
                                         </tr>
@@ -1128,6 +1123,7 @@
                                                 <th>Text</th>
                                                 <th>User</th>
                                                 <th>document</th>
+                                                <th>Supprimer</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1137,6 +1133,7 @@
                                                     <td class="text-oflo"><%= comment.comment_text %></td>
                                                     <td class="text-oflo"><%= comment.user_id %></td>
                                                     <td class="text-oflo"><%= comment.document_id %></td>
+                                                    <td><%= link_to 'Supprimer', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                                 </tr>
                                             <% end %>
 
@@ -1150,6 +1147,81 @@
                     </div>
                 </div>
                 <!-- End list of Comments  -->
+
+                <!-- List of Preferred Docs -->
+                <div  id="list_preferred_docs" style="display: none;">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Liste des documents préférés</h4>
+                                <div class="table-responsive">
+                                    <table class="table" >
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Document</th>
+                                                <th>User</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @preferred_docs.each do |doc| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= doc.document %></td>
+                                                    <td class="text-oflo"><%= doc.user %></td>
+                                                </tr>
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End list of Preferred Docs  -->
+
+
+                <!-- List of Visited Docs -->
+                <div  id="list_visited_docs" style="display: none;">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Liste des documents visités</h4>
+                                <div class="table-responsive">
+                                    <table class="table" >
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Document</th>
+                                                <th>User</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @visited_docs.each do |doc| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= doc.document %></td>
+                                                    <td class="text-oflo"><%= doc.user %></td>
+                                                </tr>
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End list of Visited Docs  -->
 
                 </div>
             </div>
@@ -1196,6 +1268,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
   
     });
 
@@ -1210,6 +1285,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#list_user_id').on('click', function(event) {
@@ -1223,6 +1301,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#add_document_id').on('click', function(event) {
@@ -1236,6 +1317,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#search_document_id').on('click', function(event) {
@@ -1249,6 +1333,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#list_documents_id').on('click', function(event) {
@@ -1262,6 +1349,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#list_messages_id').on('click', function(event) {
@@ -1275,6 +1365,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#add_message_id').on('click', function(event) {
@@ -1288,6 +1381,9 @@ $(function(){
          jQuery('#add_message').css("display","block");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#add_institute_id').on('click', function(event) {
@@ -1301,6 +1397,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","none");
          jQuery('#add_institute').css("display","block");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#list_institutes_id').on('click', function(event) {
@@ -1314,6 +1413,9 @@ $(function(){
          jQuery('#add_message').css("display","none");
          jQuery('#list_institutes').css("display","block");
          jQuery('#add_institute').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#add_section_id').on('click', function(event) {
@@ -1329,6 +1431,9 @@ $(function(){
          jQuery('#add_institute').css("display","none");
          jQuery('#list_sections').css("display","none");
          jQuery('#add_section').css("display","block");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
     });
 
     $('#list_sections_id').on('click', function(event) {
@@ -1344,6 +1449,63 @@ $(function(){
          jQuery('#add_institute').css("display","none");
          jQuery('#list_sections').css("display","block");
          jQuery('#add_section').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
+    });
+
+    $('#list_comments_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+         jQuery('#list_messages').css("display","none");
+         jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
+         jQuery('#list_sections').css("display","none");
+         jQuery('#add_section').css("display","none");
+         jQuery('#list_comments').css("display","block");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","none");
+    });
+
+    $('#list_preferred_docs_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+         jQuery('#list_messages').css("display","none");
+         jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
+         jQuery('#list_sections').css("display","none");
+         jQuery('#add_section').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","block");
+         jQuery('#list_visited_docs').css("display","none");
+    });
+
+    $('#list_visited_docs_id').on('click', function(event) {
+         jQuery('#list_users').css("display","none");
+         jQuery('#add_user').css("display","none");
+         jQuery('#search_user').css("display","none");
+         jQuery('#add_document').css("display","none");
+         jQuery('#search_document').css("display","none");
+         jQuery('#list_documents').css("display","none");
+         jQuery('#list_messages').css("display","none");
+         jQuery('#add_message').css("display","none");
+         jQuery('#list_institutes').css("display","none");
+         jQuery('#add_institute').css("display","none");
+         jQuery('#list_sections').css("display","none");
+         jQuery('#add_section').css("display","none");
+         jQuery('#list_comments').css("display","none");
+         jQuery('#list_preferred_docs').css("display","none");
+         jQuery('#list_visited_docs').css("display","block");
     });
 });
 
