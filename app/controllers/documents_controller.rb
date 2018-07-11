@@ -103,6 +103,9 @@ class DocumentsController < ApplicationController
   def welcome_for_documents
 
     if user_signed_in?
+
+      # CountDown for User
+      @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
       
       @user = current_user    
       @documents = Document.all
