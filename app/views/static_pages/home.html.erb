@@ -10,17 +10,25 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 col-sm-12 text-center p-t-100 p-b-100 wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="1500ms">
-				<h1 class="m-b-60">Documents et Vidéos de révision en ligne pour les classes préparatoires <br>  <span class="f-w-700">Commencer avec MonPrepa</span></h1>
+				<h1 class="m-b-60"><!-- Documents et Vidéos de révision en ligne pour les classes préparatoires <br> -->  <span class="f-w-700">Commencer avec MonPrepa</span></h1>
 				<% if !user_signed_in? %>
 				<a><%= link_to "Essayer gratuitement" , new_user_registration_path , class: "btn btn-lg white" %>
 				</a>
 				<a><%= link_to "Acheter maintenant" , new_user_registration_path , class: "btn btn-lg white" %>
 				</a>
+
+				<br>
+				
 				<% end  %>
+				<p id="counter_down"></p>
+				<p id="payment_btn" style="visibility: hidden;"> <%= link_to "Payer maintenant" , payment_path , class: "btn btn-secondary"%></p>
+				
 			</div>
 		</div>
 	</div>
 </section>
+
+
 
 <!-- Features Section -->
 <section id="features_1">
@@ -566,12 +574,11 @@
 <% end %>
 
 
-<!-- Display the countdown timer in an element -->
-<p id="demo"></p>
 
 <script>
-// Set the date we're counting down to
 
+
+// Set the date we're counting down to
 var countDownDate = new Date("<%= @countdown_date %>").getTime();
 if (countDownDate == NaN)
 	alert("nok");
@@ -584,8 +591,9 @@ var x = setInterval(function() {
   var now = new Date().getTime();
 
 
-  // Find the distance between now an the count down date
-  var distance =   (countDownDate + 432000000 )- now ;
+
+  // Find the distance between now an the count down date 5 days (Difference 2 hours)
+  var distance =   (countDownDate + 266400000)- now ;
 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -593,14 +601,26 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+
+  if (!days)
+  {
+  	// Display Empty if days is null
+  	document.getElementById("counter_down").innerHTML = "";
+  }
+  
+  else
+  {
+  	// Display the result in the element
+  document.getElementById("counter_down").innerHTML = "<h1>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "</h1>";
+  document.getElementById("payment_btn").style.visibility = "visible" ;
+  }
+  
 
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("counter_down").innerHTML = "<h1>Votre période d'essai a expiré !! </h1> <br>"  ;
+    document.getElementById("payment_btn").style.visibility = "visible" ;
   }
 }, 1000);
 
@@ -609,7 +629,12 @@ var x = setInterval(function() {
 
 
             
-
+<style type="text/css">
+	#error-container {
+     margin-top:10px;
+     position: fixed;
+}
+</style>
 <div class="modal fade" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">

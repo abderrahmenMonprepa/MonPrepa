@@ -154,12 +154,7 @@
                         <!-- ============================================================== -->
                         <!-- End Messages -->
                         <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item search-box"> <a id="demo"></a><a class="nav-link waves-effect " href="javascript:void(0)"><i class="ti-search" style="visibility: hidden;"></i></a>
-                            
-                        </li>
+                        
                        
                     </ul>
                     <ul class="navbar-nav my-lg-0">
@@ -387,6 +382,24 @@
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
              
+             <div class="col-12" id="payment_div">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"></h4>
+                                <h6 class="card-subtitle"><code></code></h6>
+                                <div class="button-box"><br><br>
+                                    <a class="">Il vous reste <p id="counter_down"></p> 
+                                        <a id="payment_btn" style="visibility: hidden;"> 
+                                             <center>   <%= link_to "Payer maintenant" , payment_path , class: "btn m-t-10 m-r-5 btn-rounded btn-outline-success"%>
+                                             </center>
+                                        </a>
+                                        <a class="nav-link waves-effect " href="javascript:void(0)"><i class="ti-search" style="visibility: hidden;"></i></a>
+                                        
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+             </div>
             <!-- MonPrepa Accueil --> 
             <div   id="accueil_section"> 
             <div class="row">
@@ -901,9 +914,11 @@ $(document).ready(function() {
 </script>
 
 
+<!-- Script For Counter Down -->
 <script>
-// Set the date we're counting down to
 
+
+// Set the date we're counting down to
 var countDownDate = new Date("<%= @countdown_date %>").getTime();
 if (countDownDate == NaN)
     alert("nok");
@@ -916,8 +931,9 @@ var x = setInterval(function() {
   var now = new Date().getTime();
 
 
-  // Find the distance between now an the count down date
-  var distance =   (countDownDate + 432000000 )- now ;
+
+  // Find the distance between now an the count down date 5 days (Difference 2 hours)
+  var distance =   (countDownDate + 266400000)- now ;
 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -925,19 +941,30 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+
+  if (!days)
+  {
+    // Display Empty if days is null
+    document.getElementById("counter_down").innerHTML = "";
+  }
+  
+  else
+  {
+    // Display the result in the element
+  document.getElementById("counter_down").innerHTML = "<h1>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "</h1>";
+  document.getElementById("payment_btn").style.visibility = "visible" ;
+  }
+  
 
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("counter_down").innerHTML = "<h1>Votre période d'essai a expiré !! </h1> <br>"  ;
+    document.getElementById("payment_btn").style.visibility = "visible" ;
   }
 }, 1000);
 
 }
 </script>
-
 
 

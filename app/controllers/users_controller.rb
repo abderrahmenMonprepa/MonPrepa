@@ -63,6 +63,11 @@ class UsersController < ApplicationController
     redirect_to het_el_kazi_path
   end
 
+  # Payment
+  def payment
+    
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
