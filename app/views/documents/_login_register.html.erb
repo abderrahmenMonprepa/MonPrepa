@@ -13,7 +13,7 @@
   position: fixed; }
 
 .login-box {
-  width: 400px;
+  width: 300px;
   margin: 0 auto; }
   .login-box .footer {
     width: 100%;
@@ -37,11 +37,11 @@
 </style>
  
               
-
+      <section id="wrapper">
         <div class="login-register" style="background-image:url(/assets/background/login-register.jpg);">
             <div class="login-box card">
                 <div class="card-body">
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name) , class: "form-horizontal form-material" , id: "loginform") do |f| %>
 
 
                         <div class="form-group">
@@ -61,17 +61,20 @@
                             </div>
                         <% end -%>
                         <div class="form-group text-center">
-                        <div class="col-xs-12 p-b-20">
-                            <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
-                        </div>
+                          <div class="col-xs-12 p-b-20">
+                              <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
+                          </div>
 
-                        <div class="form-group m-b-0">
-                            <div class="col-sm-12 text-center">
-                                Vous n'avez pas encore de compte? <a> <b> <%= link_to "S'inscrire" , new_user_registration_path ,class: "text-info m-l-5" %></b></a>
-                            </div>
+                          <div class="form-group m-b-0">
+                              <div class="col-sm-12 text-center">
+                                  Vous n'avez pas encore de compte? <a> <b> <%= link_to "S'inscrire" , new_user_registration_path ,class: "text-info m-l-5" %></b></a>
+                              </div>
+                          </div>
                         </div>
                     <% end %>
 
-                </div>
+                    
             </div>
         </div>
+      </div>
+    </section>
