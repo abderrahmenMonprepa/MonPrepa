@@ -1,20 +1,11 @@
 class Document < ApplicationRecord
 
-	# First year scopes
-	scope :first_year_pc, ->{ where(document_level: "1ere" , document_section: "PC" ) }
-	scope :first_year_mp, ->{ where(document_level: "1ere" , document_section: "MP" ) }
-	scope :first_year_pt, ->{ where(document_level: "1ere" , document_section: "PT" ) }
-	scope :first_year_pb, ->{ where(document_level: "1ere" , document_section: "PB" ) }
+	# User document scope
+	scope :user_documents, -> (user){ where(document_level: user.school_year , document_section: user.section ) }
 
-	# Second year scopes
-	scope :second_year_pc, ->{ where(document_level: "2eme" , document_section: "PC" ) }
-	scope :second_year_mp, ->{ where(document_level: "2eme" , document_section: "MP" ) }
-	scope :second_year_pt, ->{ where(document_level: "2eme" , document_section: "PT" ) }
-	scope :second_year_pb, ->{ where(document_level: "2eme" , document_section: "PB" ) }
+	# All sections for defined school year
+	scope :all_sections, -> (user) { where(document_level: user.school_year ) }
 
-	# All sections
-	scope :first_year_all_sections, ->{ where(document_level: "1ere" ) }
-	scope :second_year_all_sections, ->{ where(document_level: "2eme" ) }
 
 	# Get documents by type
 	scope :resumes, ->{ where(document_type: "Résumé" ) }
@@ -24,8 +15,6 @@ class Document < ApplicationRecord
 	scope :examens, ->{ where(document_type: "Examen" ) }
 
 	
-
-
 	# Add votable gem to document model
 	acts_as_votable
 
@@ -48,7 +37,7 @@ class Document < ApplicationRecord
 	validates_attachment_presence :pdf_file_enonce
 	validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']
 
-	# #Mounts paperclip corrige file
+	#Mounts paperclip corrige file
 	has_attached_file :pdf_file_corrige
 	validates_attachment_presence :pdf_file_enonce
 	validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']

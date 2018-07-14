@@ -513,7 +513,7 @@
                                         </thead>
                                         <tbody>
 
-                                            <% @documents.each do |d| %>
+                                            <% @user_documents.resumes.each do |d| %>
                                                 <tr>
                                                     <td class="text-oflo"><%= link_to  d.document_year , d %></td>
                                                     <td class="txt-oflo"><%= d.document_course %></td>
@@ -561,7 +561,7 @@
                                         </thead>
                                         <tbody>
 
-                                            <% @second_year_pc.each do |d| %>
+                                            <% @user_documents.series.each do |d| %>
                                                 <tr>
                                                     <td class="text-oflo"><%= d.document_subject %></td>
                                                     <td class="txt-oflo"><%= d.document_course %></td>
@@ -610,7 +610,7 @@
                                         </thead>
                                         <tbody>
 
-                                            <% @second_year_pc.each do |d| %>
+                                            <% @user_documents.devoirs.each do |d| %>
                                                 <tr>
                                                     <td class="text-oflo"><%= d.document_subject %></td>
                                                     <td class="txt-oflo"><%= d.document_course %></td>
@@ -658,7 +658,7 @@
                                         </thead>
                                         <tbody>
 
-                                            <% @second_year_pc.each do |d| %>
+                                            <% @user_documents.examens.each do |d| %>
                                                 <tr>
                                                     <td class="text-oflo"><%= d.document_subject %></td>
                                                     <td class="txt-oflo"><%= d.document_course %></td>
@@ -706,7 +706,7 @@
                                         </thead>
                                         <tbody>
 
-                                            <% @second_year_pc.each do |d| %>
+                                            <% @user_documents.concours.each do |d| %>
                                                 <tr>
                                                     <td class="text-oflo"><%= d.document_subject %></td>
                                                     <td class="txt-oflo"><%= d.document_course %></td>

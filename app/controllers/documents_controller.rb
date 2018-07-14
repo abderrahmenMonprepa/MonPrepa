@@ -106,24 +106,16 @@ class DocumentsController < ApplicationController
 
       # CountDown for User
       @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
-      
-      @user = current_user    
-      @documents = Document.all
-      @first_year_pc = Document.first_year_pc
-      @first_year_mp = Document.first_year_mp
-      @first_year_pt = Document.first_year_pt
-      @first_year_pb = Document.first_year_pb
-      @second_year_pc = Document.second_year_pc
-      @second_year_mp = Document.second_year_mp
-      @second_year_pt = Document.second_year_pt
-      @second_year_pb = Document.second_year_pb
-      @first_year_all_sections = Document.first_year_all_sections
-      @second_year_all_sections = Document.second_year_all_sections
-      @resumes = Document.resumes
-      @concours = Document.concours
-      @devoirs = Document.devoirs
-      @series = Document.series
-      @examens = Document.examens
+
+      # Get current user
+      @user = current_user  
+
+      # Get User Documents for defined level
+      @user_documents = Document.user_documents(@user)
+
+      # Get User Documents for all sections
+      @all_sections = Document.all_sections(@user)
+
 
       # Preferred Documents
       @preferred_docs = DocumentFavori.where(user_id: current_user.id).select("distinct document_id")
@@ -163,18 +155,16 @@ class DocumentsController < ApplicationController
    def user_documents
 
     if user_signed_in?
-      @user = current_user
-      @first_year_pc = Document.first_year_pc
-      @first_year_mp = Document.first_year_mp
-      @first_year_pt = Document.first_year_pt
-      @first_year_pb = Document.first_year_pb
-      @second_year_pc = Document.second_year_pc
-      @second_year_mp = Document.second_year_mp
-      @second_year_pt = Document.second_year_pt
-      @second_year_pb = Document.second_year_pb
 
-      @first_year_all_sections = Document.first_year_all_sections
-      @second_year_all_sections = Document.second_year_all_sections
+      # Get current user
+      @user = current_user  
+
+      # Get User Documents for defined level
+      @user_documents = Document.user_documents(@user)
+
+      # Get User Documents for all sections
+      @all_sections = Document.all_sections(@user)
+
 
       @resumes = Document.resumes
       @concours = Document.concours
