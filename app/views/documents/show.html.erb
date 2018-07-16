@@ -18,7 +18,7 @@
                 <% if not @document.pdf_file_enonce_file_size.nil? %>
                   <div class="tab-pane active" id="enonce" role="tabpanel">
                       <div class="p-20">
-                          <p><iframe src=<%= @document.pdf_file_enonce %>  height="780" width="100%" > </iframe></p>
+                          <p><iframe src=<%= @doc_url %>  height="780" width="100%" > </iframe></p>
                       </div>
                   </div>
                 <% end %>

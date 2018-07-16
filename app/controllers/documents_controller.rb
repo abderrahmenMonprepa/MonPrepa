@@ -19,7 +19,22 @@ class DocumentsController < ApplicationController
   def show
     if user_signed_in?
       DocumentHistory.create(user_id: current_user.id , document_id: @document.id)
+      # Declare new comment
       @comment = Comment.new
+      # Post response to display document
+      add_doc_response = RestClient.post  "http://127.0.0.1:8080/view" ,
+                                           
+            {'document_id'=>  '68E'}.to_json,
+        
+            {content_type: :json, accept: :json}
+
+      json_obj = JSON.parse(add_doc_response)
+      @document_url = json_obj["url"] 
+
+      puts "*************************************"
+      puts "#{@document_url}"
+      puts "*************************************"
+
     end
   end
 
@@ -42,8 +57,7 @@ class DocumentsController < ApplicationController
       if @document.save
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
-
-        uri_add_document = '#{add_document_URL}'
+        # Add document to API
         add_doc_response = RestClient.post  "http://127.0.0.1:8080/add" ,
                                            
             {'document_id'=> @document.id.to_s + 'E' ,'pdf_binary_file_path' => '/home/abderrahmen/Téléchargements/a.pdf'}.to_json,
@@ -79,6 +93,18 @@ class DocumentsController < ApplicationController
   def destroy
     @document.destroy
     respond_to do |format|
+
+      # Delete Document 
+      add_doc_response = RestClient.post  "http://127.0.0.1:8080/delete" ,
+                                           
+            {'document_id'=>  '69E'}.to_json,
+        
+            {content_type: :json, accept: :json}
+         
+        puts "-------------------------------------------------------------"  
+        puts "#{add_doc_response}"
+        puts "-------------------------------------------------------------"  
+
       format.html { redirect_to documents_url, notice: 'Document was successfully destroyed.' }
       format.json { head :no_content }
     end
