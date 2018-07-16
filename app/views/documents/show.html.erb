@@ -18,7 +18,7 @@
                 <% if not @document.pdf_file_enonce_file_size.nil? %>
                   <div class="tab-pane active" id="enonce" role="tabpanel">
                       <div class="p-20">
-                          <p><iframe src=<%= @doc_url %>  height="780" width="100%" > </iframe></p>
+                          <!-- <p><iframe src=<%#= @doc_url %>  height="780" width="100%" > </iframe></p> -->
                       </div>
                   </div>
                 <% end %>
@@ -60,11 +60,9 @@
             <h5 class="card-title">Ajouter un commentaire</h5>
             <div class="card-body border-top">
                 <div class="chat-content">
-                  <%= form_for [@document, @comment] do |f| %>
+                  <%= form_for [@document, Comment.new] do |f| %>
                     <%= f.text_area :comment_text ,rows: "3" , placeholder:  'Ajouter commentaire'  , class: "form-control"  %>
                     <br/>
-                    <%#= f.hidden_field :user_id , value: 3 %>
-                    <%#= f.hidden_field :document_id , value: @document.id %>
                       <%= f.submit 'Ajouter commentaire' , class: "btn btn-success pull-right" %>
                   <% end %>
                 </div>
