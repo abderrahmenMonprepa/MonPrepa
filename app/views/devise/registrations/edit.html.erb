@@ -158,12 +158,12 @@ color: #fff;
                     <!-- progressbar -->
                         <ul id="eliteregister">
                             <li class="active">Informations personnelles</li>
-                            <li>Social Profiles</li>
-                            <li>Details</li>
+                            <li>Profil social</li>
+                            <li>Détails</li>
                         </ul>
                         <!-- fieldsets -->
                         <fieldset>
-                            <h2 class="fs-title">Create your account</h2>
+                            <h2 class="fs-title">Créer votre compte</h2>
                             <h3 class="fs-subtitle">1ère étape</h3>
                             <div class="form-group">
                               <%= f.text_field :first_name  , class: "form-control" , placeholder: "Prénom ..."%>
@@ -172,56 +172,43 @@ color: #fff;
                               <%= f.text_field :last_name  , class: "form-control" , placeholder: "Nom ..."%>
                             </div>
                             <div class="form-group">
-                              <%= f.text_field :phone_number  , class: "form-control" , placeholder: "Numéro de Tel ..."%>
+                              <%= f.text_field :phone_number  , class: "form-control" , placeholder: "Numéro de Tél ..."%>
                             </div>
                             <div class="form-group">
-                              <%= f.text_field :city  , class: "form-control" , placeholder: "Ville..." %>
+                              <%= f.text_field :city  , class: "form-control" , placeholder: "Ville ..." %>
                             </div>
                             <div class="form-group">
-                              <%= f.date_field :date_of_birth  , class: "form-control" , placeholder: "Date de naissance..." %>
+                              <%= f.date_field :date_of_birth  , class: "form-control" , placeholder: "Date de naissance ..." %>
                             </div>
                             
-                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="next" class="next action-button" value="Suivant" />
                         </fieldset>
                         <fieldset>
-                            <h2 class="fs-title">Social Profiles</h2>
+                            <h2 class="fs-title">Profil social</h2>
                             <h3 class="fs-subtitle">2ème étape </h3>
+
                             <div class="form-group">
                               <%= f.text_field :email, autofocus: true, autocomplete: "email" , class: "form-control" , placeholder: "Email ..." %>
                             </div>
+
                             <div class="form-group">
-                              <%= f.password_field :current_password, autocomplete: "off" , class: "form-control" , placeholder: "Mot de passe actuel..." %>
-                            </div>
+                              <%= f.password_field :current_password, autocomplete: "off" , class: "form-control" , placeholder: "Mot de passe actuel ... " %>
+                            </div> 
+
                             <div class="form-group">
-                              <%= f.password_field :password, autocomplete: "off" , class: "form-control" , placeholder: "Mot de passe ... " %>
+                              <%= f.password_field :password, autocomplete: "off" , class: "form-control" , placeholder: "Nouveau mot de passe ... " %>
                             </div>                            
 
                             <div class="form-group">
                               <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control" , placeholder: "Confirmation du mot de passe ..." %>
                             </div>
                             
-                            <input type="button" name="previous" class="previous action-button" value="Previous" />
-                            <input type="button" name="next" class="next action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button" value="Précedent" />
+                            <input type="button" name="next" class="next action-button" value="Suivant" />
                         </fieldset>
                         <fieldset>
-                            <h2 class="fs-title">Personal Details</h2>
+                            <h2 class="fs-title">Détails</h2>
                             <h3 class="fs-subtitle">3ème étape</h3>
-                            
-                            <div class="form-group">
-                              <%= f.collection_select :institute_id, Institute.all,  :id, :institute_name,{ :include_blank => "Sélectionner votre institue" } , {class: "form-control"} %>
-                            </div>
-
-                            <div class="form-group">
-                              <%= f.collection_select :section, Section.all,  :section_name, :section_name,{ :include_blank => "Sélectionner votre section" } , {class: "form-control"} %>
-                            </div>
-                            
-                            <div class="form-group">
-                              <%= f.text_field :cin_number  , class: "form-control" , placeholder: "Numéro cin ..."%>
-                            </div>
-                            
-                            <div class="form-group">
-                              <%= f.collection_radio_buttons( :school_year, [[1 , "1ère"] , [2 , "2ème"]], :first, :last) do |b| b.label(:class => "radio-inline") + "   " + b.radio_button  end %>
-                            </div>
 
                             <div class="form-group">
                               <%= f.label :avatar , 'Sélectionner votre photo de profil'%>
@@ -229,7 +216,7 @@ color: #fff;
                             </div>
                             
                                                        
-                            <input type="button" name="previous" class="previous action-button" value="Previous" />
+                            <input type="button" name="previous" class="previous action-button" value="Précedent" />
                             <%= f.submit "Modifier", class: "previous action-button" %>
                         </fieldset>
                     <% end %>
