@@ -260,19 +260,23 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <% if user_signed_in? %>
-                                    <%= image_tag current_user.avatar.url(:thumb), alt: "user" , class: "img-circle" , width: "30" %>
+                                    <% if not @user.avatar.nil? %>
+                                        <%= image_tag current_user.avatar.url(:thumb), alt: "user" , class: "img-circle" , width: "30" %>
+                                    <% else %>
+                                        <%= image_tag "/assets/avatar.png", class: "img-circle" , width: "60"%>
+                                    <% end %>
                                 <% else %>
-                                    <%= image_tag "assets/users/8.jpg", class: "img-circle" , width: "60"%>
+                                    <%= image_tag "/assets/avatar.png", class: "img-circle" , width: "60"%>
                                 <% end %>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <span class="with-arrow"><span class="bg-primary"></span></span>
                                 <div class="d-flex no-block align-items-center p-15 bg-primary text-white m-b-10">
                                     <% if user_signed_in? %>
-                                    <% if not @user.avatar.url.nil? %>
+                                    <% if not @user.avatar.nil? %>
                                         <div class=""><%= image_tag current_user.avatar.url(:thumb) , class: "img-circle" , width: "60"%></div>
                                     <% else %>
-                                        <%= image_tag "assets/users/8.jpg", class: "img-circle" , width: "60"%>
+                                        <%= image_tag "/assets/avatar.png", class: "img-circle" , width: "60"%>
                                     <% end %>
                                    
                                     <div class="m-l-10">
@@ -383,7 +387,7 @@
                 <!-- ============================================================== -->
                  <div class="row page-titles" id="payment_div">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor" id="counter_down">Dashboard 1</h4>
+                        <h4 class="text-themecolor" id="counter_down"></h4>
                         <p id="payment_btn" style="visibility: hidden;"> 
                               <%= link_to "Payer maintenant" , payment_path , class: "btn m-t-10 m-r-5 btn-rounded btn-outline-success"%>
                              
