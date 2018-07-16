@@ -11,7 +11,13 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
+    if user_signed_in?
+      # Get current user
+      @user = current_user  
+
+      # Get User Documents for defined level
+      @user_documents = Document.user_documents(@user)
+    end
   end
 
   # GET /documents/1
@@ -21,6 +27,7 @@ class DocumentsController < ApplicationController
       DocumentHistory.create(user_id: current_user.id , document_id: @document.id)
       # Declare new comment
       @comment = Comment.new
+
       # Post response to display document
       add_doc_response = RestClient.post  "http://127.0.0.1:8080/view" ,
                                            
