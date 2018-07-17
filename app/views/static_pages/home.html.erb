@@ -12,14 +12,15 @@
 			<div class="col-md-8 col-md-offset-2 col-sm-12 text-center p-t-100 p-b-100 wow fadeInUp" data-wow-delay="1500ms" data-wow-duration="1500ms">
 				<h1 class="m-b-60"><!-- Documents et Vidéos de révision en ligne pour les classes préparatoires <br> -->  <span class="f-w-700">Commencer avec MonPrepa</span></h1>
 				<% if !user_signed_in? %>
-				<a><%= link_to "Essayer gratuitement" , new_user_registration_path , class: "btn btn-lg white" %>
-				</a>
-				<a><%= link_to "Acheter maintenant" , new_user_registration_path , class: "btn btn-lg white" %>
-				</a>
 
-				<br>
+					<a><%= link_to "Essayer gratuitement" , new_user_registration_path , class: "btn btn-lg white" %>
+					</a>
+					<a><%= link_to "Acheter maintenant" , new_user_registration_path , class: "btn btn-lg white" %>
+					</a>
+					<br>
 				
 				<% end  %>
+
 				<p id="counter_down"></p>
 				<p id="payment_btn" style="visibility: hidden;"> <%= link_to "Payer maintenant" , payment_path , class: "btn btn-secondary"%></p>
 				
@@ -568,11 +569,6 @@
 	</div>
 </section>
 <!-- End Contact Form Section -->
-
-<% if user_signed_in? %>
-   <!-- <span style="color:red"> Your trial period will expire on <%#= @value %></span>  Days. <br> -->
-<% end %>
-
 
 
 <script>

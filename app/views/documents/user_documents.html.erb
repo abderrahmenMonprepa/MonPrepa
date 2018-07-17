@@ -173,14 +173,7 @@
                         <!-- ============================================================== -->
                         <!-- End Messages -->
                         <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
-                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
-                            </form>
-                        </li>
+
                     </ul>
                     <ul class="navbar-nav my-lg-0">
                         <!-- ============================================================== -->
@@ -404,8 +397,6 @@
             <div class="row">
                 <div class="col-lg-12">                
                     <div id="search_user" >
-                        <!-- column -->
-                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">MonPrepa</h4>
@@ -421,7 +412,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -432,32 +422,30 @@
             <div class="row" >
                 <div class="col-lg-12">                  
                     <div id="search_document" >
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                <center>
-                                    <h4 class="card-title">Rechercher un document</h4>
-                                    <div class="">
-                                        <%= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
-                                                    <div class="col-md-12 text-center" style="margin:auto;">
+                        <div class="card">
+                            <div class="card-body">
+                            <center>
+                                <h4 class="card-title">Rechercher un document</h4>
+                                <div class="">
+                                    <%= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
+                                                <div class="col-md-12 text-center" style="margin:auto;">
 
-                                                        <p> Type </p>
-                                                        <p>    <%= text_field_tag :search_type, params[:search_type] , class: 'form-control'  %> </p>
-                                                        <p> Cours </p>
-                                                        <p>    <%= text_field_tag :search_course, params[:search_course] , class: 'form-control'  %> </p>
-                                                        <p> Année </p>
-                                                        <p>    <%= text_field_tag :search_year, params[:search_year] , class: 'form-control'  %> </p>
+                                                    <p> Type </p>
+                                                    <p>    <%= text_field_tag :search_type, params[:search_type] , class: 'form-control'  %> </p>
+                                                    <p> Cours </p>
+                                                    <p>    <%= text_field_tag :search_course, params[:search_course] , class: 'form-control'  %> </p>
+                                                    <p> Année </p>
+                                                    <p>    <%= text_field_tag :search_year, params[:search_year] , class: 'form-control'  %> </p>
 
-                                                             <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_documents()' , class: 'btn btn-success' %>  <br />
-                                                    </div>
-                                        <% end %>
-                                    </div>
-                                </center>
-                                   <div class="table-responsive">
-                                        <div id="get_searched_documents" style="display: none;">
-                                            <div id='documents' class="col-md-12 text-center" style="margin:auto;">
-                                                <%= render 'user_search_documents' %>
-                                            </div>
+                                                         <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_documents()' , class: 'btn btn-success' %>  <br />
+                                                </div>
+                                    <% end %>
+                                </div>
+                            </center>
+                               <div class="table-responsive">
+                                    <div id="get_searched_documents" style="display: none;">
+                                        <div id='documents' class="col-md-12 text-center" style="margin:auto;">
+                                            <%= render 'user_search_documents' %>
                                         </div>
                                     </div>
                                 </div>
@@ -471,10 +459,9 @@
 
 
             <!-- Course Section -->
-            <div class="row" >
+            <!-- <div class="row" >
                 <div class="col-lg-12">                  
                     <div id="course_matter" >
-                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Sélectionner une matière</h4>
@@ -484,10 +471,9 @@
                                     <a href="javascript:void(0)" class="btn m-t-10 m-r-5 btn-rounded btn-outline-success">Français</a>
                                 </div>   
                             </div>                                              
-                        </div>
                     </div>
                 </div>
-            </div>            
+            </div> -->            
             <!-- End Course Section-->
 
             <!-- Resume documents -->
