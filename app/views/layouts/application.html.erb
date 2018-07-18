@@ -63,6 +63,7 @@
       <%= javascript_include_tag('sidebarmenu') %>
       <%= javascript_include_tag('waves') %>
       <%= javascript_include_tag('jquery.dataTables.min') %>
+      <%= javascript_include_tag('bootstrap_dialog4') %>
       
 
       <!-- Load StyleSheets files -->
@@ -79,6 +80,7 @@
       <%= stylesheet_link_tag    'style' %>
       <%= stylesheet_link_tag    'themify-icons' %>
       <%= stylesheet_link_tag    'weather-icons.min' %>
+      <%= stylesheet_link_tag    'bootstrap_dialog4' %>
 
 
   <% end %>
@@ -115,11 +117,11 @@
     <%= render 'layouts/header'%>
   <% end %>
 
-  <% if controller_name != 'documents' and controller_name != 'registrations' and controller_name != 'users' %>
+  <%# if controller_name != 'documents' and controller_name != 'registrations' and controller_name != 'users' %>
     <%= render 'layouts/messages'%> 
-  <% else %>
-    <%= flash_messages %>
-  <% end %>
+  <%# else %>
+    <%#= flash_messages %>
+  <%# end %>
   
   <%= yield %>
   <% if controller_name != 'registrations' and controller_name != 'users'  and controller_name != 'documents' %>
