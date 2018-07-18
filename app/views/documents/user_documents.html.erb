@@ -419,7 +419,7 @@
 
 
             <!-- Search Document -->
-            <div class="row" >
+            <!-- <div class="row" >
                 <div class="col-lg-12">                  
                     <div id="search_document" >
                         <div class="card">
@@ -427,25 +427,25 @@
                             <center>
                                 <h4 class="card-title">Rechercher un document</h4>
                                 <div class="">
-                                    <%= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
+                                    <%#= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
                                                 <div class="col-md-12 text-center" style="margin:auto;">
 
                                                     <p> Type </p>
-                                                    <p>    <%= text_field_tag :search_type, params[:search_type] , class: 'form-control'  %> </p>
+                                                    <p>    <%#= text_field_tag :search_type, params[:search_type] , class: 'form-control'  %> </p>
                                                     <p> Cours </p>
-                                                    <p>    <%= text_field_tag :search_course, params[:search_course] , class: 'form-control'  %> </p>
+                                                    <p>    <%#= text_field_tag :search_course, params[:search_course] , class: 'form-control'  %> </p>
                                                     <p> Année </p>
-                                                    <p>    <%= text_field_tag :search_year, params[:search_year] , class: 'form-control'  %> </p>
+                                                    <p>    <%#= text_field_tag :search_year, params[:search_year] , class: 'form-control'  %> </p>
 
-                                                         <%= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_documents()' , class: 'btn btn-success' %>  <br />
+                                                         <%#= submit_tag 'Chercher', :id => 'search_button' , :onclick => 'display_documents()' , class: 'btn btn-success' %>  <br />
                                                 </div>
-                                    <% end %>
+                                    <%# end %>
                                 </div>
                             </center>
                                <div class="table-responsive">
                                     <div id="get_searched_documents" style="display: none;">
                                         <div id='documents' class="col-md-12 text-center" style="margin:auto;">
-                                            <%= render 'user_search_documents' %>
+                                            <%#= render 'user_search_documents' %>
                                         </div>
                                     </div>
                                 </div>
@@ -454,7 +454,7 @@
 
                     </div>                  
                 </div>   
-            </div> 
+            </div>  -->
             <!-- End Search Document -->
 
 
@@ -484,7 +484,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Les résumés</h4>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable_resume_docs">
                                     
                                         <thead>
                                             <tr>
@@ -532,7 +532,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Les séries</h4>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable_serie_docs">
                                     
                                         <thead>
                                             <tr>
@@ -581,7 +581,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Les devoirs</h4>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable_devoir_docs">
                                     
                                         <thead>
                                             <tr>
@@ -629,7 +629,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Les examens</h4>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable_examen_docs">
                                     
                                         <thead>
                                             <tr>
@@ -677,7 +677,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Les concours</h4>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="myTable_concour_docs">
                                     
                                         <thead>
                                             <tr>
@@ -788,6 +788,13 @@ $('#concour_documents').on('click', function(event) {
     
 });
 
+$(document).ready(function() {
+        $('#myTable_resume_docs').DataTable();
+        $('#myTable_serie_docs').DataTable();
+        $('#myTable_devoir_docs').DataTable();
+        $('#myTable_examen_docs').DataTable();
+        $('#myTable_concour_docs').DataTable();
+});
 
 
 </script>
