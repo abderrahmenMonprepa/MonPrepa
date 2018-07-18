@@ -962,7 +962,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 
-  if (!days)
+  if (!days && days < 0)
   {
     // Display Empty if days is null
     document.getElementById("counter_down").innerHTML = "";
