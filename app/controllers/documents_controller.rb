@@ -28,19 +28,38 @@ class DocumentsController < ApplicationController
       # Declare new comment
       @comment = Comment.new
 
-      # Post response to display document
-      add_doc_response = RestClient.post  "http://127.0.0.1:8080/view" ,
+      # Post response to display enonce document
+      add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/view" ,
                                            
-            {'document_id'=>  '68E'}.to_json,
+            {'document_id'=>  @document.id.to_s + 'E'}.to_json,
         
             {content_type: :json, accept: :json}
 
-      json_obj = JSON.parse(add_doc_response)
-      @document_url = json_obj["url"] 
+
+      if (add_doc_enonce_response == 0)
+        enonce_document_obj = JSON.parse(add_doc_enonce_response)
+        @enonce_document_url = enonce_document_obj["url"] 
+      end
 
       puts "*************************************"
-      puts "#{@document_url}"
+      puts "#{@enonce_document_url}"
       puts "*************************************"
+
+      # Post response to display corrige document
+      if (not @document.pdf_file_corrige_file_name.nil? )
+        add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/view" ,
+                                             
+              {'document_id'=>  @document.id.to_s + 'C'}.to_json,
+          
+              {content_type: :json, accept: :json}
+
+        corrige_document_obj = JSON.parse(add_doc_corrige_response)
+        @corrige_document_url = corrige_document_obj["url"] 
+
+        puts "*************************************"
+        puts "#{@corrige_document_url}"
+        puts "*************************************"
+      end
 
     end
   end
@@ -58,22 +77,33 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     @document = Document.new(document_params)
-    # @document = NewRegistrationService.create(document_params)
 
     respond_to do |format|
       if @document.save
         format.html { redirect_to @document, notice: 'Document was successfully created.' }
         format.json { render :show, status: :created, location: @document }
-        # Add document to API
-        add_doc_response = RestClient.post  "http://127.0.0.1:8080/add" ,
+
+        # Add document enonce to API
+        add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/add" ,
                                            
-            {'document_id'=> @document.id.to_s + 'E' ,'pdf_binary_file_path' => '/home/abderrahmen/Téléchargements/a.pdf'}.to_json,
-        
-            {content_type: :json, accept: :json}
-         
-        puts "-------------------------------------------------------------"  
-        puts "#{add_doc_response}"
-        puts "-------------------------------------------------------------"  
+        {'document_id'=> @document.id.to_s + 'E' ,"pdf_binary_file_path' => '/home/abderrahmen/Téléchargements/#{@document.pdf_file_enonce_file_name}" }.to_json,
+    
+        {content_type: :json, accept: :json}
+
+
+        if (not @document.pdf_file_corrige_file_name.nil? )
+          # Add document corrige to API
+          add_doc_corrige_response = RestClient.post  "http://127.0.0.1:8080/add" ,
+                                         
+          {'document_id'=> @document.id.to_s + 'C' ,"pdf_binary_file_path' => '/home/abderrahmen/Téléchargements/#{@document.pdf_file_corrige_file_name}" }.to_json,
+      
+          {content_type: :json, accept: :json}
+           
+          puts "-------------------------------------------------------------"  
+          puts "#{add_doc_corrige_response}"
+          puts "-------------------------------------------------------------"  
+        end
+
       else
         format.html { render :new }
         format.json { render json: @document.errors, status: :unprocessable_entity }
@@ -101,15 +131,26 @@ class DocumentsController < ApplicationController
     @document.destroy
     respond_to do |format|
 
-      # Delete Document 
-      add_doc_response = RestClient.post  "http://127.0.0.1:8080/delete" ,
+      # Delete Enonce Document 
+      add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/delete" ,
                                            
-            {'document_id'=>  '69E'}.to_json,
+            {'document_id'=>  @document.id.to_s + 'E'.to_json,
         
             {content_type: :json, accept: :json}
+      puts "-------------------------------------------------------------"  
+      puts "#{add_doc_enonce_response}"
+      puts "-------------------------------------------------------------" 
+
+      if ( not @document.pdf_file_corrige_file_name.nil? )
+        add_doc_corrige_response = RestClient.post  "http://127.0.0.1:8080/delete" ,
+                                           
+            {'document_id'=>  @document.id.to_s + 'C'.to_json,
+        
+            {content_type: :json, accept: :json}
+      end
          
         puts "-------------------------------------------------------------"  
-        puts "#{add_doc_response}"
+        puts "#{add_doc_corrige_response}"
         puts "-------------------------------------------------------------"  
 
       format.html { redirect_to documents_url, notice: 'Document was successfully destroyed.' }
