@@ -86,7 +86,7 @@ class DocumentsController < ApplicationController
         # Add document enonce to API
         add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/add" ,
                                            
-        {'document_id'=> @document.id.to_s + 'E' ,"pdf_binary_file_path' => '/home/abderrahmen/Téléchargements/#{@document.pdf_file_enonce_file_name}" }.to_json,
+        {'document_id'=> @document.id.to_s + 'E' ,'pdf_binary_file_path' => "/home/abderrahmen/Téléchargements/#{@document.pdf_file_enonce_file_name}" }.to_json,
     
         {content_type: :json, accept: :json}
 
@@ -95,7 +95,7 @@ class DocumentsController < ApplicationController
           # Add document corrige to API
           add_doc_corrige_response = RestClient.post  "http://127.0.0.1:8080/add" ,
                                          
-          {'document_id'=> @document.id.to_s + 'C' ,"pdf_binary_file_path' => '/home/abderrahmen/Téléchargements/#{@document.pdf_file_corrige_file_name}" }.to_json,
+          {'document_id'=> @document.id.to_s + 'C' ,'pdf_binary_file_path' => "/home/abderrahmen/Téléchargements/#{@document.pdf_file_corrige_file_name}" }.to_json,
       
           {content_type: :json, accept: :json}
            
@@ -134,9 +134,7 @@ class DocumentsController < ApplicationController
       # Delete Enonce Document 
       add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/delete" ,
                                            
-            {'document_id'=>  @document.id.to_s + 'E'.to_json,
-        
-            {content_type: :json, accept: :json}
+            { 'document_id'=>  @document.id.to_s + 'E'}.to_json, {content_type: :json, accept: :json}
       puts "-------------------------------------------------------------"  
       puts "#{add_doc_enonce_response}"
       puts "-------------------------------------------------------------" 
@@ -144,7 +142,7 @@ class DocumentsController < ApplicationController
       if ( not @document.pdf_file_corrige_file_name.nil? )
         add_doc_corrige_response = RestClient.post  "http://127.0.0.1:8080/delete" ,
                                            
-            {'document_id'=>  @document.id.to_s + 'C'.to_json,
+            {'document_id'=>  @document.id.to_s + 'C'}.to_json,
         
             {content_type: :json, accept: :json}
       end
