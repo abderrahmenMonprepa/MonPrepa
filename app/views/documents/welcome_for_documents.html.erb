@@ -385,7 +385,7 @@
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-                 <div class="row page-titles" id="payment_div">
+                <div class="row page-titles" id="payment_div">
                     <div class="col-md-5 align-self-center">
                         <h4 class="text-themecolor" id="counter_down"></h4>
                         <p id="payment_btn" style="visibility: hidden;"> 
@@ -394,7 +394,11 @@
                         </p>
                     </div>
                 </div>
-             
+
+        <!-- Check Free account by date fixed to 2 days -->
+        <% if @session_expired == "true" %>
+            Vous devez payer
+        <% else %>
 
             <!-- MonPrepa Accueil --> 
             <div   id="accueil_section"> 
@@ -833,6 +837,8 @@
                     </div>
             </div>
             <!-- End contact section -->
+            <% end %>
+            <!-- End if session is not expired -->
                     
                 </div>
             </div>

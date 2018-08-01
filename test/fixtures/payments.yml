@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  card_number: MyString
+  expiration_date: 2018-08-01 16:33:17
+  cvv: 1
+  payment_date: 2018-08-01 16:33:17
+  amount: 1
+
+two:
+  card_number: MyString
+  expiration_date: 2018-08-01 16:33:17
+  cvv: 1
+  payment_date: 2018-08-01 16:33:17
+  amount: 1

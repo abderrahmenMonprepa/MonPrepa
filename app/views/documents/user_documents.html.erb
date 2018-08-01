@@ -384,6 +384,9 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
+
+        
+        
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -392,6 +395,21 @@
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
+
+            <div class="row page-titles" id="payment_div">
+                <div class="col-md-5 align-self-center">
+                    <h4 class="text-themecolor" id="counter_down"></h4>
+                    <p id="payment_btn" style="visibility: hidden;"> 
+                          <%= link_to "Payer maintenant" , payment_path , class: "btn m-t-10 m-r-5 btn-rounded btn-outline-success"%>
+                         
+                    </p>
+                </div>
+            </div>
+
+            <!-- Check Free account by date fixed to 2 days -->
+            <% if @session_expired == "true" %>
+                Vous devez payer
+            <% else %>
              
             <!-- MonPrepa message -->  
             <div class="row">
@@ -720,7 +738,8 @@
                     
                 </div>
             </div>
-
+        <% end %>
+        <!-- End if session is expired -->
         </div>
     </div>
 
@@ -797,4 +816,57 @@ $(document).ready(function() {
 });
 
 
+</script>
+
+<!-- Script For Counter Down -->
+<script>
+
+
+// Set the date we're counting down to
+var countDownDate = new Date("<%= @countdown_date %>").getTime();
+if (countDownDate == NaN)
+    alert("nok");
+else
+{
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+
+
+  // Find the distance between now an the count down date 5 days (Difference 2 hours)
+  var distance =   (countDownDate + 266400000)- now ;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+  if (!days && days < 0)
+  {
+    // Display Empty if days is null
+    document.getElementById("counter_down").innerHTML = "";
+  }
+  
+  else
+  {
+    // Display the result in the element
+  document.getElementById("counter_down").innerHTML = "<h1>" + days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "</h1>";
+  document.getElementById("payment_btn").style.visibility = "visible" ;
+  }
+  
+
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("counter_down").innerHTML = "<h1>Votre période d'essai a expiré !! </h1> <br>"  ;
+    document.getElementById("payment_btn").style.visibility = "visible" ;
+  }
+}, 1000);
+
+}
 </script>

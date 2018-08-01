@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy , :upvote , :downvote ]
   before_action :authenticate_admin_user!, only: [:het_el_kazi]
-
+  require 'date'
 
   require 'rest-client'
   require 'json'
@@ -178,6 +178,25 @@ class DocumentsController < ApplicationController
 
       # CountDown for User
       @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
+      @account_creation_date = current_user.created_at.to_i + 1.days.to_i
+      @actual_date = DateTime.now.to_i
+
+      @expired_time_days = ((@account_creation_date- @actual_date ) / 86400 ) 
+      @expired_time_hours = (((@account_creation_date- @actual_date) % 86400 ) / 3600 ) 
+      @expired_time_minutes = (((@account_creation_date- @actual_date) % 3600 ) / 60 ) 
+      @expired_time_seconds = ((@account_creation_date- @actual_date) % 60  ) 
+
+      puts "#{@expired_time_days}----------------------"
+      puts "#{@expired_time_hours}----------------------"
+      puts "#{@expired_time_minutes}----------------------"
+      puts "#{@expired_time_seconds}----------------------"
+
+      if ( @expired_time_days < 0 )  
+        @session_expired = "true"
+      else
+        @session_expired = "false"
+      end 
+
 
       # Get current user
       @user = current_user  
@@ -224,12 +243,36 @@ class DocumentsController < ApplicationController
 
   end
 
+  def get_duration_hrs_and_mins(duration)
+    hours = duration / (1000 * 60 * 60 * 24)
+    minutes = duration / (1000 * 60 * 60) % 60
+    "#{hours}h #{minutes}m" 
+  rescue
+    ""
+  end
+
    def user_documents
 
     if user_signed_in?
 
       # Get current user
       @user = current_user  
+
+      # CountDown for User
+      @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
+      @account_creation_date = current_user.created_at.to_i + 1.days.to_i
+      @actual_date = DateTime.now.to_i
+
+      @expired_time_days = ((@account_creation_date- @actual_date ) / 86400 ) 
+      @expired_time_hours = (((@account_creation_date- @actual_date) % 86400 ) / 3600 ) 
+      @expired_time_minutes = (((@account_creation_date- @actual_date) % 3600 ) / 60 ) 
+      @expired_time_seconds = ((@account_creation_date- @actual_date) % 60  ) 
+
+      if ( @expired_time_days < 0  )  
+        @session_expired = "true"
+      else
+        @session_expired = "false"
+      end 
 
       # Get User Documents for defined level
       @user_documents = Document.user_documents(@user)
