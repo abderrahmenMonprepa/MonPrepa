@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612140052) do
+ActiveRecord::Schema.define(version: 20180801143317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "adminpack"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -92,6 +93,16 @@ ActiveRecord::Schema.define(version: 20180612140052) do
     t.index ["document_id"], name: "index_document_images_on_document_id"
   end
 
+  create_table "documentimages", id: false, force: :cascade do |t|
+    t.string "documentid", limit: 255, null: false
+    t.integer "imageorder", null: false
+    t.binary "image"
+  end
+
+  create_table "documentimagesurl", id: false, force: :cascade do |t|
+    t.string "url", limit: 600, null: false
+  end
+
   create_table "documents", force: :cascade do |t|
     t.string "document_key"
     t.string "document_section"
@@ -132,6 +143,16 @@ ActiveRecord::Schema.define(version: 20180612140052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["administrator_id"], name: "index_messages_on_administrator_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "card_number"
+    t.datetime "expiration_date"
+    t.integer "cvv"
+    t.datetime "payment_date"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sections", force: :cascade do |t|
