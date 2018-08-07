@@ -720,28 +720,28 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <%= form.label :document_course , "Cours" %>
-                                            <%= form.text_field :document_course , class: "form-control" , required: true %>
+                                            <%= form.collection_select :document_course, Course.all,  :course_name, :course_name,{ :include_blank => "Sélectionner cours" } , {class: "form-control" , required: true} %>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <%= form.label :document_section , "Section" %>
-                                        <%= form.text_field :document_section, id: :document_document_section, class: 'form-control' , required: true  %>
+                                        <%= form.collection_select :document_section, Section.all,  :section_name, :section_name,{ :include_blank => "Sélectionner votre section" } , {class: "form-control" , required: true} %>
                                       </div>
                                     </div>
 
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <%= form.label :document_level , "Niveau" %>
-                                        <%= form.text_field :document_level, id: :document_document_level, class: 'form-control' , required: true  %>
+                                        <%= form.collection_radio_buttons( :document_level, [[1 , "1ère"] , [2 , "2ème"]], :first, :last) do |b| b.label(:class => "radio-inline" , required: true) + "   " + b.radio_button  end %>
                                       </div>
                                     </div>
 
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <%= form.label :document_type , "Type" %>
-                                        <%= form.text_field :document_type, id: :document_document_type, class: 'form-control' , required: true  %>
+                                        <%= form.collection_select :document_type, CourseType.all,  :course_type, :course_type,{ :include_blank => "Sélectionner cours" } , {class: "form-control" , required: true} %>
                                       </div>
                                     </div>
 
