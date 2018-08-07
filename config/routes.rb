@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get 'het_el_kazi' => 'documents#het_el_kazi'
   get 'preferred_documents' => 'documents#preferred_documents'
   get 'payment' => 'users#payment'
+  get 'videos' => 'videos#index'
 
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 end
