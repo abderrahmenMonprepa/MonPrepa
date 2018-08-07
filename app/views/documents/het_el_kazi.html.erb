@@ -598,8 +598,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <%= form.label :institute_id %>
-                                            <%= form.text_field :institute_id , class: "form-control"  %>
+                                            <%= form.collection_select :institute_id, Institute.all,  :id, :institute_name,{ :include_blank => "Sélectionner votre institut" } , {class: "form-control"} %>
                                         </div>
                                     </div>
 
@@ -619,15 +618,13 @@
 
                                     <div class="col-md-6">
                                             <div class="form-group">
-                                                <%= form.label :section %>
-                                                <%= form.text_field :section , class: "form-control"  %>
+                                                <%= form.collection_select :section, Section.all,  :section_name, :section_name,{ :include_blank => "Sélectionner votre section" } , {class: "form-control"} %>
                                             </div>
                                     </div>
 
                                     <div class="col-md-6">
                                             <div class="form-group">
-                                                <%= form.label :school_year %>
-                                                <%= form.text_field :school_year , class: "form-control"  %>
+                                                <%= form.collection_radio_buttons( :school_year, [[1 , "1ère"] , [2 , "2ème"]], :first, :last) do |b| b.label(:class => "radio-inline") + "   " + b.radio_button  end %>
                                             </div>
                                     </div>
 
