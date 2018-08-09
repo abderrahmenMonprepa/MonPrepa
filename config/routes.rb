@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :document_histories
   resources :video_histories
   resources :videos
-  resources :documents do
+  resources :documents , param: :slug
+  resources :documents  do
     member do
       put "like", to: "documents#upvote"
       put "dislike", to: "documents#downvote"
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   resources :users
   resource :sections
 
-  resources :documents do
+  resources :documents  do
     resources :comments
   end
 

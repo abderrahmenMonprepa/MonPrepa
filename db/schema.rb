@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180807154828) do
+ActiveRecord::Schema.define(version: 20180809140623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,8 @@ ActiveRecord::Schema.define(version: 20180807154828) do
     t.binary "enonce_data"
     t.binary "corrige_data"
     t.string "document_trimestre"
+    t.string "slug", null: false
+    t.index ["slug"], name: "index_documents_on_slug", unique: true
   end
 
   create_table "institutes", force: :cascade do |t|

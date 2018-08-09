@@ -685,7 +685,7 @@ var x = setInterval(function() {
         <h4 class="modal-title">Enoncé Concours Physique 2016</h4>
         <div class=modal-body>
         	<div class="p-20">
-	            <p><iframe src=<%= Document.last.pdf_file_corrige %>  height="480" width="100%" > </iframe></p>
+	            <p><iframe src=<%#= Document.last.pdf_file_corrige %>  height="480" width="100%" > </iframe></p>
 	        </div>
 
         </div>
@@ -702,7 +702,7 @@ var x = setInterval(function() {
         <h4 class="modal-title">Corrigé Concours Physique 2016</h4>
         <div class=modal-body>
         	<div class="p-20">
-	            <p><iframe src=<%= Document.last.pdf_file_enonce %>  height="480" width="100%" > </iframe></p>
+	            <p><iframe src=<%#= Document.last.pdf_file_enonce %>  height="480" width="100%" > </iframe></p>
 	        </div>
 
         </div>

@@ -1,5 +1,6 @@
 class Document < ApplicationRecord
 
+	
 	# User document scope
 	scope :user_documents, -> (user){ where(document_level: user.school_year , document_section: user.section ) }
 
@@ -44,4 +45,8 @@ class Document < ApplicationRecord
 	validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']
 
 	# size: { in: 0..50.megabytes }
+
+	def to_param
+	  slug
+	end
 end
