@@ -656,6 +656,9 @@ var x = setInterval(function() {
 			      <%= f.label :remember_me , "Se rappeler de moi" %>
 			    </div>
 			  <% end -%>
+			  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+				<%= link_to "Mot de passe oublié", new_password_path(resource_name) , class: 'text-info m-l-5' %><br />
+			  <% end -%>
 			  	<div class="form-group text-center">
 	                <div class="col-xs-12 p-b-20">
 	                    <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
