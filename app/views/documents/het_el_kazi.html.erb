@@ -583,6 +583,13 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <%= form.label :date_of_birth %>
+                                            <%= form.date_field :date_of_birth , class: "form-control"  %>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <%= form.label :email %>
                                             <%= form.text_field :email , class: "form-control"  %>
                                         </div>
