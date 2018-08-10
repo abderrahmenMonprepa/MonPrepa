@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :messages
   resources :administrators
   resources :institutes
-  resources :users
+  resources :users , param: :slug
   resource :sections
 
   resources :documents  do

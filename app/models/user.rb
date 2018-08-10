@@ -68,6 +68,10 @@ class User < ApplicationRecord
     end
   end
 
+  def to_param
+    slug
+  end
+
   
 
 end

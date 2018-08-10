@@ -28,7 +28,10 @@ class UsersController < ApplicationController
   # POST /document_favoris.json
   def create
     @user = User.new(user_params)
-
+    loop do
+        @user.slug = SecureRandom.uuid
+        break unless User.where(slug: @user.slug).exists?
+    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to het_el_kazi_path, notice: 'User was successfully created.' }
@@ -71,13 +74,13 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find_by slug: params[:slug]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:first_name, :last_name , :date_of_birth , :phone_number ,
               :cin_number, :school_year , :city , :email, :password , :institute_id , :section,  :login_token ,
-              :provider , :uid , :avatar , :password_confirmation)
+              :provider , :uid , :avatar , :password_confirmation , :slug)
     end
 end
