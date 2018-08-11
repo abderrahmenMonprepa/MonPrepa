@@ -641,6 +641,13 @@
                                                 <%= form.text_field :city , class: "form-control"  %>
                                             </div>
                                     </div>
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                              <%= form.label :avatar , 'Sélectionner votre photo de profil'%>
+                                              <%= form.file_field :avatar  , class: "form-control"%>
+                                            </div>
+                                    </div>
+
                                     <center>
                                         <div class="actions">
                                           <%= form.submit 'Ajouter' , class: 'btn btn-success'%>
@@ -1135,8 +1142,8 @@
                                             <% @comments.each do |comment| %>
                                                 <tr>
                                                     <td class="text-oflo"><%= comment.comment_text %></td>
-                                                    <td class="text-oflo"><%= comment.user_id %></td>
-                                                    <td class="text-oflo"><%= comment.document_id %></td>
+                                                    <td class="text-oflo"><%= User.find_by_id(comment.user_id).email %></td>
+                                                    <td class="text-oflo"><%= Document.find_by_id(comment.document_id).document_subject %></td>
                                                     <td><%= link_to 'Supprimer', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                                 </tr>
                                             <% end %>

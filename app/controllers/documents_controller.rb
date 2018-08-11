@@ -222,6 +222,9 @@ class DocumentsController < ApplicationController
       # New documents added by the Admin in last days
       @new_documents = Document.where(" documents.created_at < ? " ,  Date.today + 3.days ) 
 
+      # Get new messages
+      @messages = Message.all.order("created_at DESC")
+
     end
 
     # Search documents by type, course and year
