@@ -59,7 +59,7 @@ Course.create(course_name: "Conception")
 Course.create(course_name: "Anglais")
 Course.create(course_name: "Français")
 
-CourseType.create(course_type: "Cours")
+CourseType.create(course_type: "Série")
 CourseType.create(course_type: "Devoir")
 CourseType.create(course_type: "Concour")
 CourseType.create(course_type: "Examen")
