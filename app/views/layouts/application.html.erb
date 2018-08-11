@@ -113,14 +113,14 @@
      }(document, 'script', 'facebook-jssdk'));
   </script>
 
-  <% if controller_name != 'documents' and controller_name != 'registrations' and controller_name != 'users' and controller_name != 'passwords' %>
+  <% if controller_name != 'documents' and controller_name != 'registrations' and controller_name != 'users' and controller_name != 'passwords' and controller_name != 'messages' %>
     <%= render 'layouts/header'%>
   <% end %>
 
   <%= render 'layouts/messages'%> 
   
   <%= yield %>
-  <% if controller_name != 'registrations' and controller_name != 'users'  and controller_name != 'documents' and controller_name != 'passwords' %>
+  <% if controller_name != 'registrations' and controller_name != 'users'  and controller_name != 'documents' and controller_name != 'passwords' and controller_name != 'messages' %>
     <%= render 'layouts/footer'%>
   <% end %>
 
