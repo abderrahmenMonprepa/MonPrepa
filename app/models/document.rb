@@ -21,7 +21,7 @@ class Document < ApplicationRecord
 
 	# PDF Document will be consulted by many users,
 	# so, we have to save document histories
-	has_many :document_histories
+	has_many :document_histories , dependent: :delete_all
 	has_many :users , :through => :document_histories
 
 	# PDF Document will be divided to many images
@@ -31,17 +31,17 @@ class Document < ApplicationRecord
 	has_many :comments
 
 	# PDF document can be added to DocumentFavori
-	has_many :document_favoris
+	has_many :document_favoris , dependent: :delete_all
 
 	#Mounts paperclip enenoce_file
 	has_attached_file :pdf_file_enonce , 
-	:path => ":rails_root/public/enonce/:id/:filename"
+	:path => ":rails_root/public/enonce/:id/:filename" # Change path in production
 	validates_attachment_presence :pdf_file_enonce
 	validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']
 
 	#Mounts paperclip corrige file
 	has_attached_file :pdf_file_corrige , 
-	:path => ":rails_root/public/corrige/:id/:filename"
+	:path => ":rails_root/public/corrige/:id/:filename" # Change path in production
 	validates_attachment_content_type :pdf_file_enonce, :content_type => [ 'application/pdf','text/plain']
 
 	# size: { in: 0..50.megabytes }

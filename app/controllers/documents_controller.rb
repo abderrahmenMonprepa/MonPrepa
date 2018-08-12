@@ -26,6 +26,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1.json
   def show
     if user_signed_in?
+      puts "Now in show controller #{@document}************************************************************************"
       DocumentHistory.create(user_id: current_user.id , document_id: @document.id)
       # Declare new comment
       @comment = Comment.new
@@ -85,13 +86,15 @@ class DocumentsController < ApplicationController
     end
     respond_to do |format|
       if @document.save
-        format.html { redirect_to het_el_kazi_path, notice: 'Document was successfully created.' }
+        format.html { redirect_to het_el_kazi_path, notice: 'Document ajouté avec succès.' }
         format.json { render :show, status: :created, location: @document }
+
+        puts "Create action ********* #{@document.id}"
 
         # Add document enonce to API
         add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/add" ,
                                            
-        {'document_id'=> @document.id.to_s + 'E' ,'pdf_binary_file_path' => "/home/abderrahmen/Téléchargements/#{@document.pdf_file_enonce_file_name}" }.to_json,
+        {'document_id'=> @document.id.to_s + 'E' ,'pdf_binary_file_path' => "/home/abderrahmen/Bureau/MonPrepa/public/corrige/#{@document.id}/#{@document.pdf_file_enonce_file_name}" }.to_json,
     
         {content_type: :json, accept: :json}
 
@@ -100,7 +103,7 @@ class DocumentsController < ApplicationController
           # Add document corrige to API
           add_doc_corrige_response = RestClient.post  "http://127.0.0.1:8080/add" ,
                                          
-          {'document_id'=> @document.id.to_s + 'C' ,'pdf_binary_file_path' => "/home/abderrahmen/Téléchargements/#{@document.pdf_file_corrige_file_name}" }.to_json,
+          {'document_id'=> @document.id.to_s + 'C' ,'pdf_binary_file_path' => "/home/abderrahmen/Bureau/MonPrepa/public/corrige/#{@document.id}/#{@document.pdf_file_corrige_file_name}" }.to_json,
       
           {content_type: :json, accept: :json}
            
@@ -121,7 +124,7 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
+        format.html { redirect_to @document, notice: 'Document modifié avec succès.' }
         format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }
@@ -156,7 +159,7 @@ class DocumentsController < ApplicationController
         puts "#{add_doc_corrige_response}"
         puts "-------------------------------------------------------------"  
 
-      format.html { redirect_to documents_url, notice: 'Document was successfully destroyed.' }
+      format.html { redirect_to het_el_kazi_path, notice: 'Document supprimé avec succès.' }
       format.json { head :no_content }
     end
   end
@@ -394,7 +397,7 @@ class DocumentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document
-      @document = Document.find_by slug: params[:slug]
+      @document = Document.find_by_slug(params[:slug])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -681,19 +681,22 @@
                                                 <th>Année</th>
                                                 <th>Section</th>
                                                 <th>Niveau</th>
+                                                <th>Supprimer</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             <% @documents.each do |document| %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= document.document_subject %></td>
+                                                    <td class="text-oflo"><%= link_to document.document_subject , document %></td>
                                                     <td class="txt-oflo"><%= document.document_course %></td>
                                                     <td><span class="badge badge-success badge-pill"><%= document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= document.document_type %></td>
                                                     <td><span class="text-success"><%= document.document_year %></span></td>
                                                     <td><span class="text-success"><%= document.document_section %></span></td>
                                                     <td><span class="text-success"><%= document.document_level %></span></td>
+                                                    <td><span class="text-success"><%= link_to "Supprimer", document , method: :delete, data: { confirm: "Vous êtes sûr de supprimer ce document ?" } %></span></td>
+
                                                 </tr>
 
                                             <% end %>
@@ -748,7 +751,7 @@
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <%= form.label :document_level , "Niveau" %>
-                                        <%= form.collection_radio_buttons( :document_level, [[1 , "1ère"] , [2 , "2ème"]], :first, :last) do |b| b.label(:class => "radio-inline" , required: true) + "   " + b.radio_button  end %>
+                                        <%= form.collection_radio_buttons( :document_level, [[1 , "1ère"] , [2 , "2ème"] , [3 , "Tous"]], :first, :last) do |b| b.label(:class => "radio-inline" , required: true) + "   " + b.radio_button  end %>
                                       </div>
                                     </div>
 
