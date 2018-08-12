@@ -20,14 +20,14 @@
                 <% if not @document.pdf_file_enonce_file_size.nil? %>
                   <div class="tab-pane active" id="enonce" role="tabpanel">
                       <div class="p-20">
-                        <iframe src=<%= @document.pdf_file_corrige  %>  height="780" width="100%" > </iframe>
+                        <iframe src=<%= @enonce_document_url %>  height="780" width="100%" > </iframe>
                       </div>
                   </div>
                 <% end %>
 
                 <% if not @document.pdf_file_corrige_file_size.nil? %>
                   <div class="tab-pane  p-20" id="corrige" role="tabpanel">
-                    <iframe src=<%= @document.pdf_file_corrige %>  height="780" width="100%" > </iframe>  
+                    <iframe src=<%= @corrige_document_url %>  height="780" width="100%" > </iframe>  
                   </div>
                 <% end %>
 

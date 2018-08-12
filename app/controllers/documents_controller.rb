@@ -39,10 +39,9 @@ class DocumentsController < ApplicationController
             {content_type: :json, accept: :json}
 
 
-      if (add_doc_enonce_response == 0)
         enonce_document_obj = JSON.parse(add_doc_enonce_response)
         @enonce_document_url = enonce_document_obj["url"] 
-      end
+
 
       puts "*************************************"
       puts "#{@enonce_document_url}"
@@ -50,13 +49,13 @@ class DocumentsController < ApplicationController
 
       # Post response to display corrige document
       if (not @document.pdf_file_corrige_file_name.nil? )
-        add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/view" ,
+        add_doc_corrige_response = RestClient.post  "http://127.0.0.1:8080/view" ,
                                              
               {'document_id'=>  @document.id.to_s + 'C'}.to_json,
           
               {content_type: :json, accept: :json}
 
-        corrige_document_obj = JSON.parse(add_doc_enonce_response)
+        corrige_document_obj = JSON.parse(add_doc_corrige_response)
         @corrige_document_url = corrige_document_obj["url"] 
 
         puts "*************************************"
@@ -94,9 +93,13 @@ class DocumentsController < ApplicationController
         # Add document enonce to API
         add_doc_enonce_response = RestClient.post  "http://127.0.0.1:8080/add" ,
                                            
-        {'document_id'=> @document.id.to_s + 'E' ,'pdf_binary_file_path' => "/home/abderrahmen/Bureau/MonPrepa/public/corrige/#{@document.id}/#{@document.pdf_file_enonce_file_name}" }.to_json,
+        {'document_id'=> @document.id.to_s + 'E' ,'pdf_binary_file_path' => "/home/abderrahmen/Bureau/MonPrepa/public/enonce/#{@document.id}/#{@document.pdf_file_enonce_file_name}" }.to_json,
     
         {content_type: :json, accept: :json}
+
+        puts "-------------------------------------------------------------"  
+        puts "#{add_doc_enonce_response}"
+        puts "-------------------------------------------------------------"
 
 
         if (not @document.pdf_file_corrige_file_name.nil? )
@@ -200,9 +203,9 @@ class DocumentsController < ApplicationController
       puts "#{@expired_time_seconds}----------------------"
 
       if ( @expired_time_days < 0 )  
-        @session_expired = "false"
-      else
         @session_expired = "true"
+      else
+        @session_expired = "false"
       end 
 
 
