@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @document = Document.find(params[:document_id])
+    @document = Document.find_by_slug(params[:document_id])
     @comment = @document.comments.create(comment_params)
     @comment.user_id = current_user.id
     @comment.document_id = @document.id
