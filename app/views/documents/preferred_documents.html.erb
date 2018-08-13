@@ -24,7 +24,7 @@
 	                            <% @preferred_docs.each do |d| %>
 	                            <% @document = Document.find_by_id(d.document_id) %>
 	                                <tr>
-	                                    <td class="text-oflo"><%= @document.document_subject %></td>
+	                                    <td class="text-oflo"><%= link_to @document.document_subject , @document %></td>
 	                                    <td class="txt-oflo"><%= @document.document_course %></td>
 	                                    <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
 	                                    <td class="txt-oflo"><%= @document.document_type %></td>
