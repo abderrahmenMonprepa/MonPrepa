@@ -300,6 +300,9 @@ class DocumentsController < ApplicationController
       @devoirs = Document.devoirs
       @series = Document.series
       @examens = Document.examens
+
+      # List of messages
+      @messages = Message.all
     end
 
     # Search documents by type, course and year
