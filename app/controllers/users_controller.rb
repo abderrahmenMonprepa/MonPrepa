@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       if @user.save
-        format.html { redirect_to het_el_kazi_path, notice: 'User was successfully created.' }
+        format.html { redirect_to het_el_kazi_path, notice: 'Utilisateur ajouté avec succès.' }
         # format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to het_el_kazi_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to het_el_kazi_path, notice: 'Utilisateur modifié avec succès.' }
         format.json { render :show, status: :ok, location: @user }
         # redirect_to het_el_kazi_path
          flash[:notice] = "Updated user"
