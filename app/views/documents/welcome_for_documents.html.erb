@@ -82,7 +82,9 @@
                                     
 
                                     <li>
-                                        <a class="nav-link text-center m-b-5" href="javascript:void(0);"> <strong>Consluter toutes les notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                        <%= link_to  messages_path, class: "nav-link text-center m-b-5" do %>
+                                        <i class=""></i>  
+                                        <p class="btn btn-danger">Consluter toutes les notifications </p> <% end %>
                                     </li>
                                 </ul>
                             </div>
@@ -133,21 +135,21 @@
 
                                 <%= link_to  preferred_documents_path , class: "dropdown-item" do %>
                                 <i class="ti-wallet m-r-5 m-l-5"></i> 
-                                Mes cours favoris <% end %></a>
+                                Mes cours favoris <% end %>
 
                                 <%= link_to  videos_path , class: "dropdown-item" do %>
                                 <i class="ti-email m-r-5 m-l-5"></i>
-                                Mes videos favoris <% end %></a>
+                                Mes videos favoris <% end %>
 
                                 <div class="dropdown-divider"></div>
 
                                 <%= link_to  edit_user_registration_path , class: "dropdown-item" do %>
                                 <i class="ti-settings m-r-5 m-l-5"></i>
-                                Modifier profil<% end %> </a>
+                                Modifier profil<% end %> 
                                
                                 <%= link_to  destroy_user_session_path, method: :delete , class: "dropdown-item" do %>
                                 <i class="fa fa-power-off m-r-5 m-l-5"></i>
-                                Se déconnecter<% end %> </a>
+                                Se déconnecter<% end %> 
                                 
                                 <div class="dropdown-divider"></div>
                                 
@@ -290,7 +292,7 @@
                                             <% @preferred_docs.each do |d| %>
                                             <% @document = Document.find_by_id(d.document_id) %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= @document.document_subject %></td>
+                                                    <td class="text-oflo"><%= link_to @document.document_subject , @document %></td>
                                                     <td class="txt-oflo"><%= @document.document_course %></td>
                                                     <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= @document.document_type %></td>
@@ -388,7 +390,7 @@
                                             <% @visited_docs.each do |d| %>
                                             <% @document = Document.find_by_id(d.document_id) %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= @document.document_subject %></td>
+                                                    <td class="text-oflo"><%= link_to @document.document_subject , @document %></td>
                                                     <td class="txt-oflo"><%= @document.document_course %></td>
                                                     <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= @document.document_type %></td>
@@ -504,7 +506,7 @@
                                             <% @preferred_docs.each do |d| %>
                                             <% @document = Document.find_by_id(d.document_id) %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= @document.document_subject %></td>
+                                                    <td class="text-oflo"><%= link_to @document.document_subject , @document %></td>
                                                     <td class="txt-oflo"><%= @document.document_course %></td>
                                                     <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= @document.document_type %></td>
@@ -553,7 +555,7 @@
                                             <% @visited_docs.each do |d| %>
                                             <% @document = Document.find_by_id(d.document_id) %>
                                                 <tr>
-                                                    <td class="text-oflo"><%= @document.document_subject %></td>
+                                                    <td class="text-oflo"><%= link_to @document.document_subject , @document %></td>
                                                     <td class="txt-oflo"><%= @document.document_course %></td>
                                                     <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= @document.document_type %></td>
