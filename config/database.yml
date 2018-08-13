@@ -18,16 +18,25 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: mon_prepa_database
-  password: '*$*monprepA*$$%'
-  database: mon_prepa_db
+  username: abderrahmen
+  password: besmellah
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+  # For server
+  # adapter: postgresql
+  # encoding: unicode
+  # host: localhost
+  # username: mon_prepa_database
+  # password: '*$*monprepA*$$%'
+  # database: mon_prepa_db
+
+
 development:
   <<: *default
-  database: mon_prepa_db
+  database: MonPrepa_development
+  # database: mon_prepa_db
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
             devise_parameter_sanitizer.permit(:sign_up) do |user_params| 
               user_params.permit(:first_name, :last_name , :date_of_birth , :phone_number ,
               :cin_number, :school_year , :city , :email, :password , :institute_id , :section,  :login_token ,
-              :provider , :uid , :avatar , :password_confirmation) 
+              :provider , :uid , :avatar , :password_confirmation , :slug) 
             end
 
             # devise_parameter_sanitizer.permit(:account_update) do |user_params| 
