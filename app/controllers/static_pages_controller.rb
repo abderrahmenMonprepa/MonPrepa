@@ -37,6 +37,10 @@ helper :content
 		
 	end
 
+	def page_vitrine
+		
+	end
+
    
 
 end

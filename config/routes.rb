@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   devise_for :users , :path_prefix => 'devise' , 
   controllers: {  confirmations: 'confirmations' , :omniauth_callbacks => "users/omniauth_callbacks" ,registrations: 'registrations' }
   
-  root 'static_pages#home'
+  # root 'static_pages#home'
+  root 'static_pages#page_vitrine'
   get 'contact' => 'static_pages#contact'
   get 'home' => 'static_pages#home'
   get 'list' => 'static_pages#documents_list'
