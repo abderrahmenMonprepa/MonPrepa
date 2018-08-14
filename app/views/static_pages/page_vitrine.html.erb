@@ -82,12 +82,12 @@
 
 				<!-- Logo Image -->
 				<a href="#hero_8" class="navbar-brand logo-default">
-					<img src="img/logo.png" alt="logo">
+					<%= image_tag ('page_vitrine/logo.png') , alt: "logo" %>
 				</a>
 
 				<!-- Logo Image On Scroll -->
 				<a href="#hero_8" class="navbar-brand logo-alt">
-					<img src="img/logo.png" alt="logo">
+					<%= image_tag ('page_vitrine/logo.png') , alt: "logo" %>
 				</a>
 
 			</div>
@@ -98,7 +98,8 @@
 					<li><a href="#product">Services</a></li>
 					<li><a href="#pricing_2">Offres</a></li>
 					<li><a href="#partners_1">Enseignant</a></li>
-					<li><a href="#contact_1" class="btn btn-secondary">Se Connecter</a></li>
+					<li><a href="#contact_1" class="btn btn-secondary" style="margin-left: 10px;">Se Connecter</a></li>
+					<li><a href="" class="btn btn-primary" style="margin-left: 10px;">S'inscrire</a></li>
 				</ul>
 			</div>
 		</div>
@@ -147,28 +148,28 @@
 		<div class="row text-center m-b-20">
 			<!-- Feature #01 -->
 			<div class="col-md-3 col-sm-6 f-body-2">
-				<div class="mos_section_center"><img src="img/section_01.png" alt="Math-Physique" class="img-responsive center-block"></div>
+				<div class="mos_section_center"><%= image_tag ('page_vitrine/section_01.png') , alt: "Math-Physique" , class: "img-responsive center-block" %></div>
 				<h4 class="m-t-10 no-m-b">Math-Physique</h4>
 			</div>
 			<!-- End Feature #01 -->
 
 			<!-- Feature #02 -->
 			<div class="col-md-3 col-sm-6 f-body-2">
-				<div class="mos_section_center"><img src="img/section_02.png" alt="Physique-Chimie" class="img-responsive center-block"></div>
+				<div class="mos_section_center"><%= image_tag ('page_vitrine/section_02.png') , alt: "Physique-Chimie" , class: "img-responsive center-block" %></div>
 				<h4 class="m-t-10 no-m-b">Physique-Chimie</h4>
 			</div>
 			<!-- End Feature #02 -->
 
 			<!-- Feature #03 -->
 			<div class="col-md-3 col-sm-6 f-body-2">
-				<div class="mos_section_center"><img src="img/section_03.png" alt="Technologie" class="img-responsive center-block"></span></div>
+				<div class="mos_section_center"><%= image_tag ('page_vitrine/section_03.png') , alt: "Technologie" , class: "img-responsive center-block" %></span></div>
 				<h4 class="m-t-10 no-m-b">Technologie</h4>
 			</div>
 			<!-- End Feature #03 -->
 
 			<!-- Feature #04 -->
 			<div class="col-md-3 col-sm-6 f-body-2">
-				<div class="mos_section_center"><img src="img/section_04.png" alt="Biologie-Géologie" class="img-responsive center-block"></div>
+				<div class="mos_section_center"><%= image_tag ('page_vitrine/section_04.png') , alt: "Biologie-Géologie" , class: "img-responsive center-block" %></div>
 				<h4 class="m-t-10 no-m-b">Biologie-Géologie</h4>
 			</div>
 			<!-- End Feature #04 -->
@@ -198,7 +199,7 @@
 			</div>
 			<div class="col-md-6">
 				<!-- Right side image -->
-				<img src="img/screens.png" alt="compatible sur tous les equipements" class="img-responsive">
+				<%= image_tag ('page_vitrine/screens.png') , alt: 'compatible sur tous les equipements' , class: 'img-responsive' %>
 			</div>
 		</div>
 	</div>
