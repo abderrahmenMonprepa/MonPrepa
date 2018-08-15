@@ -31,9 +31,48 @@
 					<li><a href="#partners_1">Enseignant</a></li>
 					<!-- <li><a href="#contact_1" class="btn btn-secondary" style="margin-left: 10px;">Se Connecter</a></li>
 					<li><a href="" class="btn btn-primary" style="margin-left: 10px;">S'inscrire</a></li> -->
+					<a href="#" class="btn btn-secondary" style="margin-left: 10px;" data-toggle="modal" data-target="#myModal">Se Connecter</a>
+					<a href="#" class="btn btn-primary" style="margin-left: 10px;" data-toggle="modal" data-target="#myModal">S'inscrire</a>
 				</ul>
 			</div>
 		</div>
 	</nav>
 </header>
 <!-- End Header -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content mos_formpopup">
+				<div id="signup_1" class="signup-form">
+
+						<!-- Form Title -->
+						<h3>Lancement officiel le 03 Septembre 2018</h3>
+						<h4>Soyer le premier à obtenier le lien de l'application</h4>
+
+						<!-- Form -->
+						<%= form_with(model: @be_first, local: true) do |form| %>
+							<% if @be_first.errors.any? %>
+							    <div id="error_explanation">
+							      <h2><%= pluralize(@be_first.errors.count, "error") %> prohibited this be_first from being saved:</h2>
+
+							      <ul>
+							      <% @be_first.errors.full_messages.each do |message| %>
+							        <li><%= message %></li>
+							      <% end %>
+							      </ul>
+							    </div>
+						  	<% end %>
+							<%= form.text_field :name, id: :name , placeholder: "Nom et prènom" , required: true %>
+							<br>
+							<br>
+							<%= form.text_field :phone_number, id: :phone_number , placeholder: "Numéro de téléphone" , required: true , maxlength: "8" , minlength: "8" , pattern: "[0-9]+" %>
+
+							<%= form.submit 'Soyer le premier' , class: "btn btn-block m-t-20" %>
+
+						<% end %>
+						<!-- End Form -->
+					</div>
+		  </div>
+		</div>
+</div>
