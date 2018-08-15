@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :be_firsts
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :document_favoris

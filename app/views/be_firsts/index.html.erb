@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Be Firsts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @be_firsts.each do |be_first| %>
+      <tr>
+        <td><%= be_first.name %></td>
+        <td><%= be_first.phone_number %></td>
+        <td><%= be_first.email %></td>
+        <td><%= link_to 'Show', be_first %></td>
+        <td><%= link_to 'Edit', edit_be_first_path(be_first) %></td>
+        <td><%= link_to 'Destroy', be_first, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Be First', new_be_first_path %>

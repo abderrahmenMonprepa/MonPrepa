@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
 
-before_action :authenticate_user! , :except => :home
+before_action :authenticate_user! , :except => [:home , :page_vitrine]
 helper :content
 
 	def home
@@ -38,6 +38,8 @@ helper :content
 	end
 
 	def page_vitrine
+
+		@be_first = BeFirst.new
 		
 	end
 
