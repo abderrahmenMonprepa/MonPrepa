@@ -3,7 +3,7 @@ class BeFirstsController < ApplicationController
 respond_to :html, :json
 
   def new
-    @comment = Comment.new
+    @be_first = BeFirst.new
   end
 
   def create

@@ -40,6 +40,7 @@ helper :content
 	def page_vitrine
 
 		@be_first = BeFirst.new
+		@notification = Notification.new
 		
 	end
 

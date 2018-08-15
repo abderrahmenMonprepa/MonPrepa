@@ -442,16 +442,34 @@
 		<div class="row">
 			<div class="col-md-6 col-sm-12 left-content wow fadeInLeft" data-wow-delay="1500ms" data-wow-duration="1500ms">
 			<!-- Contact form -->
-			<form action="php/contact.php" method="POST" class="form-horizontal ajaxform" id="contact">
-                <input class="form-control" name="name" id="name" placeholder="Nom" type="text">
-                <input class="form-control m-t-20" name="email" id="email" placeholder="Email" type="email">
-                <input class="form-control m-t-20" name="number" id="number" placeholder="Numero de téléphone" type="text">
-				<textarea name="message" id="message" rows="5" class="form-control m-t-20" placeholder="Votre Message"></textarea>
-				<p>&nbsp;</p>
-                <button id="submit" type="submit" class="btn">Envoyer le message</button>
-                <p class="email-success-text hide">Formulaire soumis avec succès</p>
-				<p class="email-error-text hide">Veuillez entrer des détails valides</p>
-            </form>
+
+			<%= form_with(model: @notification, local: true , class: "form-horizontal" ) do |form| %>
+			  <% if @notification.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@notification.errors.count, "error") %> prohibited this notification from being saved:</h2>
+
+			      <ul>
+			      <% @notification.errors.full_messages.each do |message| %>
+			        <li><%= message %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+
+			  	<%= form.text_field :name, id: :name , placeholder: "Nom et prènom" , required: true , class: "form-control"  %>
+
+				<%= form.text_field :email, id: :name , placeholder: "Email" , required: true , type: 'email' , class: "form-control m-t-20" %>
+
+				<%= form.text_field :phone_number, id: :phone_number , placeholder: "Numéro de téléphone" , required: true , maxlength: "8" , minlength: "8" , pattern: "[0-9]+" , class: "form-control m-t-20" %>
+
+				<%= form.text_area :notification_contenu, id: :notification_notification_contenu , placeholder: "Message" , class: "form-control m-t-20" , required: true %>
+
+				<%= form.submit 'Envoyer le message' , class: "btn btn-block m-t-20" %>
+
+			 <% end %>
+
+
+
 			</div>
 
 			<div class="col-md-6 col-sm-12 text wow fadeInRight" data-wow-delay="1500ms" data-wow-duration="1500ms">
