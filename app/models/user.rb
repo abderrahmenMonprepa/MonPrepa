@@ -10,7 +10,7 @@ class User < ApplicationRecord
          :validatable, :confirmable, :lockable, 
          :timeoutable , :omniauthable , 
          :omniauth_providers => [:facebook] 
-         # :session_limitable
+         :session_limitable
 
   # User model has many administrators
   has_many :administrators , dependent: :destroy

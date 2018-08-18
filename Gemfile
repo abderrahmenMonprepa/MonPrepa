@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-# gem 'devise_security_extension', git: 'https://github.com/phatworx/devise_security_extension.git'
+gem 'devise_security_extension', git: 'https://github.com/phatworx/devise_security_extension.git'
 # For authentication
 gem 'devise'
 # Omniauth social connection

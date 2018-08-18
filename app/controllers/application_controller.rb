@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token, if: -> { controller_name == 'sessions' && action_name == 'create' }
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_be_first_model
   # before_action :authenticate_user!
   # before_action :invalidate_simultaneous_user_session, :unless => Proc.new {|c| c.controller_name == 'sessions' and c.action_name == 'create' }
 
@@ -27,6 +28,12 @@ class ApplicationController < ActionController::Base
       else
       end
        
+    end
+
+    def set_be_first_model
+      @be_first = BeFirst.new
+      @notification = Notification.new
+      
     end
 
     protected
