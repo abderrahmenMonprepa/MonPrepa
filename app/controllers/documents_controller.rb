@@ -410,7 +410,8 @@ class DocumentsController < ApplicationController
     def document_params
       params.require(:document).permit(:document_key, :document_section, :document_level, :slug,
        :document_course, :document_type, :document_subject, :document_year, :document_data,
-       :document_trimestre, :pdf_file_enonce , :pdf_file_corrige , :enonce_data , :corrige_data)
+       :document_trimestre, :pdf_file_enonce , :pdf_file_corrige , :enonce_data , :corrige_data ,
+       :document_order , :document_status , :document_video_url)
     end
 
     # Set slug for document creation
