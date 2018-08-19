@@ -1,0 +1,263 @@
+                        <!-- MonPrepa message -->  
+            <div class="row">
+                <div class="col-lg-12">                
+                    <div id="search_user" >
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">MonPrepa</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="media">
+                                            <img class="d-flex mr-3" src="/assets/users/1.jpg" width="60" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-1">Vous pouvez consulter et visisonner tous les documents.</h5>
+                                            </div>
+                                        </li>
+                                        <center> <%= link_to "Retour" , welcome_for_documents_path , class: "btn m-t-10 m-r-5 btn-rounded btn-outline-success" %> </center>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End MonPrepa message -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="resume_section" >
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Les résumés</h4>
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable_resume_docs">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @user_documents.resumes.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= link_to  d.document_year , d %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Resume documents -->
+
+            <!-- Serie documents -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="serie_section" style="display: none;" >
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Les séries</h4>
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable_serie_docs">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @user_documents.series.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Serie documents -->
+
+
+            <!-- Devoirs documents -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="devoir_section"  style="display: none;" >
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Les devoirs</h4>
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable_devoir_docs">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @user_documents.devoirs.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Devoir documents -->
+
+            <!-- Examen documents -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="examen_section"  style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Les examens</h4>
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable_examen_docs">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @user_documents.examens.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Examen documents -->
+
+            <!-- Concour documents -->
+            <div class="row" >
+                <div class="col-lg-12">
+                    <div id="concour_section" style="display: none;">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Les concours</h4>
+                                <div class="table-responsive">
+                                    <table class="table" id="myTable_concour_docs">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Sujet</th>
+                                                <th>Matière</th>                                            
+                                                <th>Trimestre</th>
+                                                <th>Type</th>
+                                                <th>Année</th>
+                                                <th>Section</th>
+                                                <th>Niveau</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% @user_documents.concours.each do |d| %>
+                                                <tr>
+                                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                                    <td><span class="text-success"><%= d.document_section %></span></td>
+                                                    <td><span class="text-success"><%= d.document_level %></span></td>
+                                                </tr>
+
+                                            <% end %>
+
+                                        </tbody>
+
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Concours documents -->

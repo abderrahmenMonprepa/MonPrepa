@@ -59,9 +59,9 @@
 # Course.create(course_name: "Anglais")
 # Course.create(course_name: "Français")
 
-# CourseType.create(course_type: "Série")
-# CourseType.create(course_type: "Devoir")
-# CourseType.create(course_type: "Concour")
+# CourseType.create(course_type: "Série d'exercices")
+# CourseType.create(course_type: "Devoir surveillé")
+# CourseType.create(course_type: "Concours")
 # CourseType.create(course_type: "Examen")
 # CourseType.create(course_type: "Résumé")
 
