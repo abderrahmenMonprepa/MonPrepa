@@ -189,7 +189,7 @@ class DocumentsController < ApplicationController
 
       # CountDown for User
       @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
-      @account_creation_date = current_user.created_at.to_i + 1.days.to_i
+      @account_creation_date = current_user.created_at.to_i + 2.days.to_i
       @actual_date = DateTime.now.to_i
 
       @expired_time_days = ((@account_creation_date- @actual_date ) / 86400 ) 
@@ -411,7 +411,7 @@ class DocumentsController < ApplicationController
       params.require(:document).permit(:document_key, :document_section, :document_level, :slug,
        :document_course, :document_type, :document_subject, :document_year, :document_data,
        :document_trimestre, :pdf_file_enonce , :pdf_file_corrige , :enonce_data , :corrige_data ,
-       :document_order , :document_status , :document_video_url)
+       :document_order , :document_status , :document_video_url , :document_semester)
     end
 
     # Set slug for document creation

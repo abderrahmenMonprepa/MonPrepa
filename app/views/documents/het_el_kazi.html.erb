@@ -535,21 +535,21 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <%= form.label :document_course , "Cours" %>
-                                            <%= form.collection_select :document_course, Course.all,  :course_name, :course_name,{ :include_blank => "Sélectionner cours" } , {class: "form-control" , required: true} %>
+                                            <%= form.label :document_course , "Matière" %>
+                                            <%= form.collection_select :document_course, Course.all,  :course_name, :course_name,{ :include_blank => "Sélectionner matière" } , {class: "form-control" , required: true} %>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <%= form.label :document_section , "Section" %>
-                                        <%= form.collection_select :document_section, Section.all,  :section_name, :section_name,{ :include_blank => "Sélectionner votre section" } , {class: "form-control" , required: true} %>
+                                        <%= form.collection_select :document_section, Section.all,  :section_name, :section_name,{ :include_blank => "Sélectionner une section" } , {class: "form-control" , required: true} %>
                                       </div>
                                     </div>
 
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                        <%= form.label :document_level , "Niveau" %>
+                                        <%= form.label :document_level , "Niveau" %><br>
                                         <%= form.collection_radio_buttons( :document_level, [[1 , "1ère"] , [2 , "2ème"] , [3 , "Tous"]], :first, :last) do |b| b.label(:class => "radio-inline" , required: true) + "   " + b.radio_button  end %>
                                       </div>
                                     </div>
@@ -557,13 +557,13 @@
                                     <div class="col-md-6">
                                       <div class="form-group">
                                         <%= form.label :document_type , "Type" %>
-                                        <%= form.collection_select :document_type, CourseType.all,  :course_type, :course_type,{ :include_blank => "Sélectionner cours" } , {class: "form-control" , required: true} %>
+                                        <%= form.collection_select :document_type, CourseType.all,  :course_type, :course_type,{ :include_blank => "Sélectionner type" } , {class: "form-control" , required: true} %>
                                       </div>
                                     </div>
 
                                     <div class="col-md-6">
                                       <div class="form-group">
-                                        <%= form.label :document_subject , "Sujet" %>
+                                        <%= form.label :document_subject , "Nom" %>
                                         <%= form.text_field :document_subject, id: :document_document_subject, class: 'form-control' , required: true  %>
                                       </div>
                                     </div>
@@ -572,6 +572,34 @@
                                       <div class="form-group">
                                         <%= form.label :document_year , "Année" %>
                                         <%= form.number_field :document_year, id: :document_document_year, class: 'form-control' , required: true  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_semester , "Semestre ( 1 ou 2 )" %>
+                                        <%= form.text_field :document_semester, id: :document_semester, class: 'form-control' , required: true  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_order , "Ordre" %>
+                                        <%= form.text_field :document_order, id: :document_order, class: 'form-control'  %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_status , "Statut" %><br>
+                                        <%= form.collection_radio_buttons( :document_status, [[1 , "Fait"] , [2 , "En cours"]], :first, :last) do |b| b.label(:class => "radio-inline" , required: true) + "   " + b.radio_button  end %>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <%= form.label :document_video_url , "Video URL" %>
+                                        <%= form.text_field :document_video_url, id: :document_video_url, class: 'form-control'   %>
                                       </div>
                                     </div>
 

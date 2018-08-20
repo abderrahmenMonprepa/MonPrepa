@@ -263,7 +263,11 @@
                                 <h4 class="card-title">MonPrepa</h4>
                                 <ul class="list-unstyled">
                                     <li class="media">
-                                        <img class="d-flex mr-3" src="/assets/users/1.jpg" width="60" alt="Generic placeholder image">
+                                        <% if not current_user.avatar.nil? %>
+                                            <%= image_tag current_user.avatar.url(:thumb) , class: "d-flex mr-3" , width: "60" , alt: "User Image" %>
+                                        <% else %>
+                                            <%= image_tag ("avatar.png") , class: "d-flex mr-3" , width: "60" , alt: "User Image" %>
+                                        <% end %>
                                         <div class="media-body">
                                             <h5 class="mt-0 mb-1">Bienvenue dans notre plateforme</h5> MonPrepa est une plateforme qui réuni tous les intervenants du cycle préparatoire dans un espace communautaire. Elle s'adresse aux étudiants en cycle préparatoire dans tout le territoire tunisien.
                                         </div>
@@ -835,7 +839,7 @@ var x = setInterval(function() {
 
 
 
-  // Find the distance between now an the count down date 5 days (Difference 2 hours)
+  // Find the distance between now an the count down date 3 days (Difference 2 hours)
   var distance =   (countDownDate + 266400000)- now ;
 
   // Time calculations for days, hours, minutes and seconds
