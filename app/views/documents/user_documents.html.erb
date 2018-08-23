@@ -198,45 +198,26 @@
 
                         
 
-                        <!-- <li> <a id="resume_documents"><i class="icon-speedometer"></i><span class="hide-menu">Résumé</span></a>
+                        <li> <a id="accueil" ><i class="ti-layout-grid2"></i><span class="hide-menu">Accueil</span></a>
                         </li>
 
                         <li class="nav-small-cap"></li>
-
-                        <li> <a id="serie_documents"><i class="ti-layout-grid2"></i><span class="hide-menu">Série</span></a>
-                        </li>
-
-                        <li class="nav-small-cap"></li>
-
-                        <li> <a id="devoir_documents"><i class="ti-email"></i><span class="hide-menu">Devoir surveillé</span></a>
-                        </li>
-                        <li class="nav-small-cap"></li>
-
-                        <li> <a id="examen_documents"><i class="icon-speedometer"></i><span class="hide-menu">Examen</span></a>
-                        </li>
-
-                        <li class="nav-small-cap"></li>
-
-                        <li> <a id="concour_documents"><i class="ti-layout-grid2"></i><span class="hide-menu">Concours</span></a>
-                        </li>
-
-                        <li class="nav-small-cap"></li> -->
-
-                        <li> <a id="accueil" ><i class="icon-speedometer"></i><span class="hide-menu">Accueil</span></a>
-                        </li>
-
-                         <li class="nav-small-cap"></li>
 
                         <li> <a id="explore" ><i class="ti-layout-grid2"></i><span class="hide-menu">Explorer</span></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
 
-                        <li> <a id="favori" ><i class="ti-email"></i><span class="hide-menu">Favoris</span></a>
+                        <li> <a id="search" ><i class="ti-layout-grid2"></i><span class="hide-menu">Rechercher</span></a>
+                        </li>
+
+                         <li class="nav-small-cap"></li>
+
+                        <li> <a id="favori" ><i class="ti-layout-grid2"></i><span class="hide-menu">Favoris</span></a>
                         </li>
                         <li class="nav-small-cap"></li>
 
-                        <li> <a id="historique" ><i class="icon-speedometer"></i><span class="hide-menu">Historique</span></a>
+                        <li> <a id="historique" ><i class="ti-layout-grid2"></i><span class="hide-menu">Historique</span></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
@@ -507,57 +488,89 @@ jQuery( document ).ready(function( $ ) {
 
 });
 
-$('#resume_documents').on('click', function(event) {
-    jQuery('#resume_section').css("display","block");
-    jQuery('#serie_section').css("display","none");
-    jQuery('#devoir_section').css("display","none");
-    jQuery('#examen_section').css("display","none");
-    jQuery('#concour_section').css("display","none");
+$('#accueil').on('click', function(event) {
+    jQuery('#accueil_section').css("display","block");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
     
 });
 
-$('#serie_documents').on('click', function(event) {
-    jQuery('#resume_section').css("display","none");
-    jQuery('#serie_section').css("display","block");
-    jQuery('#devoir_section').css("display","none");
-    jQuery('#examen_section').css("display","none");
-    jQuery('#concour_section').css("display","none");
+$('#explore').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","block");
+    jQuery('#search_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
     
 });
 
-$('#devoir_documents').on('click', function(event) {
-    jQuery('#resume_section').css("display","none");
-    jQuery('#serie_section').css("display","none");
-    jQuery('#devoir_section').css("display","block");
-    jQuery('#examen_section').css("display","none");
-    jQuery('#concour_section').css("display","none");
+$('#search').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","block");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
     
 });
 
-$('#examen_documents').on('click', function(event) {
-    jQuery('#resume_section').css("display","none");
-    jQuery('#serie_section').css("display","none");
-    jQuery('#devoir_section').css("display","none");
-    jQuery('#examen_section').css("display","block");
-    jQuery('#concour_section').css("display","none");
+$('#favori').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
+    jQuery('#favori_section').css("display","block");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
     
 });
-$('#concour_documents').on('click', function(event) {
-    jQuery('#resume_section').css("display","none");
-    jQuery('#serie_section').css("display","none");
-    jQuery('#devoir_section').css("display","none");
-    jQuery('#examen_section').css("display","none");
-    jQuery('#concour_section').css("display","block");
+
+$('#historique').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","block");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
+    
+});
+$('#aide').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","block");
+    jQuery('#contact_section').css("display","none");
+    
+});
+
+$('#contact').on('click', function(event) {
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","block");
     
 });
 
 $(document).ready(function() {
-        $('#myTable_resume_docs').DataTable();
-        $('#myTable_serie_docs').DataTable();
-        $('#myTable_devoir_docs').DataTable();
-        $('#myTable_examen_docs').DataTable();
-        $('#myTable_concour_docs').DataTable();
-});
+        $('#myTable_new_docs').DataTable();
+        $('#myTable_preferred_docs').DataTable();
+        $('#myTable_preferred_docs_section').DataTable();
+        $('#myTable_visited_docs').DataTable();
+        $('#myTable_visited_docs_section').DataTable();
+    });
 
 
 </script>

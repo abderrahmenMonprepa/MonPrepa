@@ -193,7 +193,7 @@
 
                         <li class="nav-small-cap"></li>
 
-                        <li> <a id="explore" ><i class="ti-layout-grid2"></i><span class="hide-menu">Explorer</span></a>
+                        <li> <a><%= link_to  user_documents_path do  %><i class="ti-layout-grid2"></i><span class="hide-menu">Explorer</span> <% end %></a>
                         </li>
 
                          <li class="nav-small-cap"></li>
@@ -201,7 +201,7 @@
                         <li> <a id="search" ><i class="ti-layout-grid2"></i><span class="hide-menu">Rechercher</span></a>
                         </li>
 
-                         <li class="nav-small-cap"></li>
+                        <li class="nav-small-cap"></li>
 
                         <li> <a id="favori" ><i class="ti-layout-grid2"></i><span class="hide-menu">Favoris</span></a>
                         </li>
@@ -210,17 +210,17 @@
                         <li> <a id="historique" ><i class="ti-layout-grid2"></i><span class="hide-menu">Historique</span></a>
                         </li>
 
-                         <li class="nav-small-cap"></li>
+                        <li class="nav-small-cap"></li>
 
                         <li> <a id="aide" ><i class="ti-layout-grid2"></i><span class="hide-menu">Aide</span></a>
                         </li>
 
-                         <li class="nav-small-cap"></li>
+                        <li class="nav-small-cap"></li>
 
-                         <li> <a id="contact" ><i class="ti-layout-grid2"></i><span class="hide-menu">Contact</span></a>
+                        <li> <a id="contact" ><i class="ti-layout-grid2"></i><span class="hide-menu">Contact</span></a>
                         </li>
 
-                         <li class="nav-small-cap"></li>
+                        <li class="nav-small-cap"></li>
 
 
                     </ul>
@@ -282,26 +282,26 @@
                     </div>
                 </div>
 
-                    <div class="col-lg-3">
-                        <div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <table class="table stylish-table">
+                <div class="col-lg-3">
+                    <div>
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table stylish-table">
 
-                                        <tbody>
+                                    <tbody>
 
-                                            <tr class="active">
-                                                <td><span class="round"><%= image_tag ("income-w.png") , alt: "user" , width: "50" %></span></td>
-                                                <td>
-                                                    <h6>Message</h6><small class="text-muted">Vous trouvez à partir de demain des résumés de Biologie Animale. Bonne révision.</small><br><small>Equipe MonPrepa</small></td>
-                                            </tr>
+                                        <tr class="active">
+                                            <td><span class="round"><%= image_tag ("income-w.png") , alt: "user" , width: "50" %></span></td>
+                                            <td>
+                                                <h6>Message</h6><small class="text-muted">Vous trouvez à partir de demain des résumés de Biologie Animale. Bonne révision.</small><br><small>Equipe MonPrepa</small></td>
+                                        </tr>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+                </div>
 
 
 
@@ -320,8 +320,6 @@
                                                 <th>Trimestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
-                                                <th>Section</th>
-                                                <th>Niveau</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -334,8 +332,6 @@
                                                     <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= @document.document_type %></td>
                                                     <td><span class="text-success"><%= @document.document_year %></span></td>
-                                                    <td><span class="text-success"><%= @document.document_section %></span></td>
-                                                    <td><span class="text-success"><%= @document.document_level %></span></td>
                                                 </tr>
 
                                             <% end %>
@@ -366,8 +362,6 @@
                                                 <th>Trimestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
-                                                <th>Section</th>
-                                                <th>Niveau</th>
                                                 <th>Favori</th>
                                             </tr>
                                         </thead>
@@ -381,8 +375,6 @@
                                                     <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= d.document_type %></td>
                                                     <td><span class="text-success"><%= d.document_year %></span></td>
-                                                    <td><span class="text-success"><%= d.document_section %></span></td>
-                                                    <td><span class="text-success"><%= d.document_level %></span></td>
                                                     <%= form_for DocumentFavori.new do |f| %>
                                                         <%= f.hidden_field :user_id , value: current_user.id %>
                                                         <%= f.hidden_field :document_id , value: d.id %>
@@ -418,8 +410,6 @@
                                                 <th>Trimestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
-                                                <th>Section</th>
-                                                <th>Niveau</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -432,8 +422,6 @@
                                                     <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= @document.document_type %></td>
                                                     <td><span class="text-success"><%= @document.document_year %></span></td>
-                                                    <td><span class="text-success"><%= @document.document_section %></span></td>
-                                                    <td><span class="text-success"><%= @document.document_level %></span></td>
                                                 </tr>
 
                                             <% end %>
@@ -454,15 +442,16 @@
             <!-- End MonPrepa Accueil -->
 
 
-            <!-- Explore Document -->
+
+            <!-- Search Document -->
             <div class="row">
                 <div class="col-lg-12">                  
-                    <div id="explore_section"  style="display: none ;">
+                    <div id="search_section"  style="display: none ;">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                 <center>
-                                    <h4 class="card-title">Rechercher un document</h4>
+                                    <h4 class="card-title">Chercher un document</h4>
                                     <div class="">
                                         <%= form_tag welcome_for_documents_path, :method => 'get',  :id => "documents_search" ,:remote => true  do %>
                                                     <div class="col-md-12 text-center" style="margin:auto;">
@@ -493,7 +482,7 @@
                     </div>                  
                 </div>   
             </div> 
-            <!-- End Explore Document -->
+            <!-- End Search Document -->
 
 
             <!-- Course Section -->
@@ -534,8 +523,6 @@
                                                 <th>Trimestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
-                                                <th>Section</th>
-                                                <th>Niveau</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -548,8 +535,6 @@
                                                     <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= @document.document_type %></td>
                                                     <td><span class="text-success"><%= @document.document_year %></span></td>
-                                                    <td><span class="text-success"><%= @document.document_section %></span></td>
-                                                    <td><span class="text-success"><%= @document.document_level %></span></td>
                                                 </tr>
 
                                             <% end %>
@@ -583,8 +568,6 @@
                                                 <th>Trimestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
-                                                <th>Section</th>
-                                                <th>Niveau</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -596,9 +579,6 @@
                                                     <td class="txt-oflo"><%= @document.document_course %></td>
                                                     <td><span class="badge badge-success badge-pill"><%= @document.document_trimestre %></span> </td>
                                                     <td class="txt-oflo"><%= @document.document_type %></td>
-                                                    <td><span class="text-success"><%= @document.document_year %></span></td>
-                                                    <td><span class="text-success"><%= @document.document_section %></span></td>
-                                                    <td><span class="text-success"><%= @document.document_level %></span></td>
                                                 </tr>
 
                                             <% end %>
@@ -755,6 +735,7 @@ function display_documents() {
 $('#accueil').on('click', function(event) {
     jQuery('#accueil_section').css("display","block");
     jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
     jQuery('#aide_section').css("display","none");
@@ -762,9 +743,21 @@ $('#accueil').on('click', function(event) {
     
 });
 
-$('#explore').on('click', function(event) {
+// $('#explore').on('click', function(event) {
+//     jQuery('#accueil_section').css("display","none");
+//     jQuery('#explore_section').css("display","block");
+//     jQuery('#search_section').css("display","none");
+//     jQuery('#favori_section').css("display","none");
+//     jQuery('#historique_section').css("display","none");
+//     jQuery('#aide_section').css("display","none");
+//     jQuery('#contact_section').css("display","none");
+    
+// });
+
+$('#search').on('click', function(event) {
     jQuery('#accueil_section').css("display","none");
-    jQuery('#explore_section').css("display","block");
+    jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","block");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
     jQuery('#aide_section').css("display","none");
@@ -775,6 +768,7 @@ $('#explore').on('click', function(event) {
 $('#favori').on('click', function(event) {
     jQuery('#accueil_section').css("display","none");
     jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","block");
     jQuery('#historique_section').css("display","none");
     jQuery('#aide_section').css("display","none");
@@ -785,6 +779,7 @@ $('#favori').on('click', function(event) {
 $('#historique').on('click', function(event) {
     jQuery('#accueil_section').css("display","none");
     jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","block");
     jQuery('#aide_section').css("display","none");
@@ -794,6 +789,7 @@ $('#historique').on('click', function(event) {
 $('#aide').on('click', function(event) {
     jQuery('#accueil_section').css("display","none");
     jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
     jQuery('#aide_section').css("display","block");
@@ -804,6 +800,7 @@ $('#aide').on('click', function(event) {
 $('#contact').on('click', function(event) {
     jQuery('#accueil_section').css("display","none");
     jQuery('#explore_section').css("display","none");
+    jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
     jQuery('#aide_section').css("display","none");

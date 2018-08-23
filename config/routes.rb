@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_matters
   resources :notifications
   resources :be_firsts
   devise_for :admin_users, ActiveAdmin::Devise.config

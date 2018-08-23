@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Matters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Level</th>
+      <th>Matter</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_matters.each do |user_matter| %>
+      <tr>
+        <td><%= user_matter.section %></td>
+        <td><%= user_matter.level %></td>
+        <td><%= user_matter.matter %></td>
+        <td><%= link_to 'Show', user_matter %></td>
+        <td><%= link_to 'Edit', edit_user_matter_path(user_matter) %></td>
+        <td><%= link_to 'Destroy', user_matter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Matter', new_user_matter_path %>

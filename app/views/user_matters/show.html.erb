@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @user_matter.section %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @user_matter.level %>
+</p>
+
+<p>
+  <strong>Matter:</strong>
+  <%= @user_matter.matter %>
+</p>
+
+<%= link_to 'Edit', edit_user_matter_path(@user_matter) %> |
+<%= link_to 'Back', user_matters_path %>

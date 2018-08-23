@@ -1,0 +1,2 @@
+class UserMatter < ApplicationRecord
+end

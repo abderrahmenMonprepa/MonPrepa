@@ -101,6 +101,8 @@ class DocumentsController < ApplicationController
         puts "#{add_doc_enonce_response}"
         puts "-------------------------------------------------------------"
 
+        # if (add_doc_enonce_response[""])
+
 
         if (not @document.pdf_file_corrige_file_name.nil? )
           # Add document corrige to API
@@ -189,7 +191,7 @@ class DocumentsController < ApplicationController
 
       # CountDown for User
       @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
-      @account_creation_date = current_user.created_at.to_i + 2.days.to_i
+      @account_creation_date = current_user.created_at.to_i + 6.days.to_i
       @actual_date = DateTime.now.to_i
 
       @expired_time_days = ((@account_creation_date- @actual_date ) / 86400 ) 
@@ -274,7 +276,7 @@ class DocumentsController < ApplicationController
 
       # CountDown for User
       @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
-      @account_creation_date = current_user.created_at.to_i + 1.days.to_i
+      @account_creation_date = current_user.created_at.to_i + 6.days.to_i
       @actual_date = DateTime.now.to_i
 
       @expired_time_days = ((@account_creation_date- @actual_date ) / 86400 ) 
