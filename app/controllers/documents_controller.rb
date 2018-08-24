@@ -303,8 +303,18 @@ class DocumentsController < ApplicationController
       @series = Document.series
       @examens = Document.examens
 
-      # List of messages
-      @messages = Message.all
+      # Preferred Documents
+      @preferred_docs = DocumentFavori.where(user_id: current_user.id).select("distinct document_id")
+
+      # Visited Documents
+      @visited_docs = DocumentHistory.where(user_id: current_user.id).select("distinct document_id")
+
+      # New documents added by the Admin in last days
+      @new_documents = Document.where(" documents.created_at < ? " ,  Date.today + 3.days ) 
+
+      # Get new messages
+      @messages = Message.all.order("created_at DESC")
+      
     end
 
     # Search documents by type, course and year

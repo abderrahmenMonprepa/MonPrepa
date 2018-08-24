@@ -274,124 +274,9 @@
             <% if @session_expired == "true" %>
                 <!-- Vous devez payer -->
             <% else %>
+                        <%= render 'user_documents_container' %>
 
-                        <!-- Column -->
-                        <div class="row">
-
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Analyse</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Chimie</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Physique</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Algèbre</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Analyse</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Chimie</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Physique</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Algèbre</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Analyse</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Chimie</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-5">
-                                <div class="card bg-success text-white text-center">
-                                    <div class="card-body">
-                                        <small></small>
-                                        <h3>Physique</h3>
-                                        <div id="sparkline11" class="m-t-10"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-
-                        </div>
-                    <!-- Column -->
+                        
              
 
 
@@ -488,9 +373,13 @@ jQuery( document ).ready(function( $ ) {
 
 });
 
+
+
 $('#accueil').on('click', function(event) {
+    
+
+    jQuery('#user_matters_section').css("display","none");
     jQuery('#accueil_section').css("display","block");
-    jQuery('#explore_section').css("display","none");
     jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
@@ -500,8 +389,10 @@ $('#accueil').on('click', function(event) {
 });
 
 $('#explore').on('click', function(event) {
+    
+
+    jQuery('#user_matters_section').css("display","block");
     jQuery('#accueil_section').css("display","none");
-    jQuery('#explore_section').css("display","block");
     jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
@@ -511,8 +402,10 @@ $('#explore').on('click', function(event) {
 });
 
 $('#search').on('click', function(event) {
+    
+
+    jQuery('#user_matters_section').css("display","none");
     jQuery('#accueil_section').css("display","none");
-    jQuery('#explore_section').css("display","none");
     jQuery('#search_section').css("display","block");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
@@ -522,8 +415,10 @@ $('#search').on('click', function(event) {
 });
 
 $('#favori').on('click', function(event) {
+    
+
+    jQuery('#user_matters_section').css("display","none");
     jQuery('#accueil_section').css("display","none");
-    jQuery('#explore_section').css("display","none");
     jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","block");
     jQuery('#historique_section').css("display","none");
@@ -533,8 +428,10 @@ $('#favori').on('click', function(event) {
 });
 
 $('#historique').on('click', function(event) {
+    
+
+    jQuery('#user_matters_section').css("display","none");
     jQuery('#accueil_section').css("display","none");
-    jQuery('#explore_section').css("display","none");
     jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","block");
@@ -543,8 +440,10 @@ $('#historique').on('click', function(event) {
     
 });
 $('#aide').on('click', function(event) {
+    
+
+    jQuery('#user_matters_section').css("display","none");
     jQuery('#accueil_section').css("display","none");
-    jQuery('#explore_section').css("display","none");
     jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
@@ -554,8 +453,10 @@ $('#aide').on('click', function(event) {
 });
 
 $('#contact').on('click', function(event) {
+    
+
+    jQuery('#user_matters_section').css("display","none");
     jQuery('#accueil_section').css("display","none");
-    jQuery('#explore_section').css("display","none");
     jQuery('#search_section').css("display","none");
     jQuery('#favori_section').css("display","none");
     jQuery('#historique_section').css("display","none");
