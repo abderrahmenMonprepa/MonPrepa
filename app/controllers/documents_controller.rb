@@ -191,7 +191,7 @@ class DocumentsController < ApplicationController
 
       # CountDown for User
       @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
-      @account_creation_date = current_user.created_at.to_i + 6.days.to_i
+      @account_creation_date = current_user.created_at.to_i + 17.days.to_i
       @actual_date = DateTime.now.to_i
 
       @expired_time_days = ((@account_creation_date- @actual_date ) / 86400 ) 
@@ -276,7 +276,7 @@ class DocumentsController < ApplicationController
 
       # CountDown for User
       @countdown_date = current_user.created_at.strftime(" %b %d, %Y %H:%M:%S")
-      @account_creation_date = current_user.created_at.to_i + 6.days.to_i
+      @account_creation_date = current_user.created_at.to_i + 17.days.to_i
       @actual_date = DateTime.now.to_i
 
       @expired_time_days = ((@account_creation_date- @actual_date ) / 86400 ) 
@@ -290,18 +290,11 @@ class DocumentsController < ApplicationController
         @session_expired = "false"
       end 
 
-      # Get User Documents for defined level
-      @user_documents = Document.user_documents(@user)
-
+      
       # Get User Documents for all sections
       @all_sections = Document.all_sections(@user)
 
 
-      @resumes = Document.resumes
-      @concours = Document.concours
-      @devoirs = Document.devoirs
-      @series = Document.series
-      @examens = Document.examens
 
       # Preferred Documents
       @preferred_docs = DocumentFavori.where(user_id: current_user.id).select("distinct document_id")
@@ -314,6 +307,26 @@ class DocumentsController < ApplicationController
 
       # Get new messages
       @messages = Message.all.order("created_at DESC")
+
+      # Get User Matter
+      @user_matters = UserMatter.where(level: @user.school_year , section: @user.section )
+
+      # Get JSON value
+      @matter = params[:data_value]
+      puts "My JS value1 *************** #{@matter} ********"
+
+
+      # Get User Documents for defined level and section
+      @user_documents = Document.user_documents(@user)
+
+      @resumes = Document.user_documents(@user).resumes.where(document_course: @matter)
+      @concours = Document.user_documents(@user).concours.where(document_course: @matter)
+      @devoirs = Document.user_documents(@user).devoirs.where(document_course: @matter)
+      @series = Document.user_documents(@user).series.where(document_course: @matter)
+      @examens = Document.user_documents(@user).examens.where(document_course: @matter)
+
+
+
       
     end
 

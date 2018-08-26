@@ -3,120 +3,238 @@
 <div id="user_matters_section" >                        
     <div class="row" >
 
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Analyse</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
+        <% @user_matters.each do |m| %>
+            <div class="col-lg-5">
+                <div class="card bg-success text-white text-center" id="<%= m.matter %>_<%= m.section %>_<%= m.level %>" onClick="reply_click(this.id)">
+                    <div class="card-body">
+                        <small></small>
+                        <h3><%= m.matter %></h3>
+                        <div id="sparkline11" class="m-t-10"></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        <% end %>
 
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Chimie</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Physique</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Algèbre</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Analyse</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Chimie</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Physique</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Algèbre</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Analyse</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Chimie</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5">
-            <div class="card bg-success text-white text-center">
-                <div class="card-body">
-                    <small></small>
-                    <h3>Physique</h3>
-                    <div id="sparkline11" class="m-t-10"></div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
 </div>
-<!-- User Matter -->
+<!-- End User Matter -->
+
+<!-- Type Section -->
+
+
+<div id="matters_type" style="display: none;">                        
+    <div class="row" >
+
+        
+            <div class="col-lg-12">
+                <div id="buttons">
+                    <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success active" id="all_types_section">Tous</button>
+                    <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="resmues_section">Résumés</button>
+                    <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="concours_section">Concours</button>
+                    <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="series_section">Séries d'exercices</button>
+                    <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="devoirs_section">Devoirs</button>
+                    <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="examens_section">Examens</button>
+                    <br>
+                </div>
+
+                <div class="table-responsive" id="all_types">
+                    <table class="table" id="myTable_preferred_docs">
+                    
+                        <thead>
+                            <tr>
+                                <th>Sujet</th>
+                                <th>Matière</th>                                            
+                                <th>Semestre</th>
+                                <th>Type</th>
+                                <th>Année</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% @user_documents.each do |d| %>
+                                <tr>
+                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                </tr>
+
+                            <% end %>
+
+                        </tbody>
+
+                    </table>
+                    
+                </div>
+
+                <div class="table-responsive" id="resumes">
+                    <table class="table" id="myTable_preferred_docs">
+                    
+                        <thead>
+                            <tr>
+                                <th>Sujet</th>
+                                <th>Matière</th>                                            
+                                <th>Semestre</th>
+                                <th>Type</th>
+                                <th>Année</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% @resumes.each do |d| %>
+                                <tr>
+                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                </tr>
+
+                            <% end %>
+
+                        </tbody>
+
+                    </table>
+                    
+                </div>
+
+
+                <div class="table-responsive" id="concours">
+                    <table class="table" id="myTable_preferred_docs">
+                    
+                        <thead>
+                            <tr>
+                                <th>Sujet</th>
+                                <th>Matière</th>                                            
+                                <th>Semestre</th>
+                                <th>Type</th>
+                                <th>Année</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% @concours.each do |d| %>
+                                <tr>
+                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                </tr>
+
+                            <% end %>
+
+                        </tbody>
+
+                    </table>
+                    
+                </div>
+
+                <div class="table-responsive" id="devoirs">
+                    <table class="table" id="myTable_preferred_docs">
+                    
+                        <thead>
+                            <tr>
+                                <th>Sujet</th>
+                                <th>Matière</th>                                            
+                                <th>Semestre</th>
+                                <th>Type</th>
+                                <th>Année</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% @devoirs.each do |d| %>
+                                <tr>
+                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                </tr>
+
+                            <% end %>
+
+                        </tbody>
+
+                    </table>
+                    
+                </div>
+
+                <div class="table-responsive" id="series">
+                    <table class="table" id="myTable_preferred_docs">
+                    
+                        <thead>
+                            <tr>
+                                <th>Sujet</th>
+                                <th>Matière</th>                                            
+                                <th>Semestre</th>
+                                <th>Type</th>
+                                <th>Année</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% @series.each do |d| %>
+                                <tr>
+                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                </tr>
+
+                            <% end %>
+
+                        </tbody>
+
+                    </table>
+                    
+                </div>
+
+                <div class="table-responsive" id="examens">
+                    <table class="table" id="myTable_preferred_docs">
+                    
+                        <thead>
+                            <tr>
+                                <th>Sujet</th>
+                                <th>Matière</th>                                            
+                                <th>Semestre</th>
+                                <th>Type</th>
+                                <th>Année</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% @examens.each do |d| %>
+                                <tr>
+                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                                    <td class="txt-oflo"><%= d.document_course %></td>
+                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
+                                    <td class="txt-oflo"><%= d.document_type %></td>
+                                    <td><span class="text-success"><%= d.document_year %></span></td>
+                                </tr>
+
+                            <% end %>
+
+                        </tbody>
+
+                    </table>
+                    
+                </div>
+
+
+            </div>
+        
+
+        
+    </div>
+
+</div>
+<!-- End Type Section -->
 
 <!-- MonPrepa Accueil --> 
             <div   id="accueil_section" style="display: none ;"> 
@@ -182,7 +300,7 @@
                                             <tr>
                                                 <th>Sujet</th>
                                                 <th>Matière</th>                                            
-                                                <th>Trimestre</th>
+                                                <th>Semestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
                                             </tr>
@@ -224,7 +342,7 @@
                                                 <th>Statut</th>
                                                 <th>Sujet</th>
                                                 <th>Matière</th>                                            
-                                                <th>Trimestre</th>
+                                                <th>Semestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
                                                 <th>Favori</th>
@@ -272,7 +390,7 @@
                                             <tr>
                                                 <th>Sujet</th>
                                                 <th>Matière</th>                                            
-                                                <th>Trimestre</th>
+                                                <th>Semestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
                                             </tr>
@@ -385,7 +503,7 @@
                                             <tr>
                                                 <th>Sujet</th>
                                                 <th>Matière</th>                                            
-                                                <th>Trimestre</th>
+                                                <th>Semestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
                                             </tr>
@@ -430,7 +548,7 @@
                                             <tr>
                                                 <th>Sujet</th>
                                                 <th>Matière</th>                                            
-                                                <th>Trimestre</th>
+                                                <th>Semestre</th>
                                                 <th>Type</th>
                                                 <th>Année</th>
                                             </tr>
@@ -563,3 +681,118 @@
                     </div>
             </div>
             <!-- End contact section -->
+
+<script type="text/javascript">
+    
+function reply_click(clicked_id)
+{
+   
+    jQuery('#matters_type').css("display","block");
+    jQuery('#user_matters_section').css("display","none");
+    jQuery('#accueil_section').css("display","none");
+    jQuery('#search_section').css("display","none");
+    jQuery('#favori_section').css("display","none");
+    jQuery('#historique_section').css("display","none");
+    jQuery('#aide_section').css("display","none");
+    jQuery('#contact_section').css("display","none");
+
+    var document_info = clicked_id.toString();
+    var splitted_document_info = document_info.split("_");
+    var matter = splitted_document_info[0];
+
+    
+
+    $.ajax({
+        url : "/user_documents",
+        type : "post",
+        data : { data_value: JSON.stringify(matter) }
+
+    });
+
+}
+
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("buttons");
+    var btns = header.getElementsByClassName("btn m-t-10 m-r-5 btn-rounded btn-outline-success");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
+
+$('#all_types_section').on('click', function(event) {
+    
+    jQuery('#all_types').css("display","block");
+    jQuery('#resumes').css("display","block");
+    jQuery('#concours').css("display","block");
+    jQuery('#devoirs').css("display","block");
+    jQuery('#series').css("display","block");
+    jQuery('#examens').css("display","block");
+    
+
+    
+});
+
+$('#resmues_section').on('click', function(event) {
+    
+    jQuery('#all_types').css("display","none");
+    jQuery('#resumes').css("display","block");
+    jQuery('#concours').css("display","none");
+    jQuery('#devoirs').css("display","none");
+    jQuery('#series').css("display","none");
+    jQuery('#examens').css("display","none");
+
+    
+});
+
+$('#concours_section').on('click', function(event) {
+    
+    jQuery('#all_types').css("display","none");
+    jQuery('#resumes').css("display","none");
+    jQuery('#concours').css("display","block");
+    jQuery('#devoirs').css("display","none");
+    jQuery('#series').css("display","none");
+    jQuery('#examens').css("display","none");
+
+    
+});
+
+$('#devoirs_section').on('click', function(event) {
+    
+    jQuery('#all_types').css("display","none");
+    jQuery('#resumes').css("display","none");
+    jQuery('#concours').css("display","none");
+    jQuery('#devoirs').css("display","block");
+    jQuery('#series').css("display","none");
+    jQuery('#examens').css("display","none");
+
+    
+});
+
+$('#series_section').on('click', function(event) {
+    
+    jQuery('#all_types').css("display","none");
+    jQuery('#resumes').css("display","none");
+    jQuery('#concours').css("display","none");
+    jQuery('#devoirs').css("display","none");
+    jQuery('#series').css("display","block");
+    jQuery('#examens').css("display","none");
+
+    
+});
+
+$('#examens_section').on('click', function(event) {
+    
+    jQuery('#all_types').css("display","none");
+    jQuery('#resumes').css("display","none");
+    jQuery('#concours').css("display","none");
+    jQuery('#devoirs').css("display","none");
+    jQuery('#series').css("display","none");
+    jQuery('#examens').css("display","block");
+
+    
+});
+
+</script>

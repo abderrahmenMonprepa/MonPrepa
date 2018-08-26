@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get 'list' => 'static_pages#documents_list'
   get 'welcome_for_documents' => 'documents#welcome_for_documents'
   get 'user_documents' => 'documents#user_documents'
+  post 'user_documents' => 'documents#user_documents'
+
   # Change path for admin later
   get 'admin' => 'admin/dashboard#index'
   get 'het_el_kazi' => 'documents#het_el_kazi'
