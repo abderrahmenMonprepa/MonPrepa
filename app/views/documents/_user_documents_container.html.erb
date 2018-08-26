@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="table-responsive" id="all_types">
-                    <table class="table" id="myTable_preferred_docs">
+                    <table class="table" id="myTable_all_types">
                     
                         <thead>
                             <tr>
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="table-responsive" id="resumes">
-                    <table class="table" id="myTable_preferred_docs">
+                    <table class="table" id="myTable_resumes">
                     
                         <thead>
                             <tr>
@@ -103,7 +103,7 @@
 
 
                 <div class="table-responsive" id="concours">
-                    <table class="table" id="myTable_preferred_docs">
+                    <table class="table" id="myTable_concours">
                     
                         <thead>
                             <tr>
@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="table-responsive" id="devoirs">
-                    <table class="table" id="myTable_preferred_docs">
+                    <table class="table" id="myTable_devoirs">
                     
                         <thead>
                             <tr>
@@ -165,7 +165,7 @@
                 </div>
 
                 <div class="table-responsive" id="series">
-                    <table class="table" id="myTable_preferred_docs">
+                    <table class="table" id="myTable_series">
                     
                         <thead>
                             <tr>
@@ -196,7 +196,7 @@
                 </div>
 
                 <div class="table-responsive" id="examens">
-                    <table class="table" id="myTable_preferred_docs">
+                    <table class="table" id="myTable_examens">
                     
                         <thead>
                             <tr>
@@ -722,6 +722,15 @@ function reply_click(clicked_id)
       });
     }
 
+    $(document).ready(function() {
+        $('#myTable_all_types').DataTable();
+        $('#myTable_resumes').DataTable();
+        $('#myTable_concours').DataTable();
+        $('#myTable_series').DataTable();
+        $('#myTable_devoirs').DataTable();
+        $('#myTable_examens').DataTable();
+    });
+
 $('#all_types_section').on('click', function(event) {
     
     jQuery('#all_types').css("display","block");
@@ -730,7 +739,7 @@ $('#all_types_section').on('click', function(event) {
     jQuery('#devoirs').css("display","block");
     jQuery('#series').css("display","block");
     jQuery('#examens').css("display","block");
-    
+
 
     
 });
