@@ -8,7 +8,7 @@
                                 <h4 class="card-title">MonPrepa</h4>
                                 <ul class="list-unstyled">
                                     <li class="media">
-                                        <% if not current_user.avatar.nil? %>
+                                        <% if not current_user.avatar_file_name.nil? %>
                                             <%= image_tag current_user.avatar.url(:thumb) , class: "d-flex mr-3" , width: "60" , alt: "User Image" %>
                                         <% else %>
                                             <%= image_tag ("avatar.png") , class: "d-flex mr-3" , width: "60" , alt: "User Image" %>
