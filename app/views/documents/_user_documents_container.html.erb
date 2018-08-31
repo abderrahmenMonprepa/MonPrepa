@@ -1,5 +1,29 @@
-<!-- User Matter -->
 
+<% def print_documents (documents) %>
+    <thead>
+        <tr>
+            <th>Sujet</th>                                
+            <th>Année</th>
+            <th>Video</th>
+        </tr>
+    </thead>
+    
+
+        <% documents.each do |d| %>
+            <tr>
+                <td class="text-oflo"><%= link_to d.document_subject , d %></td>
+                <td><span class="text-success"><%= d.document_year %></span></td>
+                <% if d.document_video_url.length > 0 %>
+                    <td><span class="label label-danger">+videos</span> </td>
+                <% end %>                                    
+            </tr>
+
+        <% end %>
+    
+<% end %>
+
+
+<!-- User Matter -->
 <div id="user_matters_section" >                        
     <div class="row" >
 
@@ -8,8 +32,14 @@
                 <div class="card bg-success text-white text-center" id="<%= m.matter %>_<%= m.section %>_<%= m.level %>" onClick="reply_click(this.id)">
                     <div class="card-body">
                         <small></small>
-                        <h3><%= m.matter %></h3>
+                        <% if m.matter == "Physique" %>
+                        <h3><%=  m.matter  %> <span class="label label-danger">+videos</span></h3>
+                       
                         <div id="sparkline11" class="m-t-10"></div>
+                        <% else %>
+                        <h3><%=  m.matter  %></h3>
+                        <div id="sparkline11" class="m-t-10"></div>
+                        <% end %>
                     </div>
                 </div>
             </div>
@@ -29,203 +59,158 @@
 
         
             <div class="col-lg-12">
+                <h3>Type de documents</h3>
                 <div id="buttons">
                     <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success active" id="all_types_section">Tous</button>
-                    <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="resmues_section">Résumés</button>
+                    <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="resumes_section">Résumés</button>
                     <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="concours_section">Concours</button>
                     <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="series_section">Séries d'exercices</button>
                     <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="devoirs_section">Devoirs</button>
                     <button class= "btn m-t-10 m-r-5 btn-rounded btn-outline-success" id="examens_section">Examens</button>
                     <br>
                 </div>
-
-                <div class="table-responsive" id="all_types">
-                    <table class="table" id="myTable_all_types">
-                    
-                        <thead>
-                            <tr>
-                                <th>Sujet</th>
-                                <th>Matière</th>                                            
-                                <th>Semestre</th>
-                                <th>Type</th>
-                                <th>Année</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <% @user_documents.each do |d| %>
-                                <tr>
-                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
-                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                </tr>
-
-                            <% end %>
-
-                        </tbody>
-
-                    </table>
-                    
-                </div>
+                <br>
 
                 <div class="table-responsive" id="resumes">
-                    <table class="table" id="myTable_resumes">
-                    
-                        <thead>
-                            <tr>
-                                <th>Sujet</th>
-                                <th>Matière</th>                                            
-                                <th>Semestre</th>
-                                <th>Type</th>
-                                <th>Année</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <% if @resumes_sem1.count > 0%>
+                        <table class="table" id="myTable_resumes_sem1">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 1</h4><br>
+                            <%= print_documents(@resumes_sem1)%>
 
-                            <% @resumes.each do |d| %>
-                                <tr>
-                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
-                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                </tr>
+                        </table>
+                    <% else %>
+                        <h3> Les résumés de la 1ère semestre sont en cours de préparation. </h3>
+                    <% end %>
+                    <br>
 
-                            <% end %>
+                    <% if @resumes_sem2.count > 0 %>
+                        <table class="table" id="myTable_resumes_sem2">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 2</h4><br>
+                            <%= print_documents(@resumes_sem2)%>
 
-                        </tbody>
-
-                    </table>
+                        </table>
+                    <% else %>
+                        <h3> Les résumés de la 2ème semestre sont en cours de préparation. </h3>
+                    <% end %>
                     
                 </div>
 
+                <br>
 
                 <div class="table-responsive" id="concours">
-                    <table class="table" id="myTable_concours">
-                    
-                        <thead>
-                            <tr>
-                                <th>Sujet</th>
-                                <th>Matière</th>                                            
-                                <th>Semestre</th>
-                                <th>Type</th>
-                                <th>Année</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <% if @concours_sem1.count > 0 %>
+                        <table class="table" id="myTable_concours_sem1">
+                        
+                            <%= print_documents(@concours_sem1)%>
 
-                            <% @concours.each do |d| %>
-                                <tr>
-                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
-                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                </tr>
+                        </table>
+                    <% else %>
+                        <h3> Les concours de la 1ère semestre sont en cours de préparation. </h3>
+                    <% end %>
 
-                            <% end %>
+                    <br>
 
-                        </tbody>
+                    <% if @concours_sem2.count > 0 %>
+                        <table class="table" id="myTable_concours_sem2">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 2</h4><br>
+                                <%= print_documents(@concours_sem2)%>
 
-                    </table>
-                    
+                        </table>
+                    <% else %>
+                        <h3> Les concours de la 2ème semestre sont en cours de préparation. </h3>
+                    <% end %>
+
+
                 </div>
 
-                <div class="table-responsive" id="devoirs">
-                    <table class="table" id="myTable_devoirs">
-                    
-                        <thead>
-                            <tr>
-                                <th>Sujet</th>
-                                <th>Matière</th>                                            
-                                <th>Semestre</th>
-                                <th>Type</th>
-                                <th>Année</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <% @devoirs.each do |d| %>
-                                <tr>
-                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
-                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                </tr>
-
-                            <% end %>
-
-                        </tbody>
-
-                    </table>
-                    
-                </div>
+                <br>
 
                 <div class="table-responsive" id="series">
-                    <table class="table" id="myTable_series">
-                    
-                        <thead>
-                            <tr>
-                                <th>Sujet</th>
-                                <th>Matière</th>                                            
-                                <th>Semestre</th>
-                                <th>Type</th>
-                                <th>Année</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <% if @series_sem1.count > 0 %>
+                        <table class="table" id="myTable_series_sem1">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 1</h4><br>
+                                <%= print_documents(@series_sem1)%>
 
-                            <% @series.each do |d| %>
-                                <tr>
-                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
-                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                </tr>
+                        </table>
+                    <% else %>
+                        <h3> Les séries de la 1ère semestre sont en cours de préparation. </h3>
+                    <% end %>
 
-                            <% end %>
+                    <br>
 
-                        </tbody>
+                    <% if @series_sem2.count > 0 %>
+                        <table class="table" id="myTable_series_sem2">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 2</h4><br>
+                                <%= print_documents(@series_sem2)%>
 
-                    </table>
+                        </table>
+                    <% else %>
+                        <h3> Les séries de la 2ème semestre sont en cours de préparation. </h3>
+                    <% end %>
                     
                 </div>
+
+                <br>
+
+                <div class="table-responsive" id="devoirs">
+                    <% if @devoirs_sem1.count > 0 %>
+                        <table class="table" id="myTable_devoirs_sem1">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 1</h4><br>
+                                <%= print_documents(@devoirs_sem1)%>
+
+                        </table>
+                    <% else %>
+                        <h3> Les devoirs de la 1ère semestre sont en cours de préparation. </h3>
+                    <% end %>
+
+                    <br>
+
+                    <% if @devoirs_sem2.count > 0 %>
+                        <table class="table" id="myTable_devoirs_sem2">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 2</h4><br>
+                                <%= print_documents(@devoirs_sem2)%>
+
+                        </table>
+                    <% else %>
+                        <h3> Les devoirs de la 2ème semestre sont en cours de préparation. </h3>
+                    <% end %>
+                </div>
+
+                <br>
 
                 <div class="table-responsive" id="examens">
-                    <table class="table" id="myTable_examens">
-                    
-                        <thead>
-                            <tr>
-                                <th>Sujet</th>
-                                <th>Matière</th>                                            
-                                <th>Semestre</th>
-                                <th>Type</th>
-                                <th>Année</th>
-                            </tr>
-                        </thead>
-                        <tbody>
 
-                            <% @examens.each do |d| %>
-                                <tr>
-                                    <td class="text-oflo"><%= link_to d.document_subject , d %></td>
-                                    <td class="txt-oflo"><%= d.document_course %></td>
-                                    <td><span class="badge badge-success badge-pill"><%= d.document_trimestre %></span> </td>
-                                    <td class="txt-oflo"><%= d.document_type %></td>
-                                    <td><span class="text-success"><%= d.document_year %></span></td>
-                                </tr>
+                    <% if @examens_sem1.count > 0 %>
+                        <table class="table" id="myTable_examens_sem1">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 1</h4><br>
+                                <%= print_documents(@examens_sem1)%>
 
-                            <% end %>
+                        </table>
+                    <% else %>
+                        <h3> Les examens de la 1ère semestre sont en cours de préparation. </h3>
+                    <% end %>
 
-                        </tbody>
+                    <br>
 
-                    </table>
-                    
+                    <% if @examens_sem2.count > 0 %>
+                        <table class="table" id="myTable_examens_sem2">
+                        
+                            <h4 class = "btn m-t-10 m-r-5 btn btn-outline-danger"> Semestre 2</h4><br>
+                                <%= print_documents(@examens_sem2)%>
+
+                        </table>
+                    <% else %>
+                        <h3> Les examens de la 2ème semestre sont en cours de préparation. </h3>
+                    <% end %>
                 </div>
-
 
             </div>
         
@@ -723,17 +708,23 @@ function reply_click(clicked_id)
     }
 
     $(document).ready(function() {
-        $('#myTable_all_types').DataTable();
-        $('#myTable_resumes').DataTable();
-        $('#myTable_concours').DataTable();
-        $('#myTable_series').DataTable();
-        $('#myTable_devoirs').DataTable();
-        $('#myTable_examens').DataTable();
+        // $('#myTable_all_types_sem1').DataTable();
+        // $('#myTable_all_types_sem2').DataTable();
+        $('#myTable_resumes_sem1').DataTable();
+        $('#myTable_concours_sem1').DataTable();
+        $('#myTable_series_sem1').DataTable();
+        $('#myTable_devoirs_sem1').DataTable();
+        $('#myTable_examens_sem1').Dataable();
+        $('#myTable_resumes_sem2').DataTable();
+        $('#myTable_concours_sem2').DataTable();
+        $('#myTable_series_sem2').DataTable();
+        $('#myTable_devoirs_sem2').DataTable();
+        $('#myTable_examens_sem2').DataTable();
     });
 
 $('#all_types_section').on('click', function(event) {
     
-    jQuery('#all_types').css("display","block");
+    jQuery('#matters_type').css("display","block");
     jQuery('#resumes').css("display","block");
     jQuery('#concours').css("display","block");
     jQuery('#devoirs').css("display","block");
@@ -744,7 +735,7 @@ $('#all_types_section').on('click', function(event) {
     
 });
 
-$('#resmues_section').on('click', function(event) {
+$('#resumes_section').on('click', function(event) {
     
     jQuery('#all_types').css("display","none");
     jQuery('#resumes').css("display","block");

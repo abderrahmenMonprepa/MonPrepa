@@ -101,7 +101,7 @@ class DocumentsController < ApplicationController
         puts "#{add_doc_enonce_response}"
         puts "-------------------------------------------------------------"
 
-        # if (add_doc_enonce_response[""])
+        # if (add_doc_enonce_response["return_code"])
 
 
         if (not @document.pdf_file_corrige_file_name.nil? )
@@ -319,11 +319,16 @@ class DocumentsController < ApplicationController
       # Get User Documents for defined level and section
       @user_documents = Document.user_documents(@user)
 
-      @resumes = Document.user_documents(@user).resumes.where(document_course: @matter)
-      @concours = Document.user_documents(@user).concours.where(document_course: @matter)
-      @devoirs = Document.user_documents(@user).devoirs.where(document_course: @matter)
-      @series = Document.user_documents(@user).series.where(document_course: @matter)
-      @examens = Document.user_documents(@user).examens.where(document_course: @matter)
+      @resumes_sem1 = Document.user_documents(@user).resumes.where(document_course: @matter , document_semester: 1)
+      @resumes_sem2 = Document.user_documents(@user).resumes.where(document_course: @matter , document_semester: 2)
+      @concours_sem1 = Document.user_documents(@user).concours.where(document_course: @matter , document_semester: 1)
+      @concours_sem2 = Document.user_documents(@user).concours.where(document_course: @matter , document_semester: 2)
+      @devoirs_sem1 = Document.user_documents(@user).devoirs.where(document_course: @matter , document_semester: 1)
+      @devoirs_sem2 = Document.user_documents(@user).devoirs.where(document_course: @matter , document_semester: 2)
+      @series_sem1 = Document.user_documents(@user).series.where(document_course: @matter , document_semester: 1)
+      @series_sem2 = Document.user_documents(@user).series.where(document_course: @matter , document_semester: 2)
+      @examens_sem1 = Document.user_documents(@user).examens.where(document_course: @matter , document_semester: 1)
+      @examens_sem2 = Document.user_documents(@user).examens.where(document_course: @matter , document_semester: 2)
 
 
 

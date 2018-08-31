@@ -10,9 +10,9 @@ class Document < ApplicationRecord
 
 	# Get documents by type
 	scope :resumes, ->{ where(document_type: "Résumé" ) }
-	scope :concours, ->{ where(document_type: "Concour" ) }
-	scope :devoirs, ->{ where(document_type: "Devoir" ) }
-	scope :series, ->{ where(document_type: "Série" ) }
+	scope :concours, ->{ where(document_type: "Concours" ) }
+	scope :devoirs, ->{ where(document_type: "Devoir surveillé" ) }
+	scope :series, ->{ where(document_type: "Série d'exercices" ) }
 	scope :examens, ->{ where(document_type: "Examen" ) }
 
 	
